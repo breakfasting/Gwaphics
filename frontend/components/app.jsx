@@ -7,7 +7,6 @@ import LoginAuthFormContainer from './auth/login_auth_form_container';
 const App = () => (
   <div className="main">
     <NavBar />
-    <h1>Graphix Homepage</h1>
     <Switch>
       <Route path="/login" component={LoginAuthFormContainer} />
       <Route path="/" component={SignupAuthFormContainer} />

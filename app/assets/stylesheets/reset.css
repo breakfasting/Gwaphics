@@ -1,18 +1,57 @@
 html, body {
-  margin: 0;
-  padding: 0;
   font-family: 'Open Sans', sans-serif;
   font-size: 10px;
   color: #0e1318;
   -webkit-font-smoothing: antialiased;
 }
 
-ul {
+html, body, header, nav, h1, a,
+ul, li, strong, main, i,
+section, img, div, h2, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
   margin: 0;
   padding: 0;
+  border: 0;
+  outline: 0;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
 }
 
-li {
+ul {
   list-style: none;
 }
 
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="submit"],
+textarea,
+button {
+  /*
+  Get rid of native styling. Read more here:
+  http://css-tricks.com/almanac/properties/a/appearance/
+  */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+a {
+  color: #00c4cc;
+  text-decoration: underline;
+}

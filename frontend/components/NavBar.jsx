@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 
 const NavBar = () => (
   <div className="nav-bar">
-    <img id="logo" src="https://via.placeholder.com/56x56" alt="logo" />
+    <div id="logo">
+      <img src="https://via.placeholder.com/56x56" alt="logo" />
+    </div>
     <ul>
       <li>Home</li>
       <li>Templates</li>

@@ -1,0 +1,38 @@
+.nav-bar {
+  display: flex;
+  justify-content: flex-start;
+  padding: 8px 0;
+  font-size: 1.4rem;
+}
+
+.login-buttons {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.login-buttons > *{
+  margin-left: 16px;
+}
+
+.nav-bar ul {
+  display: flex;
+  align-items: center;
+}
+
+.nav-bar li {
+  padding: 8px 12px;
+}
+
+.btn-blue {
+  background-color: #00c4cc;
+  border-color: transparent;
+  color: #fff;
+}
+
+.btn-blue:hover {
+  background-color: #00e3eb;
+  border-color: transparent;
+  color: #fff;
+}
+

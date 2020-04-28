@@ -1,5 +1,6 @@
 import React from 'react';
 import ExternalSignup from './ExternalSignup';
+import LoginInput from './LoginInput';
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -16,7 +17,8 @@ class AuthForm extends React.Component {
     const { external } = this.state;
     return (
       <div className="auth-form">
-        <ExternalSignup />
+        {/* <ExternalSignup /> */}
+        <LoginInput />
       </div>
     );
   }

@@ -64,3 +64,10 @@
 .return-login svg{
   margin-right: 10px;
 }
+
+.error {
+  background-color: #ffd6da;
+  padding: 12px 16px;
+  border-radius: 4px;
+  color: #303030;
+}

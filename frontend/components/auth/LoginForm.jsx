@@ -28,6 +28,7 @@ class LoginForm extends React.Component {
   }
 
   render() {
+    const { errors } = this.props;
     return (
       <form className="auth-form" onSubmit={this.handleSubmit}>
         <div className="return-login">
@@ -49,6 +50,7 @@ class LoginForm extends React.Component {
           <span>OR</span>
           <hr />
         </div>
+        {errors.length ? <div className="error">{errors.join('. ')}</div> : ''}
         <input type="text" placeholder="Email" onChange={this.handleChange('email')} />
         <input type="password" placeholder="Password" onChange={this.handleChange('password')} />
         <button type="submit" className="btn-blue">

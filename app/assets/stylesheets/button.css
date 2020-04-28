@@ -18,6 +18,11 @@ button:hover {
   cursor: pointer;
 }
 
+button:active {
+  background-color: rgb(220, 220, 220);
+
+}
+
 .btn-blue {
   background-color: rgb(0, 201, 208);
   border-color: transparent;
@@ -51,3 +56,4 @@ button:hover {
 .facebook span {
   margin: 0 auto;
 }
+

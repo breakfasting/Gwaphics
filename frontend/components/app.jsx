@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
 import NavBar from './NavBar';
 import SignupAuthFormContainer from './auth/SignupAuthFormContainer';

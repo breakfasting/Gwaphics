@@ -3,15 +3,18 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 
-const EmailSignup = ({ handleChange, handleSubmit }) => (
+const EmailSignup = ({ handleChange, handleSubmit, errors, changeView }) => (
   <form className="auth-form" onSubmit={handleSubmit}>
     <div className="return-login">
-      <Link to="/signup">
+      <div onClick={changeView}>
         <FontAwesomeIcon icon={faAngleLeft} />
-      </Link>
+      </div>
       <h2>Create your account</h2>
     </div>
     <p>We&apos;ll have you designing in no time.</p>
+
+    {errors.length ? <div className="error">{errors.join('. ')}</div> : ''}
+
     <input type="text" placeholder="Name" onChange={handleChange('username')} />
     <input type="text" placeholder="Email" onChange={handleChange('email')} />
     <input type="password" placeholder="Password" onChange={handleChange('password')} />

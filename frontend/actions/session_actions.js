@@ -20,10 +20,12 @@ export const receiveErrors = (errors) => ({
 });
 
 export const signup = (user) => (dispatch) => ApiUtil.signup(user)
-  .then((responseUser) => dispatch(receiveCurrentUser(responseUser)));
+  .then((responseUser) => dispatch(receiveCurrentUser(responseUser)),
+    (res) => dispatch(receiveErrors(res.responseJSON)));
 
 export const login = (user) => (dispatch) => ApiUtil.login(user)
-  .then((responseUser) => dispatch(receiveCurrentUser(responseUser)));
+  .then((responseUser) => dispatch(receiveCurrentUser(responseUser)),
+    (res) => dispatch(receiveErrors(res.responseJSON)));
 
 export const logout = () => (dispatch) => ApiUtil.logout()
   .then(() => dispatch(logoutCurrentUser()));

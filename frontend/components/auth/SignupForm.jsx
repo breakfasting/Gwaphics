@@ -42,7 +42,14 @@ class SignupForm extends React.Component {
         {
           showExternal
             ? <ExternalSignup changeView={this.changeView} />
-            : <EmailSignup handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+            : (
+              <EmailSignup
+                errors={errors}
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}
+                changeView={this.changeView}
+              />
+            )
         }
       </>
     );

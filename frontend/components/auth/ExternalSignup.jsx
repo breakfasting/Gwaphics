@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { googleIcon, facebookIcon } from './AuthIcons';
 
-const ExternalSignup = () => (
-  <>
+const ExternalSignup = ({ changeView }) => (
+  <div className="auth-form">
     <h1>
       Design anything.
       <br />
@@ -20,7 +21,7 @@ const ExternalSignup = () => (
       {facebookIcon}
       <span>Sign up with Facebook</span>
     </button>
-    <button type="button" className="btn-blue">
+    <button type="button" className="btn-blue" onClick={changeView}>
       Sign up with E-mail
     </button>
     {/* <small>
@@ -29,9 +30,9 @@ const ExternalSignup = () => (
         </small> */}
     <small>
       Already signed up?&nbsp;
-      <a href="#">Log in</a>
+      <Link to="/login">Log in</Link>
     </small>
-  </>
+  </div>
 );
 
 export default ExternalSignup;

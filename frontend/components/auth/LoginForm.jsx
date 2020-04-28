@@ -1,9 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { googleIcon, facebookIcon } from './AuthIcons';
 
-const LoginInput = () => (
-  <>
-    <h2>Log in to your account</h2>
+const LoginForm = () => (
+  <div className="auth-form">
+    <div className="return-login">
+      <Link to="/signup">
+        <FontAwesomeIcon icon={faAngleLeft} />
+      </Link>
+      <h2>Log in to your account</h2>
+    </div>
     <button type="button" className="google">
       {googleIcon}
       <span>Log in with Google</span>
@@ -24,9 +32,9 @@ const LoginInput = () => (
     </button>
     <small>
       New to Graphix?&nbsp;
-      <a href="#">Sign up</a>
+      <Link to="/signup">Sign up</Link>
     </small>
-  </>
+  </div>
 );
 
-export default LoginInput;
+export default LoginForm;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import NavBar from './NavBar';
-import SignupAuthFormContainer from './auth/signup_auth_form_container';
-import LoginAuthFormContainer from './auth/login_auth_form_container';
+import SignupAuthFormContainer from './auth/SignupAuthFormContainer';
+import LoginAuthFormContainer from './auth/LoginAuthFormContainer';
 
 const App = () => (
   <div className="main">

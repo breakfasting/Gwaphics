@@ -54,3 +54,13 @@
 .auth-form input:focus {
   border: 1px solid rgb(0, 201, 208);
 }
+
+.return-login {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.return-login svg{
+  margin-right: 10px;
+}

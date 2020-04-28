@@ -8,7 +8,7 @@ button {
   font-weight: 600;
   font-size: 1.4rem;
   line-height: 1.4;
-  -webkit-font-smoothing: antialiased;
+  /* -webkit-font-smoothing: antialiased; */
   font-family: 'Open Sans', sans-serif;
   color: rgb(85, 89, 93);
 }

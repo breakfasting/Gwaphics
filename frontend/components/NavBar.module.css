@@ -1,32 +1,20 @@
-.nav-bar {
+.navBar {
   display: flex;
   justify-content: flex-start;
   padding: 8px 0;
   font-size: 1.4rem;
 }
 
-.login-buttons {
-  margin-left: auto;
+.nav {
   display: flex;
   align-items: center;
 }
 
-.login-buttons > *{
-  margin-left: 16px;
-}
-
-.nav-bar ul {
-  display: flex;
-  align-items: center;
-}
-
-.nav-bar li {
+.nav > li {
   padding: 8px 12px;
   letter-spacing: .01rem;
 }
 
-
-#logo img{
+.logo > img{
   border-radius: 50%;
 }
-

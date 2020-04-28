@@ -1,0 +1,9 @@
+.userNav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.userNav > * {
+  margin-left: 16px;
+}

@@ -1,0 +1,54 @@
+.dropdownCard {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  border-radius: 4px;
+  padding: 8px 0;
+  border: 1px solid rgb(222,222,222);
+  box-shadow: 0 2px 12px rgb(222,222,222);
+}
+
+.profile {
+  display: flex;
+  width: 212px;
+  padding: 8px 16px;
+}
+
+.profileText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 12px;
+}
+
+.profileText > small {
+  color: rgb(113, 116, 119);
+}
+
+.profileImg > img{
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+}
+
+.hr {
+  border: 0;
+  border-top: 1px solid rgb(222,222,222);
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 16px;
+  color: #303030;
+  cursor: pointer;
+}
+
+.listItem:hover {
+  background-color: rgb(238,238,238);
+}
+
+.disabled {
+  cursor: not-allowed;
+}

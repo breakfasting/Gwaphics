@@ -1,26 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import UserNav from './auth/UserNav';
+import UserNavContainer from './auth/user_nav_container';
+import styles from './NavBar.module.css';
 
 const NavBar = () => (
-  <div className="nav-bar">
-    <div id="logo">
+  <div className={styles.navBar}>
+    <div className={styles.logo}>
       <img src="https://via.placeholder.com/56x56" alt="logo" />
     </div>
-    <ul>
+    <ul className={styles.nav}>
       <li>Home</li>
       <li>Templates</li>
       <li>Discover</li>
       <li>Learn</li>
       <li>Pricing</li>
     </ul>
-    <div className="login-buttons">
-      <Link to="/login">
-        <button type="button">Log in</button>
-      </Link>
-      <Link to="/signup">
-        <button type="button" className="btn-blue">Sign up</button>
-      </Link>
-    </div>
+    <UserNavContainer />
   </div>
 );
 

@@ -9,10 +9,21 @@ class HaveUserNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = { dropDown: null };
+    this.toggleDropdown = this.toggleDropdown.bind(this);
+  }
+
+  toggleDropdown(card) {
+    const { dropDown } = this.state;
+    if (dropDown === card) {
+      this.setState({ dropDown: null });
+    } else {
+      this.setState({ dropDown: card });
+    }
   }
 
   render() {
     const { currentUser, logout } = this.props;
+    const { dropDown } = this.state;
     return (
       <>
         <Link to="/">
@@ -28,9 +39,9 @@ class HaveUserNav extends React.Component {
             </button>
           </Link>
         </div>
-        <div className={styles.profileImg}>
+        <div className={styles.profileImg} onClick={() => this.toggleDropdown('user')}>
           <img src="https://via.placeholder.com/40x40" alt="profile img" />
-          <UserDropDown currentUser={currentUser} logout={logout} />
+          {dropDown === 'user' ? <UserDropDown currentUser={currentUser} logout={logout} /> : ''}
         </div>
       </>
     );

@@ -1,0 +1,53 @@
+button {
+  height: 40px;
+  min-width: 80px;
+  border-radius: 4px;
+  border: 2px solid #ddd;
+  cursor: pointer;
+  letter-spacing: .01rem;
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Open Sans', sans-serif;
+  color: rgb(85, 89, 93);
+}
+
+button:hover {
+  border-color: rgb(146, 148, 151);
+  cursor: pointer;
+}
+
+.btn-blue {
+  background-color: rgb(0, 201, 208);
+  border-color: transparent;
+  color: #fff;
+}
+
+.btn-blue:hover {
+  background-color: rgb(0, 223, 229);
+  border-color: transparent;
+  color: #fff;
+}
+
+.google {
+  display: flex;
+  align-items: center;
+}
+
+.google span {
+  margin: 0 auto;
+}
+
+.facebook {
+  display: flex;
+  align-items: center;  
+}
+
+.facebook svg{
+  color: #3b5998;
+}
+
+.facebook span {
+  margin: 0 auto;
+}

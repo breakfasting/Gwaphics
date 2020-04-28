@@ -1,0 +1,21 @@
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.auth-form > button {
+  margin-top: 16px;
+}
+
+.auth-form p {
+  font-size: 1.4rem;
+  color: rgb(113, 116, 119)
+}
+
+.auth-form h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: -.05rem;
+  line-height: 1.3;
+}

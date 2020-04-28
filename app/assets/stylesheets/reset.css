@@ -3,6 +3,8 @@ html, body {
   padding: 0;
   font-family: 'Open Sans', sans-serif;
   font-size: 10px;
+  color: #0e1318;
+  -webkit-font-smoothing: antialiased;
 }
 
 ul {
@@ -14,16 +16,3 @@ li {
   list-style: none;
 }
 
-button {
-  height: 40px;
-  min-width: 80px;
-  border-radius: 4px;
-  border: 2px solid #ddd;
-  cursor: pointer;
-  letter-spacing: .01rem;
-  font-weight: 600;
-}
-
-button:hover {
-  border-color: #999;
-}

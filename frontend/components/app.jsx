@@ -1,10 +1,17 @@
 import React from 'react';
-import NavBar from './nav_bar';
+import { Route, Switch } from 'react-router-dom';
+import NavBar from './NavBar';
+import SignupAuthFormContainer from './auth/signup_auth_form_container';
+import LoginAuthFormContainer from './auth/login_auth_form_container';
 
 const App = () => (
   <div className="main">
     <NavBar />
     <h1>Graphix Homepage</h1>
+    <Switch>
+      <Route path="/login" component={LoginAuthFormContainer} />
+      <Route path="/" component={SignupAuthFormContainer} />
+    </Switch>
   </div>
 );
 

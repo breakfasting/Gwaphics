@@ -22,17 +22,11 @@
 
 .nav-bar li {
   padding: 8px 12px;
+  letter-spacing: .01rem;
 }
 
-.btn-blue {
-  background-color: #00c4cc;
-  border-color: transparent;
-  color: #fff;
-}
 
-.btn-blue:hover {
-  background-color: #00e3eb;
-  border-color: transparent;
-  color: #fff;
+#logo {
+  border-radius: 50%;
 }
 

@@ -51,8 +51,8 @@ class LoginForm extends React.Component {
           <hr />
         </div>
         {errors.length ? <div className="error">{errors.join('. ')}</div> : ''}
-        <input type="text" placeholder="Email" onChange={this.handleChange('email')} />
-        <input type="password" placeholder="Password" onChange={this.handleChange('password')} />
+        <input type="text" name="email" placeholder="Email" onChange={this.handleChange('email')} />
+        <input type="password" name="password" placeholder="Password" onChange={this.handleChange('password')} />
         <button type="submit" className="btn-blue">
           Log in
         </button>

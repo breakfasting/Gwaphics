@@ -15,9 +15,9 @@ const EmailSignup = ({ handleChange, handleSubmit, errors, changeView }) => (
 
     {errors.length ? <div className="error">{errors.join('. ')}</div> : ''}
 
-    <input type="text" placeholder="Name" onChange={handleChange('username')} />
-    <input type="text" placeholder="Email" onChange={handleChange('email')} />
-    <input type="password" placeholder="Password" onChange={handleChange('password')} />
+    <input type="text" name="username" placeholder="Name" onChange={handleChange('username')} />
+    <input type="text" name="email" placeholder="Email" onChange={handleChange('email')} />
+    <input type="password" name="password" placeholder="Password" onChange={handleChange('password')} />
     <small>
       Use 6 or more characters
     </small>

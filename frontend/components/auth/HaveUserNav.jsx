@@ -29,9 +29,8 @@ class HaveUserNav extends React.Component {
     }
   }
 
-
   render() {
-    const { currentUser, logout } = this.props;
+    const { currentUser, logout, updateMode } = this.props;
     const { dropDown } = this.state;
     return (
       <>
@@ -42,11 +41,9 @@ class HaveUserNav extends React.Component {
           <FontAwesomeIcon icon={faCog} />
         </Link>
         <div>
-          <Link to="/">
-            <button type="button" className="btn-blue">
-              <span className={styles.btnSpan}>Create a design</span>
-            </button>
-          </Link>
+          <button type="button" onClick={() => updateMode('edit')} className="btn-blue">
+            <span className={styles.btnSpan}>Create a design</span>
+          </button>
         </div>
         <div className={styles.profileImg} onClick={() => this.toggleDropdown('user')}>
           <img src="https://via.placeholder.com/40x40" alt="profile img" />

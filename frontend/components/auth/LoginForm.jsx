@@ -14,6 +14,11 @@ class LoginForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    const { clearErrors } = this.props;
+    clearErrors();
+  }
+
   handleChange(form) {
     return (e) => {
       this.setState({ [form]: e.currentTarget.value });

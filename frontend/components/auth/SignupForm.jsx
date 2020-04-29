@@ -16,6 +16,11 @@ class SignupForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  componentDidMount() {
+    const { clearErrors } = this.props;
+    clearErrors();
+  }
+
   changeView() {
     const { showExternal } = this.state;
     this.setState({ showExternal: !showExternal });
@@ -33,6 +38,7 @@ class SignupForm extends React.Component {
     const { username, email, password } = this.state;
     action({ username, email, password });
   }
+
 
   render() {
     const { showExternal } = this.state;

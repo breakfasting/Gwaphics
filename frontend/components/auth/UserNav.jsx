@@ -7,10 +7,10 @@ const UserNav = ({ currentUser, logout }) => {
   const noUser = (
     <>
       <Link to="/login">
-        <button type="button">Log in</button>
+        <button type="button" className="btn-width btn-outline">Log in</button>
       </Link>
       <Link to="/signup">
-        <button type="button" className="btn-blue">Sign up</button>
+        <button type="button" className="btn-width btn-blue">Sign up</button>
       </Link>
     </>
   );

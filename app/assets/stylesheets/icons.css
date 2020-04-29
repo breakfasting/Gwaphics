@@ -1,0 +1,21 @@
+.google {
+  display: flex;
+  align-items: center;
+}
+
+.google span {
+  margin: 0 auto;
+}
+
+.facebook {
+  display: flex;
+  align-items: center;  
+}
+
+.facebook svg{
+  color: #3b5998;
+}
+
+.facebook span {
+  margin: 0 auto;
+}

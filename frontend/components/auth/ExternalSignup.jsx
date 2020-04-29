@@ -13,11 +13,11 @@ const ExternalSignup = ({ changeView }) => (
       Create a account, it&apos;s free.
       Graphix is loved by beginners and experts, teams and individuals.
     </p>
-    <button type="button" className="google">
+    <button type="button" className="google btn-outline">
       {googleIcon}
       <span>Sign up with Google</span>
     </button>
-    <button type="button" className="facebook">
+    <button type="button" className="facebook btn-outline">
       {facebookIcon}
       <span>Sign up with Facebook</span>
     </button>

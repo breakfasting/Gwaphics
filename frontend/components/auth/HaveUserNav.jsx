@@ -12,6 +12,14 @@ class HaveUserNav extends React.Component {
     this.toggleDropdown = this.toggleDropdown.bind(this);
   }
 
+  // componentDidMount() {
+  //   document.addEventListener('mousedown', this.handleClickOutside);
+  // }
+
+  // componentWillUnmount() {
+  //   document.removeEventListener('mousedown', this.handleClickOutside);
+  // }
+
   toggleDropdown(card) {
     const { dropDown } = this.state;
     if (dropDown === card) {
@@ -20,6 +28,7 @@ class HaveUserNav extends React.Component {
       this.setState({ dropDown: card });
     }
   }
+
 
   render() {
     const { currentUser, logout } = this.props;

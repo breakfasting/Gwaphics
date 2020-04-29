@@ -37,11 +37,11 @@ class LoginForm extends React.Component {
           </Link>
           <h2>Log in to your account</h2>
         </div>
-        <button type="button" className="google">
+        <button type="button" className="google btn-outline">
           {googleIcon}
           <span>Log in with Google</span>
         </button>
-        <button type="button" className="facebook">
+        <button type="button" className="facebook btn-outline">
           {facebookIcon}
           <span>Log in with Facebook</span>
         </button>

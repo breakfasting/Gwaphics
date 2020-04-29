@@ -1,0 +1,49 @@
+$dark-grey: #5a5a5a;
+$grey: #949494;
+$light-grey: #dcdcdc;
+$white: #ffffff;
+
+$blue: #00c9d0;
+$light-blue: #00dde5;
+
+
+button {
+  height: 40px;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: .01rem;
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  font-family: 'Open Sans', sans-serif;
+}
+
+button:hover {
+  border-color: $grey;
+  cursor: pointer;
+}
+
+button:active {
+  background-color: $light-grey;
+}
+
+.btn-width {
+  min-width: 80px;
+}
+
+.btn-outline {
+  color: $dark-grey;
+  border: 2px solid $light-grey;
+}
+
+.btn-blue {
+  background-color: $blue;
+  border-color: transparent;
+  color: $white;
+}
+
+.btn-blue:hover {
+  background-color: $light-blue;
+  border-color: transparent;
+  color: $white;
+}

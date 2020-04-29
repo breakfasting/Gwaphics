@@ -5,16 +5,22 @@ import NavBar from './NavBar';
 import SignupAuthFormContainer from './auth/SignupAuthFormContainer';
 import LoginAuthFormContainer from './auth/LoginAuthFormContainer';
 
-const App = ({ currentUser }) => (
-  <div className="main">
-    <div className={currentUser ? 'container' : 'container-wide'}>
-      <NavBar />
-      <Switch>
-        <AuthRoute path="/login" component={LoginAuthFormContainer} />
-        <AuthRoute path="/" component={SignupAuthFormContainer} />
-      </Switch>
-    </div>
-  </div>
-);
+// eslint-disable-next-line react/prefer-stateless-function
+class App extends React.Component {
+  render() {
+    const { mode } = this.props;
+    return (
+      <div className="main">
+        <div className={mode === 'splash' ? 'container' : 'container-wide'}>
+          <NavBar />
+          <Switch>
+            <AuthRoute path="/login" component={LoginAuthFormContainer} />
+            <AuthRoute path="/" component={SignupAuthFormContainer} />
+          </Switch>
+        </div>
+      </div>
+    );
+  }
+}
 
 export default App;

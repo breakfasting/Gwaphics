@@ -7,15 +7,20 @@
   margin: 0 auto;
 }
 
-.facebook {
+.demo {
   display: flex;
   align-items: center;  
 }
 
-.facebook svg{
-  color: #3b5998;
+.demo i{
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.facebook span {
+.demo span {
   margin: 0 auto;
 }

@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { googleIcon, facebookIcon } from './AuthIcons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
+import { googleIcon } from './AuthIcons';
 
-const ExternalSignup = ({ changeView }) => (
+const ExternalSignup = ({ changeView, demoLogin }) => (
   <div className="auth-form">
     <h1>
       Design anything.
@@ -17,9 +19,12 @@ const ExternalSignup = ({ changeView }) => (
       {googleIcon}
       <span>Sign up with Google</span>
     </button>
-    <button type="button" className="facebook btn-outline">
-      {facebookIcon}
-      <span>Sign up with Facebook</span>
+    <button type="button" onClick={demoLogin} className="demo btn-outline">
+      {/* {facebookIcon} */}
+      <i>
+        <FontAwesomeIcon icon={faUserSecret} />
+      </i>
+      <span>Log in as Demo User</span>
     </button>
     <button type="button" className="btn-blue" onClick={changeView}>
       Sign up with E-mail

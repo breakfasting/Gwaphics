@@ -42,12 +42,12 @@ class SignupForm extends React.Component {
 
   render() {
     const { showExternal } = this.state;
-    const { errors } = this.props;
+    const { errors, demoLogin } = this.props;
     return (
       <>
         {
           showExternal
-            ? <ExternalSignup changeView={this.changeView} />
+            ? <ExternalSignup changeView={this.changeView} demoLogin={demoLogin} />
             : (
               <EmailSignup
                 errors={errors}

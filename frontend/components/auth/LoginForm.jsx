@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
-import { googleIcon, facebookIcon } from './AuthIcons';
+import { faAngleLeft, faUserSecret } from '@fortawesome/free-solid-svg-icons';
+import { googleIcon } from './AuthIcons';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -33,7 +33,7 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    const { errors } = this.props;
+    const { errors, demoLogin } = this.props;
     return (
       <form className="auth-form" onSubmit={this.handleSubmit}>
         <div className="return-login">
@@ -46,9 +46,12 @@ class LoginForm extends React.Component {
           {googleIcon}
           <span>Log in with Google</span>
         </button>
-        <button type="button" className="facebook btn-outline">
-          {facebookIcon}
-          <span>Log in with Facebook</span>
+        <button type="button" onClick={demoLogin} className="demo btn-outline">
+          {/* {facebookIcon} */}
+          <i>
+            <FontAwesomeIcon icon={faUserSecret} />
+          </i>
+          <span>Log in as Demo User</span>
         </button>
         <div className="divider">
           <hr />

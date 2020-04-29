@@ -14,8 +14,29 @@
  *= require_self
  */
 
- .main {
-   padding: 0 40px;
-   margin: 0 8px;
- }
+#root {
+  width: 100%;
+}
+
+.main {
+}
  
+.container {
+  padding: 0 40px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-wide {
+  padding: 0 32px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 1344px) {
+  .container {
+    width: 1344px;
+  }
+}

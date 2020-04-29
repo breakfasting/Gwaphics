@@ -5,13 +5,15 @@ import NavBar from './NavBar';
 import SignupAuthFormContainer from './auth/SignupAuthFormContainer';
 import LoginAuthFormContainer from './auth/LoginAuthFormContainer';
 
-const App = () => (
+const App = ({ currentUser }) => (
   <div className="main">
-    <NavBar />
-    <Switch>
-      <AuthRoute path="/login" component={LoginAuthFormContainer} />
-      <AuthRoute path="/" component={SignupAuthFormContainer} />
-    </Switch>
+    <div className={currentUser ? 'container' : 'container-wide'}>
+      <NavBar />
+      <Switch>
+        <AuthRoute path="/login" component={LoginAuthFormContainer} />
+        <AuthRoute path="/" component={SignupAuthFormContainer} />
+      </Switch>
+    </div>
   </div>
 );
 

@@ -1,8 +1,8 @@
 .navBar {
-  display: flex;
-  justify-content: flex-start;
   padding: 8px 0;
   font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
 }
 
 .nav {

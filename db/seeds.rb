@@ -7,3 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 demo = User.create(username: 'Demo', email: 'demo@aa.io', password: '123456')
+wayne = User.create(username: 'Wayne', email: 'wayne@aa.io', password: '123456')
+
+design1 = Design.create(user_id: wayne.id, creator_id: demo.id, title: '1st design', description: 'haha my first design', public: true, width: 1920, height: 1080)
+shape1 = Shape.create(width: 500, height: 500, color: '#FF0000', shape: 'rectangle')
+element1 = Element.create(design_id: design1.id, elementable_id: shape1.id, elementable_type: 'Shape', pos_x: 100, pos_y: 100, transparency: 0.8 )
+text1 = Text.create(font_family: 'Open Sans', font_size: 48, font_weight: 900, text: 'HAHAHAHA', color: '#000000' )
+element2 = Element.create(design_id: design1.id, elementable_id: text1.id, elementable_type: 'Text', pos_x: 350, pos_y: 350, z_index: 1 )

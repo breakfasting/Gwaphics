@@ -23,7 +23,7 @@ class Api::DesignsController < ApplicationController
       return unless create_item(params[:shapes], "Shape") if params[:shapes]
       return unless create_item(params[:text], "Text") if params[:text]
     else
-      render json: @design.errors.full_messages
+      render json: @design.errors.full_messages, status: 422
       return
     end
 
@@ -31,6 +31,30 @@ class Api::DesignsController < ApplicationController
   end
 
   def update
+    @design = Design.find_by(id: params[:id])
+
+    if @design.update(update_design_params)
+      p "design updated"
+      if params[:shapes]
+        p "found shapes"
+        params[:shapes].each do |key, shape|
+          p shape
+          if shape[:edited] == "true"
+            p "found shape to update"
+            edit_shape = Shape.find_by(id: shape[:id])
+            p edit_shape
+            if edit_shape.update(width: shape[:width], height: shape[:height], color: shape[:color], shape: shape[:shape])
+              p "shape updated"
+              render :show
+            else
+              render json: edit_shape.errors.full_messages, status: 422
+            end
+          end
+        end
+      end
+    else
+      render json: @design.errors.full_messages, status: 422
+    end
   end
 
   def destroy
@@ -52,7 +76,7 @@ class Api::DesignsController < ApplicationController
     if new_element.save
       return new_element
     else
-      render json: new_element.errors.full_messages
+      render json: new_element.errors.full_messages, status: 422
       return false
     end
   end
@@ -64,7 +88,7 @@ class Api::DesignsController < ApplicationController
     if new_shape.save
       return new_shape
     else
-      render json: new_shape.errors.full_messages
+      render json: new_shape.errors.full_messages, status: 422
       return false
     end
   end
@@ -77,7 +101,7 @@ class Api::DesignsController < ApplicationController
     if new_text.save
       return new_text
     else
-      render json: new_text.errors.full_messages
+      render json: new_text.errors.full_messages, status: 422
       return false
     end
   end
@@ -95,5 +119,9 @@ class Api::DesignsController < ApplicationController
 
   def create_design_params
     params.require(:design).permit(:creator_id, :title, :description, :public, :width, :height)
+  end
+
+  def update_design_params
+    params.require(:design).permit(:title, :description, :public, :width, :height)
   end
 end

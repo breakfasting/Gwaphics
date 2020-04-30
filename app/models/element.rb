@@ -7,7 +7,8 @@ class Element < ApplicationRecord
     optional: true
 
   belongs_to :elementable,
-    polymorphic: true
+    polymorphic: true,
+    dependent: :destroy
 
   accepts_nested_attributes_for :elementable
 

@@ -12,7 +12,8 @@ class Design < ApplicationRecord
 
   has_many :elements,
     foreign_key: :design_id,
-    class_name: :Element
+    class_name: :Element,
+    dependent: :destroy
 
   has_many :shape_elements,
     through: :elements,

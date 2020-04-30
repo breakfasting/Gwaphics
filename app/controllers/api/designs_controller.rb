@@ -69,6 +69,19 @@ class Api::DesignsController < ApplicationController
     end
   end
 
+  def new_text(text)
+    new_text = Text.new(font_size: text[:font_size] ,font_weight: text[:font_weight],text: text[:text])
+    new_text.font_family = text[:font_family] if text[:font_family]
+    new_text.color = text[:color] if text[:color]
+
+    if new_text.save
+      return new_text
+    else
+      render json: new_text.errors.full_messages
+      return false
+    end
+  end
+
   def create_item(items, class_name)
     items.each do |key, item|
       new_item = self.send("new_#{class_name.downcase}", item)

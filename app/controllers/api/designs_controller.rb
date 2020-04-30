@@ -1,5 +1,5 @@
 class Api::DesignsController < ApplicationController
-  before_action :require_logged_in, only: [:show, :create]
+  before_action :require_logged_in, only: [:show, :create, :update, :destory]
 
   # def index
   #   if params[:query] == 'current'
@@ -10,9 +10,26 @@ class Api::DesignsController < ApplicationController
   #   render :index
   # end
 
+  def owned
+    @designs = Design.where(user_id: current_user.id)
+
+    render :index
+  end
+
+  def templates
+    @designs = Design.where(public: true)
+
+    render :index
+  end
+
   def show
     @design = Design.find_by(id: params[:id])
-    render :show
+
+    if @design
+      render :show
+    else
+      render json: ["design not found"], status: 404
+    end
   end
 
   def create

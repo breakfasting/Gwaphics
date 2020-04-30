@@ -23,4 +23,7 @@ class Design < ApplicationRecord
     through: :elements,
     source: :elementable,
     source_type: :Text
+
+  accepts_nested_attributes_for :elements, allow_destroy: true
+  # accepts_nested_attributes_for :shape_elements, allow_destroy: true
 end

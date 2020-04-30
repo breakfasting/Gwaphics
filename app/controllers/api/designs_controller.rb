@@ -20,14 +20,10 @@ class Api::DesignsController < ApplicationController
     @design.user_id = current_user.id
 
     if @design.save
-      return unless create_item(params[:shapes], "Shape") if params[:shapes]
-      return unless create_item(params[:text], "Text") if params[:text]
+      render :show
     else
       render json: @design.errors.full_messages, status: 422
-      return
     end
-
-    render :show
   end
 
   def update
@@ -61,67 +57,36 @@ class Api::DesignsController < ApplicationController
   end
 
   private
-
-  def new_element(design_id, type, item_id, item)
-    new_element = Element.new(
-      design_id: design_id,
-      elementable_id: item_id,
-      elementable_type: type,
-    )
-    new_element.pos_x = item[:pos_x] if item[:pos_x]
-    new_element.pos_y = item[:pos_y] if item[:pos_y]
-    new_element.z_index = item[:z_index] if item[:z_index]
-    new_element.transparency = item[:transparency] if item[:transparency]
-
-    if new_element.save
-      return new_element
-    else
-      render json: new_element.errors.full_messages, status: 422
-      return false
-    end
-  end
-
-  def new_shape(shape)
-    new_shape = Shape.new(width: shape[:width], height: shape[:height], shape: shape[:shape])
-    new_shape.color = shape[:color] if shape[:color]
-
-    if new_shape.save
-      return new_shape
-    else
-      render json: new_shape.errors.full_messages, status: 422
-      return false
-    end
-  end
-
-  def new_text(text)
-    new_text = Text.new(font_size: text[:font_size] ,font_weight: text[:font_weight],text: text[:text])
-    new_text.font_family = text[:font_family] if text[:font_family]
-    new_text.color = text[:color] if text[:color]
-
-    if new_text.save
-      return new_text
-    else
-      render json: new_text.errors.full_messages, status: 422
-      return false
-    end
-  end
-
-  def create_item(items, class_name)
-    items.each do |key, item|
-      new_item = self.send("new_#{class_name.downcase}", item)
-      if new_item
-        return unless new_element(@design.id, class_name, new_item.id, item)
-      else
-        return false
-      end
-    end
-  end
-
   def create_design_params
-    params.require(:design).permit(:creator_id, :title, :description, :public, :width, :height)
-  end
-
-  def update_design_params
-    params.require(:design).permit(:title, :description, :public, :width, :height)
+    params.require(:design).permit(
+        :creator_id,
+        :title,
+        :description,
+        :public,
+        :width,
+        :height,
+        elements_attributes: [
+          :id,
+          :elementable_id,
+          :elementable_type,
+          :pos_x,
+          :pos_y,
+          :z_index,
+          :transparency,
+          :_destroy,
+          elementable_attributes: [
+            :id,
+            :width,
+            :height,
+            :color,
+            :shape,
+            :font_family,
+            :font_size,
+            :font_weight,
+            :text,
+            :_destroy
+          ]
+        ],
+      )
   end
 end

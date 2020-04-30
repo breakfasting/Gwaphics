@@ -34,24 +34,25 @@ class Api::DesignsController < ApplicationController
     @design = Design.find_by(id: params[:id])
 
     if @design.update(update_design_params)
-      p "design updated"
-      if params[:shapes]
-        p "found shapes"
-        params[:shapes].each do |key, shape|
-          p shape
-          if shape[:edited] == "true"
-            p "found shape to update"
-            edit_shape = Shape.find_by(id: shape[:id])
-            p edit_shape
-            if edit_shape.update(width: shape[:width], height: shape[:height], color: shape[:color], shape: shape[:shape])
-              p "shape updated"
-              render :show
-            else
-              render json: edit_shape.errors.full_messages, status: 422
-            end
-          end
-        end
-      end
+      # p "design updated"
+      # if params[:shapes]
+      #   p "found shapes"
+      #   params[:shapes].each do |key, shape|
+      #     p shape
+      #     if shape[:edited] == "true"
+      #       p "found shape to update"
+      #       edit_shape = Shape.find_by(id: shape[:id])
+      #       p edit_shape
+      #       if edit_shape.update(width: shape[:width], height: shape[:height], color: shape[:color], shape: shape[:shape])
+      #         p "shape updated"
+      #         render :show
+      #       else
+      #         render json: edit_shape.errors.full_messages, status: 422
+      #       end
+      #     end
+      #   end
+      # end
+      render :show
     else
       render json: @design.errors.full_messages, status: 422
     end

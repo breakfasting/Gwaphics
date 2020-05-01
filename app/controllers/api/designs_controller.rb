@@ -56,7 +56,7 @@ class Api::DesignsController < ApplicationController
   def destroy
     @design = Design.find_by(id: params[:id])
     @design.destroy
-    render json: ["design successfully deleted"]
+    render :show
   end
 
   private

@@ -10,7 +10,7 @@ const UserNav = ({ currentUser, logout, updateMode }) => {
         <button type="button" className="btn-width btn-outline">Log in</button>
       </Link>
       <Link to="/signup">
-        <button type="button" className="btn-width btn-blue">Sign up</button>
+        <button type="button" className="btn-width btn-blue ml-16">Sign up</button>
       </Link>
     </>
   );

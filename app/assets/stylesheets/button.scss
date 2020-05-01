@@ -1,6 +1,7 @@
 $dark-grey: #5a5a5a;
 $grey: #949494;
 $light-grey: #dcdcdc;
+$lighter-grey: #eeeeee;
 $white: #ffffff;
 
 $blue: #00c9d0;
@@ -9,13 +10,23 @@ $light-blue: #00dde5;
 
 button {
   height: 40px;
+  min-width: 40px;
   border-radius: 4px;
   cursor: pointer;
   letter-spacing: .01rem;
   font-weight: 600;
   font-size: 1.4rem;
   line-height: 1.4;
+  border: 2px solid transparent;
   font-family: 'Open Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-none {
+  border: 0px solid transparent;
+  padding: 0;
 }
 
 button:hover {
@@ -46,4 +57,13 @@ button:active {
   background-color: $light-blue;
   border-color: transparent;
   color: $white;
+}
+
+button svg{
+  font-size: 2rem;
+}
+
+.btn-icon:hover {
+  background-color: $lighter-grey;
+  border-color: transparent;
 }

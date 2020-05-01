@@ -1,8 +1,8 @@
-.profileImg {
+.containerRef {
   position: relative;
 }
 
-.profileImg > img{
+.profileImg {
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -11,5 +11,5 @@
 
 
 .btnSpan {
-  padding: 0 10px;
+  padding: 0 6px;
 }

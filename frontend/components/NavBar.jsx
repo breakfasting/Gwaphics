@@ -3,6 +3,7 @@ import React from 'react';
 import UserNavContainer from './auth/user_nav_container';
 import styles from './NavBar.module.css';
 
+
 const NavBar = () => (
   <div className={styles.navBar}>
     <div className={styles.logo}>

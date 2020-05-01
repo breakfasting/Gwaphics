@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { FiChevronLeft, FiChevronsLeft } from 'react-icons/fi';
 
 const EmailSignup = ({
-  handleChange, handleSubmit, errors, changeView,
+  handleChange, handleSubmit, errors, changeView, animate,
 }) => (
-  <form className="auth-form" onSubmit={handleSubmit}>
+  <form className={animate ? 'animated auth-form' : 'auth-form'} onSubmit={handleSubmit}>
     <div className="return-login">
       <button type="button" className="btn-none flex-center" onClick={changeView}>
         <FiChevronsLeft />

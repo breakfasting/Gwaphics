@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
 import { googleIcon } from './AuthIcons';
 
-const ExternalSignup = ({ changeView, demoLogin }) => (
-  <div className="auth-form">
+const ExternalSignup = ({ changeView, demoLogin, animate }) => (
+  <div className={animate ? 'animated auth-form' : 'auth-form'}>
     <h1>
       Design anything.
       <br />

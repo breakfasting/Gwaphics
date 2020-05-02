@@ -79,3 +79,29 @@ button svg{
   background-color: $lighter-grey;
   border-color: transparent;
 }
+
+.btn-tools {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: $grey;
+  background-color: inherit;
+  font-size: 1rem;
+  width: 72px;
+  height: 72px;
+  line-height: 2rem;
+}
+
+.btn-tools svg {
+  font-size: 2.2rem;
+}
+
+.btn-tools:hover {
+  color: $lighter-grey;
+  border-color: transparent;
+}
+
+.btn-tools:active {
+  background-color: transparent;
+  border-color: transparent;
+}

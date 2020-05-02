@@ -1,4 +1,11 @@
 .editorContainer {
   background-color: gold;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.editorBottomContainer {
+  display: flex;
+  height: 100%;
 }

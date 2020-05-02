@@ -1,0 +1,16 @@
+.designDrawer {
+  height: 100%;
+  background-color: #293039;
+  display: flex;
+}
+
+.toolsNav {
+  width: 72px;
+  background-color: #0e1318;
+  margin-right: 8px;
+}
+
+.drawer {
+  background-color: #293039;
+  width: 360px;
+}

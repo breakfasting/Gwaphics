@@ -1,9 +1,22 @@
 import React from 'react';
+import { FiChevronLeft, FiChevronsLeft } from 'react-icons/fi';
 import styles from './EditorNav.module.css';
 
 const EditorNav = () => (
   <div className={styles.editorNav}>
-    <h1>Editor Nav</h1>
+    <nav className={styles.leftNav}>
+      <button type="button" className="btn-icon">
+        <FiChevronLeft />
+        Home
+      </button>
+      <button type="button" className="btn-icon">
+        File
+      </button>
+      <button type="button" className="btn-icon">
+        Resize
+      </button>
+    </nav>
+
   </div>
 );
 

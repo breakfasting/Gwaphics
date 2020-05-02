@@ -1,0 +1,13 @@
+.editorNav {
+  background-color: #ffffff;
+  border-bottom: 1px solid #dddddd;
+  padding: 8px 4px;
+}
+
+.leftNav {
+  display: flex;
+}
+
+.leftNav > *{
+  margin: 0 4px;
+}

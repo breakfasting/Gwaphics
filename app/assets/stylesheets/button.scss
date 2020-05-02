@@ -1,5 +1,6 @@
 $dark-grey: #5a5a5a;
 $grey: #949494;
+$less-grey: #aaaaaa;
 $light-grey: #dcdcdc;
 $lighter-grey: #eeeeee;
 $white: #ffffff;
@@ -84,7 +85,7 @@ button svg{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: $grey;
+  color: $less-grey;
   background-color: inherit;
   font-size: 1rem;
   width: 72px;
@@ -102,6 +103,12 @@ button svg{
 }
 
 .btn-tools:active {
+  color: $lighter-grey;
   background-color: transparent;
   border-color: transparent;
 }
+
+.btn-tools.active {
+  color: $lighter-grey;
+}
+

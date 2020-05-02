@@ -1,51 +1,52 @@
 import React from 'react';
-import { FiLayout, FiImage, FiGrid, FiType, FiUploadCloud, FiDroplet, FiFolder, FiMoreHorizontal } from 'react-icons/fi';
+import { FiChevronLeft } from 'react-icons/fi';
+import ToolsNav from './ToolsNav';
 import styles from './DesignDrawer.module.css';
 
 class DesignDrawer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { drawer: 'template' };
+    this.state = { drawer: 0, closed: false, animate: true };
+    this.changeDrawer = this.changeDrawer.bind(this);
+    this.closeDrawer = this.closeDrawer.bind(this);
+  }
+
+  changeDrawer(id) {
+    if (this.state.closed) {
+      this.setState({ drawer: id, closed: false, animate: false });
+    } else {
+      this.setState({ drawer: id, closed: false, animate: true });
+    }
+  }
+
+  closeDrawer() {
+    this.setState({ closed: true });
   }
 
   render() {
+    const { drawer, closed, animate } = this.state;
     return (
       <div className={styles.designDrawer}>
-        <nav className={styles.toolsNav}>
-          <button type="button" className="btn-tools">
-            <FiLayout />
-            <span>Templates</span>
+        <ToolsNav changeDrawer={this.changeDrawer} current={drawer} closed={closed} animate={animate} />
+        <div className={`${styles.drawer} ${closed ? '' : styles.showDrawer}`}>
+          <span className="flex-center">Active Drawer: {drawer}</span>
+        </div>
+        <div className={styles.handle}>
+          <button type="button" className={`${styles.container} btn-none`} onClick={this.closeDrawer}>
+
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="199 149 104 404" width="20" height="80">
+              <defs><path d="M200 550C200.3 533.74 216.97 517.07 250 500C283.03 482.93 299.7 466.26 300 450L300 250C299.67 233.13 283 216.46 250 200C217 183.54 200.33 166.87 200 150L200 550Z" id="fEGO0r42v" /></defs>
+              <g>
+                <g>
+                  <use xlinkHref="#fEGO0r42v" opacity="1" fill="#293039" fillOpacity="1" />
+                  <g><use xlinkHref="#fEGO0r42v" opacity="1" fillOpacity="0" stroke="#000000" strokeWidth="0" strokeOpacity="1" /></g>
+                </g>
+              </g>
+            </svg>
+            <div className={styles.handleIcon}>
+              <FiChevronLeft />
+            </div>
           </button>
-          <button type="button" className="btn-tools">
-            <FiImage />
-            <span>Photos</span>
-          </button>
-          <button type="button" className="btn-tools">
-            <FiGrid />
-            <span>Elements</span>
-          </button>
-          <button type="button" className="btn-tools">
-            <FiType />
-            <span>Text</span>
-          </button>
-          <button type="button" className="btn-tools">
-            <FiDroplet />
-            <span>Bkground</span>
-          </button>
-          <button type="button" className="btn-tools">
-            <FiUploadCloud />
-            <span>Uploads</span>
-          </button>
-          <button type="button" className="btn-tools">
-            <FiFolder />
-            <span>Folders</span>
-          </button>
-          <button type="button" className="btn-tools">
-            <FiMoreHorizontal />
-            <span>More</span>
-          </button>
-        </nav>
-        <div className={styles.drawer}>
         </div>
       </div>
     );

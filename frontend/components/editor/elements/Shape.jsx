@@ -15,9 +15,10 @@ const Shape = ({
   elementAttr: {
     shape, width, height, color,
   },
+  zoom,
 }) => (
-  <svg width={width} height={height}>
-    {shapeGen(shape, width, height, color)}
+  <svg width={width * zoom} height={height * zoom}>
+    {shapeGen(shape, width * zoom, height * zoom, color)}
   </svg>
 );
 

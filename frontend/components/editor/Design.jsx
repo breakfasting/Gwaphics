@@ -7,12 +7,14 @@ import styles from './Design.module.css';
 // eslint-disable-next-line react/prefer-stateless-function
 class Design extends React.Component {
   render() {
-    const { elements, design } = this.props;
+    const { elements, design, zoom } = this.props;
     // const elementClasses = elements.map((element) => components[element.elementableType]);
-    // debugger;
     return (
-      <div className={styles.design} style={{ width: design.width, height: design.height }}>
-        {elements.map((element) => <Element key={element.id} element={element} />)}
+      <div
+        className={styles.design}
+        style={{ width: design.width * zoom, height: design.height * zoom }}
+      >
+        {elements.map((element) => <Element key={element.id} element={element} zoom={zoom} />)}
       </div>
     );
   }

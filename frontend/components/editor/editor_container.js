@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  requestDesign: dispatch(requestDesign(ownProps.match.params.id)),
+  requestDesign: () => dispatch(requestDesign(ownProps.match.params.id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Editor);

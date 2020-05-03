@@ -1,15 +1,14 @@
 import React from 'react';
-import styles from './Element.module.css';
 import Shape from './Shape';
-
-const Text = () => <div>I am a text</div>;
+import Text from './Text';
+import styles from './Element.module.css';
 
 const components = {
   Shape,
   Text,
 };
 
-const Element = ({ element }) => {
+const Element = ({ element, zoom }) => {
   const {
     posX, posY, transparency, zIndex,
   } = element;
@@ -17,12 +16,12 @@ const Element = ({ element }) => {
     <div
       className={styles.element}
       style={{
-        left: posX, top: posY, transparency, zIndex,
+        left: posX * zoom, top: posY * zoom, transparency, zIndex,
       }}
     >
       {React.createElement(
         components[element.elementableType],
-        { elementAttr: element.elementableAttributes },
+        { elementAttr: element.elementableAttributes, zoom },
         null,
       )}
     </div>

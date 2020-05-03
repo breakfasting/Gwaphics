@@ -12,7 +12,8 @@ class DesignDrawer extends React.Component {
   }
 
   changeDrawer(id) {
-    if (this.state.closed) {
+    const { closed } = this.state;
+    if (closed) {
       this.setState({ drawer: id, closed: false, animate: false });
     } else {
       this.setState({ drawer: id, closed: false, animate: true });
@@ -27,9 +28,17 @@ class DesignDrawer extends React.Component {
     const { drawer, closed, animate } = this.state;
     return (
       <div className={styles.designDrawer}>
-        <ToolsNav changeDrawer={this.changeDrawer} current={drawer} closed={closed} animate={animate} />
+        <ToolsNav
+          changeDrawer={this.changeDrawer}
+          current={drawer}
+          closed={closed}
+          animate={animate}
+        />
         <div className={`${styles.drawer} ${closed ? '' : styles.showDrawer}`}>
-          <span className="flex-center">Active Drawer: {drawer}</span>
+          <span className="flex-center">
+            Active Drawer:
+            {drawer}
+          </span>
         </div>
         <div className={styles.handle}>
           <button type="button" className={`${styles.container} btn-none`} onClick={this.closeDrawer}>

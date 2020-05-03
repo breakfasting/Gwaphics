@@ -1,10 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Browse from './Browse';
-import { AuthRoute } from '../util/route_util';
-import NavBar from './NavBar';
-import SignupAuthFormContainer from './auth/SignupAuthFormContainer';
-import LoginAuthFormContainer from './auth/LoginAuthFormContainer';
 import EditorContainer from './editor/editor_container';
 
 // eslint-disable-next-line react/prefer-stateless-function

@@ -2,6 +2,7 @@
   background-color: #ffffff;
   border-bottom: 1px solid #dddddd;
   padding: 8px 4px;
+  flex-shrink: 0;
 }
 
 .leftNav {

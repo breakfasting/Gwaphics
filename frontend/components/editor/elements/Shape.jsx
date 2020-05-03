@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './Shape.module.css';
 
 const shapeGen = (shape, width, height, color) => {
   switch (shape) {
@@ -16,20 +15,10 @@ const Shape = ({
   elementAttr: {
     shape, width, height, color,
   },
-  element: {
-    posX, posY, transparency, zIndex,
-  },
 }) => (
-  <div
-    className={styles.element}
-    style={{
-      left: posX, top: posY, transparency, 'z-index': zIndex,
-    }}
-  >
-    <svg width={width} height={height}>
-      {shapeGen(shape, width, height, color)}
-    </svg>
-  </div>
+  <svg width={width} height={height}>
+    {shapeGen(shape, width, height, color)}
+  </svg>
 );
 
 export default Shape;

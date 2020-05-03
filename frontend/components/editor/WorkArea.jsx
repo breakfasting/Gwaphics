@@ -1,4 +1,5 @@
 import React from 'react';
+import Design from './Design';
 import styles from './WorkArea.module.css';
 
 // eslint-disable-next-line react/prefer-stateless-function
@@ -9,9 +10,7 @@ class WorkArea extends React.Component {
     return (
       <div className={styles.workArea}>
         <div className={styles.designContainer}>
-          <div className={styles.design} style={{ width: design.width, height: design.height }}>
-            design
-          </div>
+          <Design elements={elements} design={design} />
         </div>
       </div>
     );

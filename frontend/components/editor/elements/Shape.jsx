@@ -17,7 +17,7 @@ const Shape = ({
   },
   zoom,
 }) => (
-  <svg width={width * zoom} height={height * zoom}>
+  <svg width={width * zoom} height={height * zoom} className="cursor">
     {shapeGen(shape, width * zoom, height * zoom, color)}
   </svg>
 );

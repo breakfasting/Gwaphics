@@ -1,4 +1,5 @@
 import React from 'react';
+import Draggable from 'react-draggable';
 import Element from './elements/Element';
 import styles from './Design.module.css';
 
@@ -6,7 +7,32 @@ import styles from './Design.module.css';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class Design extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { activeDrags: 0 };
+    this.onStart = this.onStart.bind(this);
+    this.onStop = this.onStop.bind(this);
+    this.onControlledDragStop = this.onControlledDragStop.bind(this);
+  }
+
+  onStart() {
+    this.setState({ activeDrags: ++this.state.activeDrags });
+  }
+
+  onStop() {
+    this.setState({ activeDrags: --this.state.activeDrags });
+  }
+
+  onControlledDragStop(e, index, position) {
+    const { updateElementPos } = this.props;
+    const { x, y } = position;
+    console.log(x, y);
+    updateElementPos(index, x, y);
+    this.onStop();
+  }
+
   render() {
+    const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
     const { elements, design, zoom } = this.props;
     // const elementClasses = elements.map((element) => components[element.elementableType]);
     return (
@@ -14,7 +40,18 @@ class Design extends React.Component {
         className={styles.design}
         style={{ width: design.width * zoom, height: design.height * zoom }}
       >
-        {elements.map((element) => <Element key={element.id} element={element} zoom={zoom} />)}
+        {elements.map((element, index) => (
+          <Draggable
+            {...dragHandlers}
+            key={element.id}
+            onStop={(e, data) => this.onControlledDragStop(e, index, data)}
+            position={{ x: element.posX * zoom, y: element.posY * zoom }}
+          >
+            <div style={{ position: 'absolute' }}>
+              <Element element={element} zoom={zoom} />
+            </div>
+          </Draggable>
+        ))}
       </div>
     );
   }

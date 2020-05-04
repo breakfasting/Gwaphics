@@ -14,6 +14,7 @@ class Editor extends React.Component {
       // undoHistory: [], array of key-value pair of elementId and the element copy before
     };
     this.changeZoomFactor = this.changeZoomFactor.bind(this);
+    this.updateElementPos = this.updateElementPos.bind(this);
   }
 
   componentDidMount() {
@@ -29,6 +30,14 @@ class Editor extends React.Component {
     this.setState({ zoom: fact });
   }
 
+  updateElementPos(id, x, y) {
+    const { elements, zoom } = this.state;
+    elements[id].posX = x / zoom;
+    elements[id].posY = y / zoom;
+    console.log(`moving item ${id} x:${x / zoom} y:${y / zoom}`);
+    this.setState({ elements });
+  }
+
   render() {
     const { design, elements, zoom } = this.state;
     return (
@@ -36,7 +45,12 @@ class Editor extends React.Component {
         <EditorNav />
         <div className={styles.editorBottomContainer}>
           <DesignDrawer />
-          <WorkArea design={design} elements={elements} zoom={zoom} />
+          <WorkArea
+            design={design}
+            elements={elements}
+            zoom={zoom}
+            updateElementPos={this.updateElementPos}
+          />
           <div className={styles.zoomBar}>
             <button type="button" className="btn-icon" onClick={() => this.changeZoomFactor(1)}>100%</button>
             <button type="button" className="btn-icon" onClick={() => this.changeZoomFactor(0.75)}>75%</button>

@@ -10,13 +10,13 @@ const components = {
 
 const Element = ({ element, zoom }) => {
   const {
-    posX, posY, transparency, zIndex,
+    transparency, zIndex,
   } = element;
   return (
     <div
-      className={styles.element}
+      className={`${styles.element} no-cursor`}
       style={{
-        left: posX * zoom, top: posY * zoom, transparency, zIndex,
+        transparency, zIndex,
       }}
     >
       {React.createElement(

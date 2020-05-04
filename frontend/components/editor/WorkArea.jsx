@@ -6,7 +6,7 @@ import styles from './WorkArea.module.css';
 class WorkArea extends React.Component {
   render() {
     const {
-      design, elements, zoom, updateElementPos,
+      design, elements, zoom, updateElementPos, selected, setSelected,
     } = this.props;
     if (Object.keys(design).length === 0) return null;
     return (
@@ -20,6 +20,7 @@ class WorkArea extends React.Component {
             design={design}
             zoom={zoom}
             updateElementPos={updateElementPos}
+            setSelected={setSelected}
           />
         </div>
       </div>

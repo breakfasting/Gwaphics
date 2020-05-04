@@ -16,11 +16,13 @@ class Design extends React.Component {
   }
 
   onStart() {
-    this.setState({ activeDrags: ++this.state.activeDrags });
+    const { activeDrags } = this.state;
+    this.setState({ activeDrags: activeDrags + 1 });
   }
 
   onStop() {
-    this.setState({ activeDrags: --this.state.activeDrags });
+    const { activeDrags } = this.state;
+    this.setState({ activeDrags: activeDrags - 1 });
   }
 
   onControlledDragStop(e, index, position) {
@@ -32,7 +34,9 @@ class Design extends React.Component {
 
   render() {
     const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
-    const { elements, design, zoom } = this.props;
+    const {
+      elements, design, zoom, setSelected,
+    } = this.props;
     // const elementClasses = elements.map((element) => components[element.elementableType]);
     return (
       <div
@@ -46,7 +50,7 @@ class Design extends React.Component {
             onStop={(e, data) => this.onControlledDragStop(e, index, data)}
             position={{ x: element.posX * zoom, y: element.posY * zoom }}
           >
-            <div style={{ position: 'absolute' }}>
+            <div style={{ position: 'absolute' }} onClick={() => setSelected(index)}>
               <Element element={element} zoom={zoom} />
             </div>
           </Draggable>

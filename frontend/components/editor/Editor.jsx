@@ -11,12 +11,13 @@ class Editor extends React.Component {
       design: {}, // design attributes
       elements: [], // key-value pair elementId and the current element, array index=z-index order
       zoom: 0.5,
-      selected: {},
+      selected: {}, // kv pair or array index and element, with or without eleId
       // undoHistory: [], array of key-value pair of elementId and the element copy before
     };
     this.changeZoomFactor = this.changeZoomFactor.bind(this);
     this.updateElementPos = this.updateElementPos.bind(this);
     this.updateDesign = this.updateDesign.bind(this);
+    this.setSelected = this.setSelected.bind(this);
   }
 
   componentDidMount() {
@@ -26,6 +27,11 @@ class Editor extends React.Component {
       const { design, elements } = this.props;
       this.setState({ design, elements });
     });
+  }
+
+  setSelected(id) {
+    const { elements } = this.state;
+    this.setState({ selected: { [id]: elements[id] } });
   }
 
   changeZoomFactor(fact) {
@@ -47,7 +53,9 @@ class Editor extends React.Component {
   }
 
   render() {
-    const { design, elements, zoom } = this.state;
+    const {
+      design, elements, zoom, selected,
+    } = this.state;
     return (
       <div className={styles.editorContainer}>
         <EditorNav updateDesign={this.updateDesign} />
@@ -58,6 +66,8 @@ class Editor extends React.Component {
             elements={elements}
             zoom={zoom}
             updateElementPos={this.updateElementPos}
+            selected={selected}
+            setSelected={this.setSelected}
           />
           <div className={styles.zoomBar}>
             <button type="button" className="btn-icon" onClick={() => this.changeZoomFactor(1)}>100%</button>

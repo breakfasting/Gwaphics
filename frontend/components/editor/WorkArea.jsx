@@ -11,8 +11,16 @@ class WorkArea extends React.Component {
     if (Object.keys(design).length === 0) return null;
     return (
       <div className={styles.workArea}>
+        <div className={styles.designTools}>
+          <button type="button" className="btn-color"> </button>
+        </div>
         <div className={styles.designContainer}>
-          <Design elements={elements} design={design} zoom={zoom} updateElementPos={updateElementPos} />
+          <Design
+            elements={elements}
+            design={design}
+            zoom={zoom}
+            updateElementPos={updateElementPos}
+          />
         </div>
       </div>
     );

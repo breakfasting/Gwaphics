@@ -4,6 +4,7 @@
   height: 100%;
   overflow: auto;
   display: flex;
+  flex-direction: column;
 }
 
 .designContainer {
@@ -11,3 +12,8 @@
   margin: auto;
 }
 
+.designTools {
+  padding: 8px;
+  background-color: white;
+  border-bottom: 1px solid #dddddd;
+}

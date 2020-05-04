@@ -11,6 +11,7 @@ class Editor extends React.Component {
       design: {}, // design attributes
       elements: [], // key-value pair elementId and the current element, array index=z-index order
       zoom: 0.5,
+      selected: {},
       // undoHistory: [], array of key-value pair of elementId and the element copy before
     };
     this.changeZoomFactor = this.changeZoomFactor.bind(this);

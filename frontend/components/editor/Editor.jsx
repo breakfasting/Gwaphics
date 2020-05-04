@@ -18,6 +18,7 @@ class Editor extends React.Component {
     this.updateElementPos = this.updateElementPos.bind(this);
     this.updateDesign = this.updateDesign.bind(this);
     this.setSelected = this.setSelected.bind(this);
+    this.updateElement = this.updateElement.bind(this);
   }
 
   componentDidMount() {
@@ -45,6 +46,12 @@ class Editor extends React.Component {
     this.setState({ elements });
   }
 
+  updateElement(idx, element) {
+    const { elements } = this.state;
+    elements[idx] = element;
+    this.setState({ elements });
+  }
+
   updateDesign() {
     const { design, elements } = this.state;
     const { updateDesign } = this.props;
@@ -68,6 +75,7 @@ class Editor extends React.Component {
             updateElementPos={this.updateElementPos}
             selected={selected}
             setSelected={this.setSelected}
+            updateElement={this.updateElement}
           />
           <div className={styles.zoomBar}>
             <button type="button" className="btn-icon" onClick={() => this.changeZoomFactor(1)}>100%</button>

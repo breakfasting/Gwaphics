@@ -9,15 +9,11 @@ const components = {
 };
 
 const Element = ({ element, zoom }) => {
-  const {
-    transparency, zIndex,
-  } = element;
+  const { transparency } = element;
   return (
     <div
       className={`${styles.element} no-cursor`}
-      style={{
-        transparency, zIndex,
-      }}
+      style={{ opacity: transparency }}
     >
       {React.createElement(
         components[element.elementableType],

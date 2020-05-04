@@ -5,8 +5,6 @@
   min-height: 24px;
   font-size: 1.4rem;
   font-weight: 600;
-  display: flex;
-  align-items: center;
 }
 
 .nothingSelected {
@@ -15,15 +13,26 @@
   font-weight: 600;
 }
 
-.designForm > * {
-  margin-right: 8px;
-}
-
-.designForm > label > {
-  margin-right: 8px;
-}
-
 .designForm {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+.leftNav {
+  display: flex;
+  align-items: center;
+}
+
+.rightNav {
+  display: flex;
+  align-items: center;
+}
+
+.leftNav > *{
+  margin-right: 4px;
+}
+
+.rightNav > *{
+  margin-left: 4px;
 }

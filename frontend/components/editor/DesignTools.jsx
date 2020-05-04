@@ -21,15 +21,17 @@ class DesignTools extends React.Component {
   }
 
   changeValue(attr) {
-    if (attr === 'color' || attr === 'height' || attr === 'width') {
+    if (attr === 'posX' || attr === 'posY' || attr === 'transparency' || attr === 'zIndex') {
       return (e) => {
         const { selected } = this.state;
-        selected.elementableAttributes[attr] = e.target.value;
+        selected[attr] = e.target.value;
         this.setState({ selected });
       };
     }
     return (e) => {
-      this.setState({ selected: { [attr]: e.target.value } });
+      const { selected } = this.state;
+      selected.elementableAttributes[attr] = e.target.value;
+      this.setState({ selected });
     };
   }
 
@@ -55,17 +57,39 @@ class DesignTools extends React.Component {
           className={styles.designForm}
           onSubmit={this.updateStuff}
         >
-          <button type="button" className="btn-color" style={{ backgroundColor: selected.elementableAttributes.color }}> </button>
-          <input type="text" className="input-attr" size={selected.elementableAttributes.color.length} value={selected.elementableAttributes.color} onChange={this.changeValue('color')} />
-          <span>Width:</span>
-          <input type="text" className="input-attr" size={selected.elementableAttributes.width.toString().length} value={selected.elementableAttributes.width} onChange={this.changeValue('width')} />
-          <span>Height:</span>
-          <input type="text" className="input-attr" size={selected.elementableAttributes.height.toString().length} value={selected.elementableAttributes.height} onChange={this.changeValue('height')} />
-          <span>X:</span>
-          <input type="text" className="input-attr" size={selected.posX.toString().length} value={selected.posX} onChange={this.changeValue('posX')} />
-          <span>Y:</span>
-          <input type="text" className="input-attr" size={selected.posY.toString().length} value={selected.posY} onChange={this.changeValue('posY')} />
-          <button type="submit" className="btn-color">Submit</button>
+          <div className={styles.leftNav}>
+            <button type="button" className="btn-color" style={{ backgroundColor: selected.elementableAttributes.color }}> </button>
+            <input type="text" className="input-attr" size={selected.elementableAttributes.color.length + 1} value={selected.elementableAttributes.color} onChange={this.changeValue('color')} />
+            {selected.elementableType === 'Shape' ? (
+              <>
+                <span>Width:</span>
+                <input type="text" className="input-attr" size={selected.elementableAttributes.width.toString().length + 1} value={selected.elementableAttributes.width} onChange={this.changeValue('width')} />
+                <span>Height:</span>
+                <input type="text" className="input-attr" size={selected.elementableAttributes.height.toString().length + 1} value={selected.elementableAttributes.height} onChange={this.changeValue('height')} />
+              </>
+            ) : ''}
+            {selected.elementableType === 'Text' ? (
+              <>
+                <span>Size:</span>
+                <input type="text" className="input-attr" size={selected.elementableAttributes.fontSize.toString().length + 1} value={selected.elementableAttributes.fontSize} onChange={this.changeValue('fontSize')} />
+                <span>Font:</span>
+                <input type="text" className="input-attr" size={selected.elementableAttributes.fontFamily.toString().length + 1} value={selected.elementableAttributes.fontFamily} onChange={this.changeValue('fontFamily')} />
+                <span>Weight:</span>
+                <input id="attr-weight" type="text" className="input-attr" size={selected.elementableAttributes.fontWeight.toString().length + 1} value={selected.elementableAttributes.fontWeight} onChange={this.changeValue('fontWeight')} />
+              </>
+            ) : ''}
+          </div>
+          <div className={styles.rightNav}>
+            <span>X:</span>
+            <input type="text" className="input-attr" size={selected.posX.toString().length + 1} value={selected.posX} onChange={this.changeValue('posX')} />
+            <span>Y:</span>
+            <input type="text" className="input-attr" size={selected.posY.toString().length + 1} value={selected.posY} onChange={this.changeValue('posY')} />
+            <span>Opacity:</span>
+            <input type="text" className="input-attr" size={selected.transparency.toString().length + 1} value={selected.transparency} onChange={this.changeValue('transparency')} />
+            <span>Order:</span>
+            <input type="text" className="input-attr" size={selected.zIndex.toString().length + 1} value={selected.zIndex} onChange={this.changeValue('zIndex')} />
+            <button type="submit" className="btn-color">Submit</button>
+          </div>
         </form>
       </div>
     );

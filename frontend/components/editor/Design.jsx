@@ -50,7 +50,7 @@ class Design extends React.Component {
             onStop={(e, data) => this.onControlledDragStop(e, index, data)}
             position={{ x: element.posX * zoom, y: element.posY * zoom }}
           >
-            <div style={{ position: 'absolute' }} onClick={() => setSelected(index)}>
+            <div style={{ position: 'absolute', zIndex: element.zIndex }} onClick={() => setSelected(index)}>
               <Element element={element} zoom={zoom} />
             </div>
           </Draggable>

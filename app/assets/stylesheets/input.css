@@ -8,6 +8,7 @@
   padding: 0 4px;
   border-radius: 4px;
   border: 1px solid transparent;
+  text-align: center;
 }
 
 .input-attr:hover {

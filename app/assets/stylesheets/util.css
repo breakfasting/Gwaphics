@@ -1,7 +1,7 @@
-    .react-draggable, .cursor {
-      cursor: move;
-    }
-    
-    .no-cursor {
-      cursor: auto;
-    }
+.react-draggable, .cursor {
+  cursor: move;
+}
+
+.no-cursor {
+  cursor: auto;
+}

@@ -5,3 +5,9 @@
   position: relative;
 }
 
+.selected {
+  pointer-events: none;
+  position: absolute;
+  z-index: 99;
+  border: 2px solid aqua;
+}

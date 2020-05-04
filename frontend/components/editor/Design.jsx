@@ -35,7 +35,7 @@ class Design extends React.Component {
   render() {
     const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
     const {
-      elements, design, zoom, setSelected,
+      elements, design, zoom, setSelected, selected,
     } = this.props;
     // const elementClasses = elements.map((element) => components[element.elementableType]);
     return (
@@ -55,6 +55,17 @@ class Design extends React.Component {
             </div>
           </Draggable>
         ))}
+        {Object.keys(selected).length === 0 ? '' : (
+          <div
+            className={styles.selected}
+            style={{
+              left: Object.values(selected)[0].posX * zoom - 2,
+              top: Object.values(selected)[0].posY * zoom - 2,
+              width: Object.values(selected)[0].elementableAttributes.width * zoom,
+              height: Object.values(selected)[0].elementableAttributes.height * zoom,
+            }}
+          />
+        )}
       </div>
     );
   }

@@ -26,7 +26,6 @@ class Design extends React.Component {
   onControlledDragStop(e, index, position) {
     const { updateElementPos } = this.props;
     const { x, y } = position;
-    console.log(x, y);
     updateElementPos(index, x, y);
     this.onStop();
   }

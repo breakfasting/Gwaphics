@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Editor from './Editor';
-import { requestDesign } from '../../actions/design_actions';
+import { requestDesign, updateDesign } from '../../actions/design_actions';
 import elementsOnDesign from '../../reducers/design/elements_selector';
 
 const mapStateToProps = (state, ownProps) => {
@@ -13,6 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   requestDesign: () => dispatch(requestDesign(ownProps.match.params.id)),
+  updateDesign: (design) => dispatch(updateDesign(design)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Editor);

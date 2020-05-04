@@ -15,6 +15,7 @@ class Editor extends React.Component {
     };
     this.changeZoomFactor = this.changeZoomFactor.bind(this);
     this.updateElementPos = this.updateElementPos.bind(this);
+    this.updateDesign = this.updateDesign.bind(this);
   }
 
   componentDidMount() {
@@ -34,15 +35,21 @@ class Editor extends React.Component {
     const { elements, zoom } = this.state;
     elements[id].posX = x / zoom;
     elements[id].posY = y / zoom;
-    console.log(`moving item ${id} x:${x / zoom} y:${y / zoom}`);
     this.setState({ elements });
+  }
+
+  updateDesign() {
+    const { design, elements } = this.state;
+    const { updateDesign } = this.props;
+    design.elementsAttributes = elements;
+    updateDesign(design);
   }
 
   render() {
     const { design, elements, zoom } = this.state;
     return (
       <div className={styles.editorContainer}>
-        <EditorNav />
+        <EditorNav updateDesign={this.updateDesign} />
         <div className={styles.editorBottomContainer}>
           <DesignDrawer />
           <WorkArea

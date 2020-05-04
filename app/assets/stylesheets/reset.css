@@ -1,6 +1,7 @@
 html, body {
   font-family: 'Open Sans', sans-serif;
   font-size: 10px;
+  letter-spacing: .01rem;
   color: #0e1318;
   -webkit-font-smoothing: antialiased;
 }

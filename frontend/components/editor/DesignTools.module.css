@@ -2,4 +2,28 @@
   padding: 8px;
   background-color: white;
   border-bottom: 1px solid #dddddd;
+  min-height: 24px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.nothingSelected {
+  font-size: 1.4rem;
+  color: #5a5a5a;
+  font-weight: 600;
+}
+
+.designForm > * {
+  margin-right: 8px;
+}
+
+.designForm > label > {
+  margin-right: 8px;
+}
+
+.designForm {
+  display: flex;
+  align-items: center;
 }

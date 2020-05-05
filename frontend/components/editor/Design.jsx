@@ -9,10 +9,18 @@ import styles from './Design.module.css';
 class Design extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { activeDrags: 0 };
+    this.state = { activeDrags: 0, controlledPosition: { x: 0, y: 0 } };
     this.onStart = this.onStart.bind(this);
     this.onStop = this.onStop.bind(this);
     this.onControlledDragStop = this.onControlledDragStop.bind(this);
+    this.onControlledDrag = this.onControlledDrag.bind(this);
+  }
+
+  componentDidUpdate(prevProps) {
+    const { selected, zoom } = this.props;
+    if (Object.keys(prevProps.selected)[0] !== Object.keys(selected)[0] || zoom !== prevProps.zoom) {
+      this.updateSelected();
+    }
   }
 
   onStart() {
@@ -25,6 +33,11 @@ class Design extends React.Component {
     this.setState({ activeDrags: activeDrags - 1 });
   }
 
+  onControlledDrag(e, position) {
+    const { x, y } = position;
+    this.setState({ controlledPosition: { x, y } });
+  }
+
   onControlledDragStop(e, index, position) {
     const { updateElementPos } = this.props;
     const { x, y } = position;
@@ -32,12 +45,22 @@ class Design extends React.Component {
     this.onStop();
   }
 
+  updateSelected() {
+    const { selected, zoom } = this.props;
+    this.setState({
+      controlledPosition: {
+        x: Object.values(selected)[0].posX * zoom,
+        y: Object.values(selected)[0].posY * zoom,
+      },
+    });
+  }
+
   render() {
     const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
     const {
       elements, design, zoom, setSelected, selected,
     } = this.props;
-    // const elementClasses = elements.map((element) => components[element.elementableType]);
+    const { controlledPosition: { x, y } } = this.state;
     return (
       <div
         className={styles.design}
@@ -47,6 +70,7 @@ class Design extends React.Component {
           <Draggable
             {...dragHandlers}
             key={element.id}
+            onDrag={this.onControlledDrag}
             onStop={(e, data) => this.onControlledDragStop(e, index, data)}
             position={{ x: element.posX * zoom, y: element.posY * zoom }}
           >
@@ -56,15 +80,18 @@ class Design extends React.Component {
           </Draggable>
         ))}
         {Object.keys(selected).length === 0 ? '' : (
-          <div
-            className={styles.selected}
-            style={{
-              left: Object.values(selected)[0].posX * zoom - 2,
-              top: Object.values(selected)[0].posY * zoom - 2,
-              width: Object.values(selected)[0].elementableAttributes.width * zoom,
-              height: Object.values(selected)[0].elementableAttributes.height * zoom,
-            }}
-          />
+          <Draggable
+            {...dragHandlers}
+            position={{ x: x - 2, y: y - 2 }}
+          >
+            <div
+              className={styles.selected}
+              style={{
+                width: Object.values(selected)[0].elementableAttributes.width * zoom,
+                height: Object.values(selected)[0].elementableAttributes.height * zoom,
+              }}
+            />
+          </Draggable>
         )}
       </div>
     );

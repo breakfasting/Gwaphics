@@ -22,35 +22,6 @@
   align-items: center;
 }
 
-.searchInput {
-  width: 100%;
-  border-radius: 4px;
-  height: 40px;
-  background-color: white;
-  font-size: 2em;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 4px;
-  margin-top: 16px;
-}
-
-.searchInput svg {
-  width: 40px;
-}
-
-.inputIcon {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-.input {
-  width: 100%;
-  padding-left: 4px;
-  font-size: 1.4rem;
-}
-
 .item > svg {
   fill: #c7d0d8;
   width: 100px;

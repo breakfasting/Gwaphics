@@ -1,0 +1,32 @@
+.searchBar {
+  color: #0e1318;
+}
+
+.searchInput {
+  border-radius: 4px;
+  height: 40px;
+  background-color: white;
+  font-size: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.searchInput svg {
+  width: 40px;
+}
+
+.inputIcon {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding-left: 4px;
+  font-size: 1.4rem;
+}

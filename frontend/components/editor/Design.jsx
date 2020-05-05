@@ -47,12 +47,14 @@ class Design extends React.Component {
 
   updateSelected() {
     const { selected, zoom } = this.props;
-    this.setState({
-      controlledPosition: {
-        x: Object.values(selected)[0].posX * zoom,
-        y: Object.values(selected)[0].posY * zoom,
-      },
-    });
+    if (Object.keys(selected).length !== 0) {
+      this.setState({
+        controlledPosition: {
+          x: Object.values(selected)[0].posX * zoom,
+          y: Object.values(selected)[0].posY * zoom,
+        },
+      });
+    }
   }
 
   render() {
@@ -66,33 +68,35 @@ class Design extends React.Component {
         className={styles.design}
         style={{ width: design.width * zoom, height: design.height * zoom }}
       >
-        {elements.map((element, index) => (
-          <Draggable
-            {...dragHandlers}
-            key={element.id}
-            onDrag={this.onControlledDrag}
-            onStop={(e, data) => this.onControlledDragStop(e, index, data)}
-            position={{ x: element.posX * zoom, y: element.posY * zoom }}
-          >
-            <div style={{ position: 'absolute', zIndex: element.zIndex }} onClick={() => setSelected(index)}>
-              <Element element={element} zoom={zoom} />
-            </div>
-          </Draggable>
-        ))}
-        {Object.keys(selected).length === 0 ? '' : (
-          <Draggable
-            {...dragHandlers}
-            position={{ x: x - 2, y: y - 2 }}
-          >
-            <div
-              className={styles.selected}
-              style={{
-                width: Object.values(selected)[0].elementableAttributes.width * zoom,
-                height: Object.values(selected)[0].elementableAttributes.height * zoom,
-              }}
-            />
-          </Draggable>
-        )}
+        <div className={styles.elementsContainer}>
+          {Object.keys(selected).length === 0 ? '' : (
+            <Draggable
+              {...dragHandlers}
+              position={{ x: x - 2, y: y - 2 }}
+            >
+              <div
+                className={styles.selected}
+                style={{
+                  width: Object.values(selected)[0].elementableAttributes.width * zoom,
+                  height: Object.values(selected)[0].elementableAttributes.height * zoom,
+                }}
+              />
+            </Draggable>
+          )}
+          {elements.map((element, index) => (
+            <Draggable
+              {...dragHandlers}
+              key={element.id}
+              onDrag={this.onControlledDrag}
+              onStop={(e, data) => this.onControlledDragStop(e, index, data)}
+              position={{ x: element.posX * zoom, y: element.posY * zoom }}
+            >
+              <div style={{ position: 'absolute', zIndex: element.zIndex }} onClick={() => setSelected(index)}>
+                <Element element={element} zoom={zoom} />
+              </div>
+            </Draggable>
+          ))}
+        </div>
       </div>
     );
   }

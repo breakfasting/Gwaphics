@@ -1,7 +1,19 @@
 import React from 'react';
 import { FiChevronLeft } from 'react-icons/fi';
 import ToolsNav from './ToolsNav';
+import ElementsDrawer from './drawers/ElementsDrawer';
 import styles from './DesignDrawer.module.css';
+
+const drawers = [
+  <ElementsDrawer />,
+  <ElementsDrawer />,
+  <ElementsDrawer />,
+  <ElementsDrawer />,
+  <ElementsDrawer />,
+  <ElementsDrawer />,
+  <ElementsDrawer />,
+  <ElementsDrawer />,
+];
 
 class DesignDrawer extends React.Component {
   constructor(props) {
@@ -35,10 +47,7 @@ class DesignDrawer extends React.Component {
           animate={animate}
         />
         <div className={`${styles.drawer} ${closed ? '' : styles.showDrawer}`}>
-          <span className="flex-center">
-            Active Drawer:
-            {drawer}
-          </span>
+          {drawers[drawer]}
         </div>
         <div className={styles.handle}>
           <button type="button" className={`${styles.container} btn-none`} onClick={this.closeDrawer}>

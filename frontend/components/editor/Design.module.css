@@ -5,6 +5,13 @@
   position: relative;
 }
 
+.elementsContainer {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
 .selected {
   pointer-events: none;
   position: absolute;

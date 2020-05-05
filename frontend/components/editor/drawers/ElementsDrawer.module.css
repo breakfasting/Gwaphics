@@ -1,0 +1,15 @@
+.elementsDrawer {
+  width: 312px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-left: 16px;
+  padding-right: 24px;
+}
+
+.item {
+  width: 100px;
+  height: 100px;
+  background-color: teal;
+  margin-bottom: 6px;
+}

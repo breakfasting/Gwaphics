@@ -83,19 +83,22 @@ class Design extends React.Component {
           </Draggable>
         )}
         <div className={styles.elementsContainer}>
-          {elements.map((element, index) => (
-            <Draggable
-              {...dragHandlers}
-              key={element.id}
-              onDrag={this.onControlledDrag}
-              onStop={(e, data) => this.onControlledDragStop(e, index, data)}
-              position={{ x: element.posX * zoom, y: element.posY * zoom }}
-            >
-              <div style={{ position: 'absolute', zIndex: element.zIndex }} onClick={() => setSelected(index)}>
-                <Element element={element} zoom={zoom} />
-              </div>
-            </Draggable>
-          ))}
+          {elements.map((element, index) => {
+            if (element._destroy) return null;
+            return (
+              <Draggable
+                {...dragHandlers}
+                key={element.id}
+                onDrag={this.onControlledDrag}
+                onStop={(e, data) => this.onControlledDragStop(e, index, data)}
+                position={{ x: element.posX * zoom, y: element.posY * zoom }}
+              >
+                <div style={{ position: 'absolute', zIndex: element.zIndex }} onClick={() => setSelected(index)}>
+                  <Element element={element} zoom={zoom} />
+                </div>
+              </Draggable>
+            );
+          })}
         </div>
       </div>
     );

@@ -6,6 +6,7 @@ class DesignTools extends React.Component {
     super(props);
     this.state = { dropdown: null, selected: {}, selectedId: null };
     this.updateStuff = this.updateStuff.bind(this);
+    this.deleteElement = this.deleteElement.bind(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -33,6 +34,13 @@ class DesignTools extends React.Component {
       selected.elementableAttributes[attr] = e.target.value;
       this.setState({ selected });
     };
+  }
+
+  deleteElement() {
+    const { selected, selectedId } = this.state;
+    const { updateElement } = this.props;
+    selected._destroy = true;
+    updateElement(selectedId, selected);
   }
 
   updateStuff(e) {
@@ -88,6 +96,7 @@ class DesignTools extends React.Component {
             <input type="text" className="input-attr" size={selected.transparency.toString().length + 1} value={selected.transparency} onChange={this.changeValue('transparency')} />
             <span>Order:</span>
             <input type="text" className="input-attr" size={selected.zIndex.toString().length + 1} value={selected.zIndex} onChange={this.changeValue('zIndex')} />
+            <button type="button" className="btn-color" onClick={this.deleteElement}>Delete</button>
             <button type="submit" className="btn-color">Submit</button>
           </div>
         </form>

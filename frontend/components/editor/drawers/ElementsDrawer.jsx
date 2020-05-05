@@ -28,6 +28,7 @@ class ElementsDrawer extends React.Component {
       zIndex: 0,
       posX: 0,
       posY: 0,
+      // _destroy: true
       elementableAttributes: {
         shape, color: '#c7d0d8', width: 500, height: 500,
       },

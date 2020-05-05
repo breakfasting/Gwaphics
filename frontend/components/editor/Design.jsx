@@ -68,21 +68,21 @@ class Design extends React.Component {
         className={styles.design}
         style={{ width: design.width * zoom, height: design.height * zoom }}
       >
+        {Object.keys(selected).length === 0 ? '' : (
+          <Draggable
+            {...dragHandlers}
+            position={{ x: x - 2, y: y - 2 }}
+          >
+            <div
+              className={styles.selected}
+              style={{
+                width: Object.values(selected)[0].elementableAttributes.width * zoom,
+                height: Object.values(selected)[0].elementableAttributes.height * zoom,
+              }}
+            />
+          </Draggable>
+        )}
         <div className={styles.elementsContainer}>
-          {Object.keys(selected).length === 0 ? '' : (
-            <Draggable
-              {...dragHandlers}
-              position={{ x: x - 2, y: y - 2 }}
-            >
-              <div
-                className={styles.selected}
-                style={{
-                  width: Object.values(selected)[0].elementableAttributes.width * zoom,
-                  height: Object.values(selected)[0].elementableAttributes.height * zoom,
-                }}
-              />
-            </Draggable>
-          )}
           {elements.map((element, index) => (
             <Draggable
               {...dragHandlers}

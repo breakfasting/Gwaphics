@@ -83,6 +83,8 @@ class DesignTools extends React.Component {
             ) : ''}
             {selected.elementableType === 'Text' ? (
               <>
+                <span>Text:</span>
+                <input type="text" className="input-attr" size={selected.elementableAttributes.text.length + 1} value={selected.elementableAttributes.text} onChange={this.changeValue('text')} />
                 <span>Size:</span>
                 <input type="text" className="input-attr" size={selected.elementableAttributes.fontSize.toString().length + 1} value={selected.elementableAttributes.fontSize} onChange={this.changeValue('fontSize')} />
                 <span>Font:</span>

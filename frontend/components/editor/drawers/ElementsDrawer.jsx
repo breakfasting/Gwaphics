@@ -44,7 +44,11 @@ class ElementsDrawer extends React.Component {
           <DrawerSearch placeholder="Search icons and shapes" />
           <div className={styles.itemList}>
             {mockupResponse.map((item) => (
-              <div key={item.id} className={styles.item} onClick={() => this.addElement(item.shape)}>
+              <div
+                key={item.id}
+                className={styles.item}
+                onClick={() => this.addElement(item.shape)}
+              >
                 <svg>
                   <use href={item.url} />
                 </svg>

@@ -18,7 +18,10 @@ class Design extends React.Component {
 
   componentDidUpdate(prevProps) {
     const { selected, zoom } = this.props;
-    if (Object.keys(prevProps.selected)[0] !== Object.keys(selected)[0] || zoom !== prevProps.zoom) {
+    if (Object.keys(prevProps.selected)[0]
+      !== Object.keys(selected)[0]
+      || zoom !== prevProps.zoom
+    ) {
       this.updateSelected();
     }
   }

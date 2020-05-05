@@ -10,7 +10,6 @@ class SignupForm extends React.Component {
       username: '',
       email: '',
       password: '',
-      animate: false,
     };
     this.changeView = this.changeView.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,11 +17,6 @@ class SignupForm extends React.Component {
   }
 
   componentDidMount() {
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        this.setState({ animate: true });
-      });
-    });
     const { clearErrors } = this.props;
     clearErrors();
   }
@@ -47,26 +41,19 @@ class SignupForm extends React.Component {
 
 
   render() {
-    const { showExternal, animate } = this.state;
+    const { showExternal } = this.state;
     const { errors, demoLogin } = this.props;
     return (
       <>
         {
           showExternal
-            ? (
-              <ExternalSignup
-                changeView={this.changeView}
-                demoLogin={demoLogin}
-                animate={animate}
-              />
-            )
+            ? <ExternalSignup changeView={this.changeView} demoLogin={demoLogin} />
             : (
               <EmailSignup
                 errors={errors}
                 handleChange={this.handleChange}
                 handleSubmit={this.handleSubmit}
                 changeView={this.changeView}
-                animate={animate}
               />
             )
         }

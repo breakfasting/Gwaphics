@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiChevronLeft, FiChevronsLeft } from 'react-icons/fi';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 
-const EmailSignup = ({
-  handleChange, handleSubmit, errors, changeView, animate,
-}) => (
-  <form className={animate ? 'animated auth-form' : 'auth-form'} onSubmit={handleSubmit}>
+const EmailSignup = ({ handleChange, handleSubmit, errors, changeView }) => (
+  <form className="auth-form" onSubmit={handleSubmit}>
     <div className="return-login">
-      <button type="button" className="btn-none flex-center" onClick={changeView}>
-        <FiChevronsLeft />
-      </button>
+      <div onClick={changeView}>
+        <FontAwesomeIcon icon={faAngleLeft} />
+      </div>
       <h2>Create your account</h2>
     </div>
     <p>We&apos;ll have you designing in no time.</p>

@@ -10,11 +10,17 @@ class LoginForm extends React.Component {
     this.state = {
       email: '',
       password: '',
+      animate: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        this.setState({ animate: true });
+      });
+    });
     const { clearErrors } = this.props;
     clearErrors();
   }
@@ -34,8 +40,10 @@ class LoginForm extends React.Component {
 
   render() {
     const { errors, demoLogin } = this.props;
+    const { animate } = this.state;
+    // debugger
     return (
-      <form className="auth-form" onSubmit={this.handleSubmit}>
+      <form className={animate ? 'animated auth-form' : 'auth-form'} onSubmit={this.handleSubmit}>
         <div className="return-login">
           <Link to="/signup">
             <FontAwesomeIcon icon={faAngleLeft} />

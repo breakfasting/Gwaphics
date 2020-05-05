@@ -1,0 +1,29 @@
+.editorContainer {
+  background-color: #edf0f2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.editorBottomContainer {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.zoomBar {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  padding: 5px;
+  display: flex;
+  z-index: 10;
+  border: 1px solid #dddddd;
+  background-color: rgba(237,240,242,.9);
+}
+
+.zoomBar > * {
+  margin-left: 5px;
+}

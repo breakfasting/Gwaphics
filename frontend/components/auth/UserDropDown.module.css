@@ -1,5 +1,7 @@
 .dropdownCard {
   position: absolute;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
   right: 0;
   top: 50px;
   border-radius: 4px;
@@ -51,4 +53,12 @@
 
 .disabled {
   cursor: not-allowed;
+}
+
+.animate {
+  opacity: 1;
+}
+
+.gone {
+  opacity: 0;
 }

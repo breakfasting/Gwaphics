@@ -1,0 +1,84 @@
+.designDrawer {
+  height: 100%;
+  background-color: #293039;
+  position: relative;
+  display: flex;
+}
+
+.toolsNav {
+  width: 72px;
+  background-color: #0e1318;
+  margin-right: 8px;
+  position: relative;
+  z-index: 2;
+}
+
+.buttonsNav {
+  position: absolute;
+  z-index: 3;
+}
+
+.drawer {
+  background-color: #293039;
+  width: 360px;
+  height: 100%;
+  margin-left: -360px;
+  transition: all 1s ease;
+
+}
+
+
+.highlight {
+  width: 72px;
+  height: 72px;
+  position: absolute;
+  z-index: 2;
+  top: 0px;
+  transition: transform 0.2s ease;
+}
+
+.highlightClosed {
+  width: 72px;
+  height: 72px;
+  position: absolute;
+  z-index: 2;
+  top: 0px;
+  transition: transform 0s ease;
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  background-color: #293039;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.handle {
+  position: absolute;
+  top: 50%;
+  right: -19px;
+  margin-top: -40px;
+  z-index: 10;
+}
+
+.container {
+  position: relative;
+}
+
+.handleIcon {
+  position: absolute;
+  top: 50%;
+  font-size: 1.6rem;
+  margin-top: -12px;
+  right: 5px;
+  color: #eeeeee;
+}
+
+.showDrawer {
+  margin-left: 0px;
+}

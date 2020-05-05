@@ -1,0 +1,22 @@
+.workArea {
+  background-color: #edf0f2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.workContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.designContainer {
+  padding: 50px;
+  margin: auto;
+}
+

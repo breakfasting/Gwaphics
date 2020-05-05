@@ -1,0 +1,22 @@
+.input-attr {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #5a5a5a;
+  box-sizing: border-box;
+  letter-spacing: 0rem;
+  height: 24px;
+  padding: 0 4px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  text-align: center;
+}
+
+.input-attr:hover {
+  border: 1px solid #dddddd;
+}
+
+.input-attr:focus {
+  color: #0e1318;
+  border: 1px solid #aaaaaa;
+  box-sizing: border-box;
+}

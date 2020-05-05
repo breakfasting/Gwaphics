@@ -1,0 +1,30 @@
+.elementsDrawer {
+  width: 312px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 16px;
+  padding-right: 24px;
+}
+
+.itemList {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.item {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.item > svg {
+  fill: #c7d0d8;
+  width: 100px;
+  height: 100px;
+}

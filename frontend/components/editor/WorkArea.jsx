@@ -11,9 +11,9 @@ class WorkArea extends React.Component {
     } = this.props;
     if (Object.keys(design).length === 0) return null;
     return (
-      <div className={styles.workArea}>
+      <div className={styles.workContainer}>
         <DesignTools selected={selected} updateElement={updateElement} setSelected={setSelected} />
-        <div className={styles.workContainer}>
+        <div className={styles.workArea}>
           <div className={styles.designContainer}>
             <Design
               elements={elements}

@@ -11,39 +11,29 @@
   margin-bottom: 8px;
 }
 
-.customScroll {
-  overflow-y: auto;
-  overflow-x: hidden;
-  height: 100%;
-  margin-right: 4px;
-  margin-top: 4px;
-}
-
-.customScroll::-webkit-scrollbar {
-  width: 10px;
-  background-color: #293039;
-}
-
-.customScroll::-webkit-scrollbar-thumb {
-  background: #5f646b; 
-  border-radius: 5px;
-}
-
 .itemList {
-  margin-top: 16px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .item {
+  background: hsla(0,0%,100%,.07);
+  border-radius: 4px;
   width: 152px;
   height: 152px;
   margin-bottom: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 0.3s;
+  cursor: pointer;
 }
+
+.item:hover {
+  background: hsla(0,0%,100%,.14);  
+}
+
 
 /* .item > svg {
   fill: #c7d0d8;

@@ -2,6 +2,13 @@
   background-color: #edf0f2;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.workContainer {
+  width: 100%;
+  height: 100%;
   overflow: auto;
   display: flex;
   flex-direction: column;

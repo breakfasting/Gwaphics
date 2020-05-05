@@ -13,15 +13,17 @@ class WorkArea extends React.Component {
     return (
       <div className={styles.workArea}>
         <DesignTools selected={selected} updateElement={updateElement} setSelected={setSelected} />
-        <div className={styles.designContainer}>
-          <Design
-            elements={elements}
-            design={design}
-            selected={selected}
-            zoom={zoom}
-            updateElementPos={updateElementPos}
-            setSelected={setSelected}
-          />
+        <div className={styles.workContainer}>
+          <div className={styles.designContainer}>
+            <Design
+              elements={elements}
+              design={design}
+              selected={selected}
+              zoom={zoom}
+              updateElementPos={updateElementPos}
+              setSelected={setSelected}
+            />
+          </div>
         </div>
       </div>
     );

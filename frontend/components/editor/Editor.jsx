@@ -33,7 +33,11 @@ class Editor extends React.Component {
 
   setSelected(id) {
     const { elements } = this.state;
-    this.setState({ selected: { [id]: elements[id] } });
+    if (id === null) {
+      this.setState({ selected: {} });
+    } else {
+      this.setState({ selected: { [id]: elements[id] } });
+    }
   }
 
   changeZoomFactor(fact) {

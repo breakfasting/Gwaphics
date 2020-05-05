@@ -18,7 +18,11 @@ class DesignTools extends React.Component {
 
   updateSelected() {
     const { selected } = this.props;
-    this.setState({ selected: Object.values(selected)[0], selectedId: Object.keys(selected)[0] });
+    if (Object.keys(selected).length === 0) {
+      this.setState({ selected: {}, selectedId: null });
+    } else {
+      this.setState({ selected: Object.values(selected)[0], selectedId: Object.keys(selected)[0] });
+    }
   }
 
   changeValue(attr) {
@@ -38,9 +42,10 @@ class DesignTools extends React.Component {
 
   deleteElement() {
     const { selected, selectedId } = this.state;
-    const { updateElement } = this.props;
+    const { updateElement, setSelected } = this.props;
     selected._destroy = true;
     updateElement(selectedId, selected);
+    setSelected(null);
   }
 
   updateStuff(e) {

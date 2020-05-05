@@ -19,6 +19,7 @@ class Editor extends React.Component {
     this.updateDesign = this.updateDesign.bind(this);
     this.setSelected = this.setSelected.bind(this);
     this.updateElement = this.updateElement.bind(this);
+    this.addElement = this.addElement.bind(this);
   }
 
   componentDidMount() {
@@ -52,6 +53,12 @@ class Editor extends React.Component {
     this.setState({ elements });
   }
 
+  addElement(element) {
+    const { elements } = this.state;
+    elements[elements.length] = element;
+    this.setState({ elements, selected: { [elements.length]: element } });
+  }
+
   updateDesign() {
     const { design, elements } = this.state;
     const { updateDesign } = this.props;
@@ -67,7 +74,7 @@ class Editor extends React.Component {
       <div className={styles.editorContainer}>
         <EditorNav updateDesign={this.updateDesign} />
         <div className={styles.editorBottomContainer}>
-          <DesignDrawer />
+          <DesignDrawer addElement={this.addElement} />
           <WorkArea
             design={design}
             elements={elements}

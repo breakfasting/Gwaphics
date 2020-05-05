@@ -20,6 +20,21 @@ class ElementsDrawer extends React.Component {
     this.state = { info: false };
   }
 
+  addElement(shape) {
+    const { addElement } = this.props;
+    const element = {
+      elementableType: 'Shape',
+      transparency: 1,
+      zIndex: 0,
+      posX: 0,
+      posY: 0,
+      elementableAttributes: {
+        shape, color: '#c7d0d8', width: 500, height: 500,
+      },
+    };
+    addElement(element);
+  }
+
   render() {
     return (
       <div className={styles.elementsDrawer}>
@@ -34,7 +49,7 @@ class ElementsDrawer extends React.Component {
         </div>
         <div className={styles.itemList}>
           {mockupResponse.map((item) => (
-            <div key={item.id} className={styles.item}>
+            <div key={item.id} className={styles.item} onClick={() => this.addElement(item.shape)}>
               <svg>
                 <use href={item.url} />
               </svg>

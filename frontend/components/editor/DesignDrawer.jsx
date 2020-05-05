@@ -4,17 +4,6 @@ import ToolsNav from './ToolsNav';
 import ElementsDrawer from './drawers/ElementsDrawer';
 import styles from './DesignDrawer.module.css';
 
-const drawers = [
-  <ElementsDrawer />,
-  <ElementsDrawer />,
-  <ElementsDrawer />,
-  <ElementsDrawer />,
-  <ElementsDrawer />,
-  <ElementsDrawer />,
-  <ElementsDrawer />,
-  <ElementsDrawer />,
-];
-
 class DesignDrawer extends React.Component {
   constructor(props) {
     super(props);
@@ -37,7 +26,18 @@ class DesignDrawer extends React.Component {
   }
 
   render() {
+    const { addElement } = this.props;
     const { drawer, closed, animate } = this.state;
+    const drawers = [
+      <ElementsDrawer addElement={addElement} />,
+      <ElementsDrawer />,
+      <ElementsDrawer />,
+      <ElementsDrawer />,
+      <ElementsDrawer />,
+      <ElementsDrawer />,
+      <ElementsDrawer />,
+      <ElementsDrawer />,
+    ];
     return (
       <div className={styles.designDrawer}>
         <ToolsNav

@@ -2,6 +2,10 @@ import React from 'react';
 import { FiSearch, FiX } from 'react-icons/fi';
 import styles from './ElementsDrawer.module.css';
 
+// const mockupResponse = [
+//   {id: 1, shape: 'circle', thumbnail: './assets/shapes/circle', }
+// ];
+
 class ElementsDrawer extends React.Component {
   constructor(props) {
     super(props);

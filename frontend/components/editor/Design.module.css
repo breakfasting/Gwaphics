@@ -4,3 +4,10 @@
   box-shadow: 0 2px 8px rgba(14,19,24,.07);
   position: relative;
 }
+
+.selected {
+  pointer-events: none;
+  position: absolute;
+  z-index: 99;
+  border: 2px solid aqua;
+}

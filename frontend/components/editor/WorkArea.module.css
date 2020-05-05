@@ -4,9 +4,11 @@
   height: 100%;
   overflow: auto;
   display: flex;
+  flex-direction: column;
 }
 
 .designContainer {
   padding: 50px;
   margin: auto;
 }
+

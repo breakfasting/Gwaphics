@@ -50,3 +50,9 @@
   padding-left: 4px;
   font-size: 1.4rem;
 }
+
+.item > svg {
+  fill: #c7d0d8;
+  width: 100px;
+  height: 100px;
+}

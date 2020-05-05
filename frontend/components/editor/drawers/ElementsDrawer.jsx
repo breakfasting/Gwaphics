@@ -2,9 +2,17 @@ import React from 'react';
 import { FiSearch, FiX } from 'react-icons/fi';
 import styles from './ElementsDrawer.module.css';
 
-// const mockupResponse = [
-//   {id: 1, shape: 'circle', thumbnail: './assets/shapes/circle', }
-// ];
+const mockupResponse = [
+  { id: 1, shape: 'circle', url: './assets/shapes/circle.svg#svg' },
+  { id: 2, shape: 'rectangle', url: './assets/shapes/rectangle.svg#svg' },
+  { id: 3, shape: 'triangle', url: './assets/shapes/triangle.svg#svg' },
+  { id: 4, shape: 'hexagon', url: './assets/shapes/hexagon.svg#svg' },
+  { id: 5, shape: 'pentagon', url: './assets/shapes/pentagon.svg#svg' },
+  { id: 6, shape: 'rounded-square', url: './assets/shapes/rounded-square.svg#svg' },
+  { id: 7, shape: 'heart', url: './assets/shapes/heart.svg#svg' },
+  { id: 8, shape: 'star', url: './assets/shapes/star.svg#svg' },
+  { id: 9, shape: 'right-triangle', url: './assets/shapes/right-triangle.svg#svg' },
+];
 
 class ElementsDrawer extends React.Component {
   constructor(props) {
@@ -25,33 +33,13 @@ class ElementsDrawer extends React.Component {
           </div>
         </div>
         <div className={styles.itemList}>
-          <div className={styles.item}>
-            <img src="./assets/shapes/circle" alt="" />
-          </div>
-          <div className={styles.item}>
-            <img src="./assets/shapes/square" alt="" />
-          </div>
-          <div className={styles.item}>
-            <img src="./assets/shapes/triangle" alt="" />
-          </div>
-          <div className={styles.item}>
-            <img src="./assets/shapes/hexagon" alt="" />
-          </div>
-          <div className={styles.item}>
-            <img src="./assets/shapes/bordered-square" alt="" />
-          </div>
-          <div className={styles.item}>
-            <img src="./assets/shapes/rounded-square" alt="" />
-          </div>
-          <div className={styles.item}>
-            <img src="./assets/shapes/rounded-bordered-square" alt="" />
-          </div>
-          <div className={styles.item}>
-            <img src="./assets/shapes/right-angled-triangle" alt="" />
-          </div>
-          <div className={styles.item}>
-            <img src="./assets/shapes/heart" alt="" />
-          </div>
+          {mockupResponse.map((item) => (
+            <div key={item.id} className={styles.item}>
+              <svg>
+                <use href={item.url} />
+              </svg>
+            </div>
+          ))}
         </div>
       </div>
     );

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { FiHelpCircle, FiSettings } from 'react-icons/fi';
 import UserDropDown from './UserDropDown';
 import styles from './HaveUserNav.module.css';
-import CreateDropDown from './CreateDropDown';
 
 class HaveUserNav extends React.Component {
   constructor(props) {
@@ -65,7 +64,7 @@ class HaveUserNav extends React.Component {
           <button type="button" onClick={() => this.toggleDropdown('design')} className="btn-blue ml-8">
             <span className={styles.btnSpan}>Create a design</span>
           </button>
-          {dropDown === 'design' ? <CreateDropDown updateMode={updateMode} /> : ''}
+          {dropDown === 'design' ? <UserDropDown currentUser={currentUser} logout={logout} /> : ''}
         </div>
         <div className={`${styles.containerRef} ml-16`} ref={this.setUserWrapperRef}>
           <button type="button" className="btn-none" onClick={() => this.toggleDropdown('user')}>

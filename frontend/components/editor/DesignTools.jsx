@@ -68,7 +68,7 @@ class DesignTools extends React.Component {
       <div className={styles.designTools}>
         <form
           className={styles.designForm}
-          onSubmit={this.updateStuff}
+          onChange={this.updateStuff}
         >
           <div className={styles.leftNav}>
             <button type="button" className="btn-color" style={{ backgroundColor: selected.elementableAttributes.color }}> </button>

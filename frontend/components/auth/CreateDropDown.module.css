@@ -1,0 +1,100 @@
+.createDropDown {
+  width: 366px;
+}
+
+.customForm {
+  margin: 8px 0;
+}
+
+.custom {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  margin: 0 16px;
+}
+
+.custom input {
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  height: 40px;
+  box-sizing: border-box;
+  padding-left: 10px;
+  font-size: 1.4rem;
+  margin-right: 8px;
+  width: 150px;
+}
+
+.custom input:focus {
+  border: 1px solid rgb(0, 201, 208);
+}
+
+.errorInput {
+  border: 1px solid red;
+}
+
+.custom div {
+  width: 50px;
+  color: #5a5a5a;
+}
+
+.submit {
+  display: flex;
+  padding: 0 16px;
+  flex-direction: column;
+  margin-top: 16px;
+}
+
+.customHeader {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  margin-bottom: 8px;
+}
+
+.icon {
+  transform: rotate(0deg);
+  transition: all 0.5s;
+}
+
+.rotate {
+  transform: rotate(-45deg);
+}
+
+.error {
+  background-color: #ffd6da;
+  padding: 12px 16px;
+  border-radius: 4px;
+  color: #a80000;
+  margin: 0 16px;
+  margin-top: 8px;
+}
+
+.hidden {
+  display: none;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 16px;
+  color: #303030;
+  cursor: pointer;
+}
+
+.listItem svg {
+  font-size: 2rem;
+}
+
+.listItem:hover {
+  background-color: rgb(238,238,238);
+}
+
+.listItem:hover small {
+  display: inline;
+}
+
+.listItem small {
+  margin-left: 12px;
+  color: #949494;
+}

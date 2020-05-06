@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiChevronLeft, FiChevronsLeft } from 'react-icons/fi';
+import { FiChevronsLeft } from 'react-icons/fi';
 
 const EmailSignup = ({
   handleChange, handleSubmit, errors, changeView, animate,

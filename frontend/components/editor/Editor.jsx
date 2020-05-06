@@ -63,11 +63,39 @@ class Editor extends React.Component {
     this.setState({ elements, selected: { [elements.length]: element } });
   }
 
+  screenshot() {
+    const { design: { id, width, height } } = this.state;
+    return fetch(`http://localhost:4000/screenshot?id=${id}&width=${width}&height=${height}`)
+      .then((res) => res.blob())
+      .then((blob) => {
+        const file = new File([blob], 'File name', { type: 'image/png' });
+        return file;
+      });
+  }
+
   updateDesign() {
     const { design, elements } = this.state;
     const { updateDesign } = this.props;
     design.elementsAttributes = elements;
-    updateDesign(design);
+    delete design.thumbnail;
+    updateDesign(design)
+      .then(() => {
+        this.screenshot().then(
+          (file) => {
+            // console.log(file);
+            const formData = new FormData();
+            formData.append('design[id]', design.id);
+            formData.append('design[thumbnail]', file);
+            $.ajax({
+              url: `/api/designs/${design.id}`,
+              method: 'PATCH',
+              data: formData,
+              processData: false,
+              contentType: false,
+            }).then(console.log, console.log);
+          },
+        );
+      });
   }
 
   render() {

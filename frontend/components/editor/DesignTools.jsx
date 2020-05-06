@@ -69,6 +69,7 @@ class DesignTools extends React.Component {
         <form
           className={styles.designForm}
           onChange={this.updateStuff}
+          onSubmit={(e) => e.preventDefault()}
         >
           <div className={styles.leftNav}>
             <button type="button" className="btn-color" style={{ backgroundColor: selected.elementableAttributes.color }}> </button>

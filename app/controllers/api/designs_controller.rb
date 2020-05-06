@@ -96,6 +96,7 @@ class Api::DesignsController < ApplicationController
         :public,
         :width,
         :height,
+        :thumbnail,
         elements_attributes: [
           :id,
           :elementable_id,

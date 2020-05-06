@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './UserNav.module.css';
 import HaveUserNav from './HaveUserNav';
 
-const UserNav = ({ currentUser, logout, updateMode }) => {
+const UserNav = ({ currentUser, logout }) => {
   const noUser = (
     <>
       <Link to="/login">
@@ -21,7 +21,6 @@ const UserNav = ({ currentUser, logout, updateMode }) => {
         <HaveUserNav
           currentUser={currentUser}
           logout={logout}
-          updateMode={updateMode}
         />
       ) : noUser}
     </div>

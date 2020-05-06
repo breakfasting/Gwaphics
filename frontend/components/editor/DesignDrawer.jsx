@@ -2,12 +2,13 @@ import React from 'react';
 import { FiChevronLeft } from 'react-icons/fi';
 import ToolsNav from './ToolsNav';
 import ElementsDrawer from './drawers/ElementsDrawer';
+import TextDrawer from './drawers/TextDrawer';
 import styles from './DesignDrawer.module.css';
 
 class DesignDrawer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { drawer: 0, closed: false, animate: true };
+    this.state = { drawer: 3, closed: false, animate: true };
     this.changeDrawer = this.changeDrawer.bind(this);
     this.closeDrawer = this.closeDrawer.bind(this);
   }
@@ -29,10 +30,10 @@ class DesignDrawer extends React.Component {
     const { addElement } = this.props;
     const { drawer, closed, animate } = this.state;
     const drawers = [
+      <ElementsDrawer />,
+      <ElementsDrawer />,
       <ElementsDrawer addElement={addElement} />,
-      <ElementsDrawer />,
-      <ElementsDrawer />,
-      <ElementsDrawer />,
+      <TextDrawer addElement={addElement} />,
       <ElementsDrawer />,
       <ElementsDrawer />,
       <ElementsDrawer />,

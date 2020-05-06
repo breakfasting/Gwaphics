@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
-import UserNav from './UserNav';
+import { withRouter } from 'react-router-dom';
+import CreateDropDown from './CreateDropDown';
 import { createDesign } from '../../actions/design_actions';
 
 const mapStateToProps = (state) => ({
@@ -8,8 +8,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  logout: () => dispatch(logout()),
   createDesign: (design) => dispatch(createDesign(design)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserNav);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CreateDropDown));

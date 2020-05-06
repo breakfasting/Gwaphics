@@ -62,3 +62,7 @@
 .gone {
   opacity: 0;
 }
+
+.listItem > svg{
+  font-size: 2rem;
+}

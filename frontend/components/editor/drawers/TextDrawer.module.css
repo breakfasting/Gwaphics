@@ -1,0 +1,80 @@
+.textDrawer {
+  width: 312px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 16px;
+  padding-right: 24px;
+  color: white;
+}
+
+.textDrawer > * {
+  margin-bottom: 8px;
+}
+
+.itemList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.item {
+  background: hsla(0,0%,100%,.07);
+  border-radius: 4px;
+  width: 152px;
+  height: 152px;
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.item:hover {
+  background: hsla(0,0%,100%,.14);  
+}
+
+
+/* .item > svg {
+  fill: #c7d0d8;
+  width: 152px;
+  height: 152px;
+} */
+
+.highlights {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.highlightItem {
+  background: hsla(0,0%,100%,.07);
+  border-radius: 4px;
+  margin-bottom: 8px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.highlightItem:hover {
+  background: hsla(0,0%,100%,.14);
+}
+
+.highlightItem > p {
+  padding: 16px;
+  line-height: 1;
+}
+
+.heading {
+  font-weight: 800;
+  font-size: 28px;
+}
+
+.subheading {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.body {
+  font-weight: 300;
+  font-size: 12px;
+}

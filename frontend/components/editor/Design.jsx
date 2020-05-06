@@ -9,28 +9,19 @@ import styles from './Design.module.css';
 class Design extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { activeDrags: 0, controlledPosition: { x: 0, y: 0 } };
-    this.onStart = this.onStart.bind(this);
-    this.onStop = this.onStop.bind(this);
+    this.state = { controlledPosition: { x: 0, y: 0 } };
     this.onControlledDragStop = this.onControlledDragStop.bind(this);
     this.onControlledDrag = this.onControlledDrag.bind(this);
   }
 
   componentDidUpdate(prevProps) {
     const { selected, zoom } = this.props;
-    if (Object.keys(prevProps.selected)[0] !== Object.keys(selected)[0] || zoom !== prevProps.zoom) {
+    if (Object.keys(prevProps.selected)[0]
+      !== Object.keys(selected)[0]
+      || zoom !== prevProps.zoom
+    ) {
       this.updateSelected();
     }
-  }
-
-  onStart() {
-    const { activeDrags } = this.state;
-    this.setState({ activeDrags: activeDrags + 1 });
-  }
-
-  onStop() {
-    const { activeDrags } = this.state;
-    this.setState({ activeDrags: activeDrags - 1 });
   }
 
   onControlledDrag(e, position) {
@@ -42,7 +33,6 @@ class Design extends React.Component {
     const { updateElementPos } = this.props;
     const { x, y } = position;
     updateElementPos(index, x, y);
-    this.onStop();
   }
 
   updateSelected() {
@@ -58,7 +48,6 @@ class Design extends React.Component {
   }
 
   render() {
-    const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
     const {
       elements, design, zoom, setSelected, selected,
     } = this.props;
@@ -70,7 +59,6 @@ class Design extends React.Component {
       >
         {Object.keys(selected).length === 0 ? '' : (
           <Draggable
-            {...dragHandlers}
             position={{ x: x - 2, y: y - 2 }}
           >
             <div
@@ -87,8 +75,7 @@ class Design extends React.Component {
             if (element._destroy) return null;
             return (
               <Draggable
-                {...dragHandlers}
-                key={element.id}
+                key={element.id ? element.id : index}
                 onDrag={this.onControlledDrag}
                 onStop={(e, data) => this.onControlledDragStop(e, index, data)}
                 position={{ x: element.posX * zoom, y: element.posY * zoom }}

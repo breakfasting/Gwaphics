@@ -33,7 +33,11 @@ class Editor extends React.Component {
 
   setSelected(id) {
     const { elements } = this.state;
-    this.setState({ selected: { [id]: elements[id] } });
+    if (id === null) {
+      this.setState({ selected: {} });
+    } else {
+      this.setState({ selected: { [id]: elements[id] } });
+    }
   }
 
   changeZoomFactor(fact) {
@@ -70,6 +74,7 @@ class Editor extends React.Component {
     const {
       design, elements, zoom, selected,
     } = this.state;
+    // return <Viewer design={design} elements={elements} zoom={zoom} />
     return (
       <div className={styles.editorContainer}>
         <EditorNav updateDesign={this.updateDesign} />

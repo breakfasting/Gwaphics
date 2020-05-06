@@ -1,8 +1,9 @@
 import React from 'react';
-import { FiSearch, FiX } from 'react-icons/fi';
+import DrawerSearch from './DrawerSearch';
 import styles from './ElementsDrawer.module.css';
+import scrollbar from './scrollbar.module.css';
 
-const mockupResponse = [
+const mockupResponse = [ // need default width height and desc to search
   { id: 1, shape: 'circle', url: './assets/shapes/circle.svg#svg' },
   { id: 2, shape: 'rectangle', url: './assets/shapes/rectangle.svg#svg' },
   { id: 3, shape: 'triangle', url: './assets/shapes/triangle.svg#svg' },
@@ -38,24 +39,22 @@ class ElementsDrawer extends React.Component {
 
   render() {
     return (
-      <div className={styles.elementsDrawer}>
-        <div className={styles.searchBar}>
-          <div className={styles.searchInput}>
-            <div className={styles.inputIcon}>
-              <FiSearch />
-              <input className={styles.input} type="text" placeholder="Search icons and shapes" />
-            </div>
-            <FiX />
+      <div className={scrollbar.customScroll}>
+        <div className={styles.elementsDrawer}>
+          <DrawerSearch placeholder="Search icons and shapes" />
+          <div className={styles.itemList}>
+            {mockupResponse.map((item) => (
+              <div
+                key={item.id}
+                className={styles.item}
+                onClick={() => this.addElement(item.shape)}
+              >
+                <svg>
+                  <use href={item.url} />
+                </svg>
+              </div>
+            ))}
           </div>
-        </div>
-        <div className={styles.itemList}>
-          {mockupResponse.map((item) => (
-            <div key={item.id} className={styles.item} onClick={() => this.addElement(item.shape)}>
-              <svg>
-                <use href={item.url} />
-              </svg>
-            </div>
-          ))}
         </div>
       </div>
     );

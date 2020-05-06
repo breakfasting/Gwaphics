@@ -77,6 +77,7 @@ class Editor extends React.Component {
     const { design, elements } = this.state;
     const { updateDesign } = this.props;
     design.elementsAttributes = elements;
+    delete design.thumbnail;
     updateDesign(design)
       .then(() => {
         this.screenshot().then(

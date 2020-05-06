@@ -18,7 +18,10 @@ class Design extends React.Component {
 
   componentDidUpdate(prevProps) {
     const { selected, zoom } = this.props;
-    if (Object.keys(prevProps.selected)[0] !== Object.keys(selected)[0] || zoom !== prevProps.zoom) {
+    if (Object.keys(prevProps.selected)[0]
+      !== Object.keys(selected)[0]
+      || zoom !== prevProps.zoom
+    ) {
       this.updateSelected();
     }
   }
@@ -88,7 +91,7 @@ class Design extends React.Component {
             return (
               <Draggable
                 {...dragHandlers}
-                key={element.id}
+                key={element.id ? element.id : index}
                 onDrag={this.onControlledDrag}
                 onStop={(e, data) => this.onControlledDragStop(e, index, data)}
                 position={{ x: element.posX * zoom, y: element.posY * zoom }}

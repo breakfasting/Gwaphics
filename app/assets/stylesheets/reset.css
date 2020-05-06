@@ -8,7 +8,7 @@ html, body {
 
 html, body, header, nav, h1, a,
 ul, li, strong, main, i,
-section, img, div, h2, p, form,
+section, img, div, h2, h3, p, form,
 fieldset, label, input, textarea,
 span, article, footer, time, small {
   margin: 0;
@@ -21,6 +21,11 @@ span, article, footer, time, small {
   vertical-align: inherit;
   box-sizing: inherit;
   background: transparent;
+}
+
+h3 {
+  font-size: 1.4rem;
+  line-height: 1.6;
 }
 
 ul {

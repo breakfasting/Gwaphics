@@ -1,0 +1,21 @@
+.customScroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+  margin-right: 4px;
+  margin-top: 4px;
+}
+
+.customScroll:hover::-webkit-scrollbar-thumb {
+  background-color: #5f646b;
+}
+
+.customScroll::-webkit-scrollbar {
+  width: 8px;
+  background-color: #293039;
+}
+
+.customScroll::-webkit-scrollbar-thumb {
+  background: #293039; 
+  border-radius: 4px;
+}

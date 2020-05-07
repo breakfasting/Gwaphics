@@ -22,19 +22,24 @@
   width: 100%;
   height: 100vh;
 }
+
+.border-bottom {
+  border-bottom: 1px solid #ddd;
+}
  
 .container {
   padding: 0 40px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .container-wide {
   padding: 0 32px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 @media only screen and (min-width: 1344px) {

@@ -1,18 +1,21 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
-import { AuthRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import NavBar from './NavBar';
 import SignupAuthFormContainer from './auth/SignupAuthFormContainer';
 import LoginAuthFormContainer from './auth/LoginAuthFormContainer';
+import MainAuth from './auth/MainAuth';
+import BrowseIndex from './browse/BrowseIndex';
+import styles from './Browse.module.css';
 
 const Browse = ({ mode }) => {
   return (
-    <div className={mode === 'splash' ? 'container' : 'container-wide'}>
-      <NavBar />
-      <Switch>
-        <AuthRoute path="/login" component={LoginAuthFormContainer} />
-        <AuthRoute path="/" component={SignupAuthFormContainer} />
-      </Switch>
+    <div className={styles.container}>
+      <NavBar mode={mode} />
+      <div className={mode === 'splash' ? 'container' : 'container-wide'}>
+        <AuthRoute path="/" component={MainAuth} />
+        <ProtectedRoute path="/" component={BrowseIndex} />
+      </div>
     </div>
   );
 };

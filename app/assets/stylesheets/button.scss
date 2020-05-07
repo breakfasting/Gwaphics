@@ -120,3 +120,20 @@ button svg{
   min-width: 24px;
   box-sizing: border-box;
 }
+
+.active-route span{
+  font-weight: 700;
+}
+
+.active-route {
+  background-color: $lighter-grey;
+}
+
+.btn-index {
+  font-weight: 400;
+}
+
+.btn-index:hover {
+  border-color: transparent;
+  background-color: $lighter-grey;
+}

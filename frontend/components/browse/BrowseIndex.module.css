@@ -1,0 +1,27 @@
+.container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: stretch;
+}
+
+.sideBar {
+  width: 244px;
+}
+
+.indexArea {
+  flex-grow: 1;
+}
+
+.list {
+  padding-top: 32px;
+  padding-left: 16px;
+}
+
+.listItem > * {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.listItem ~ .listItem {
+  margin-top: 8px;
+}

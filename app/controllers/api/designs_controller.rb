@@ -63,6 +63,7 @@ class Api::DesignsController < ApplicationController
   def create_design_params
     params.require(:design).permit(
         :creator_id,
+        :folder_id,
         :title,
         :description,
         :public,

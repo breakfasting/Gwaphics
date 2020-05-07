@@ -14,6 +14,10 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: :Design
 
+  has_many :folders,
+    foreign_key: :folder_id,
+    class_name: :Folder
+
   has_many :created_designs,
     foreign_key: :creator_id,
     class_name: :Design

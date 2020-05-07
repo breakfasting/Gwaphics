@@ -33,11 +33,11 @@ export const requestTemplates = () => (dispatch) => DesignAPIUtil.fetchTemplates
     (res) => dispatch(receiveErrors(res.responseJSON)));
 
 export const createDesign = (formDesign) => (dispatch) => DesignAPIUtil.createDesign(formDesign)
-  .then((design) => dispatch(receiveDesign(design)),
+  .then((payload) => dispatch(receiveDesign(payload)),
     (res) => dispatch(receiveErrors(res.responseJSON)));
 
 export const updateDesign = (formDesign) => (dispatch) => DesignAPIUtil.updateDesign(formDesign)
-  .then((design) => dispatch(receiveDesign(design)),
+  .then((payload) => dispatch(receiveDesign(payload)),
     (res) => dispatch(receiveErrors(res.responseJSON)));
 
 export const deleteDesign = (designId) => (dispatch) => DesignAPIUtil.deleteDesign(designId)

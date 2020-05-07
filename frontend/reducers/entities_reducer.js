@@ -4,6 +4,7 @@ import designsReducer from './design/designs_reducer';
 import shapesReducer from './design/shapes_reducer';
 import elementsReducer from './design/elements_reducer';
 import textReducer from './design/text_reducer';
+import foldersReducer from './folders_reducer';
 
 const entitiesReducer = combineReducers({
   users: usersReducer,
@@ -11,6 +12,7 @@ const entitiesReducer = combineReducers({
   elements: elementsReducer,
   shapes: shapesReducer,
   text: textReducer,
+  folders: foldersReducer,
 });
 
 export default entitiesReducer;

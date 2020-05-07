@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/Root';
 import configureStore from './store/store';
-import * as designActions from './actions/design_actions';
+// import * as designActions from './actions/design_actions';
 // import { signup, login, logout } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,12 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // window.signup = signup;
   // window.login = login;
   // window.logout = logout;
-  window.requestOwnedDesigns = designActions.requestOwnedDesigns;
-  window.requestTemplates = designActions.requestTemplates;
-  window.requestDesign = designActions.requestDesign;
-  window.createDesign = designActions.createDesign;
-  window.updateDesign = designActions.updateDesign;
-  window.deleteDesign = designActions.deleteDesign;
+  // window.requestOwnedDesigns = designActions.requestOwnedDesigns;
+  // window.requestTemplates = designActions.requestTemplates;
+  // window.requestDesign = designActions.requestDesign;
+  // window.createDesign = designActions.createDesign;
+  // window.updateDesign = designActions.updateDesign;
+  // window.deleteDesign = designActions.deleteDesign;
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);

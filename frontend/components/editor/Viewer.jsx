@@ -1,6 +1,6 @@
 import React from 'react';
 import Element from './elements/Element';
-import styles from './Design.module.css';
+import styles from './Viewer.module.css';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class Viewer extends React.Component {
@@ -17,7 +17,7 @@ class Viewer extends React.Component {
   render() {
     const { elements, design } = this.props;
     const { zoom } = this.state;
-    if (!design) return null;
+    if (elements.length === 0) return null;
     return (
       <div
         id="viewer"

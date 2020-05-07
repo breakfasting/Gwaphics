@@ -25,6 +25,11 @@
   color: black;
 }
 
+.auth-form a {
+  color: #00c4cc;
+  text-decoration: underline;
+}
+
 .auth-form h2 {
   font-size: 2.4rem;
   font-weight: 700;

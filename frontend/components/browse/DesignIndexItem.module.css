@@ -1,0 +1,47 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.wrap {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.card img {
+  z-index: -1;
+}
+
+.title {
+  height: 20px;
+  padding: 8px 4px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.title > * {
+  margin-right: 8px;
+}
+
+.toggle {
+  position: absolute;
+  top: -60px;
+  right: 10px;
+  transition: all 0.3s;
+  pointer-events: all;
+}
+
+.card:hover .toggle {
+  top: 10px;
+}
+
+.active {
+  top: 10px;
+}

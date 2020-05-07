@@ -1,4 +1,5 @@
 $dark-grey: #5a5a5a;
+$more-grey: #777777;
 $grey: #949494;
 $less-grey: #aaaaaa;
 $light-grey: #dcdcdc;
@@ -136,4 +137,18 @@ button svg{
 .btn-index:hover {
   border-color: transparent;
   background-color: $lighter-grey;
+}
+
+.btn-item {
+  height: 32px;
+  min-width: 32px;
+  background-color: $more-grey;
+  transition: all 0.2s;
+  color: white;
+  padding: 2px;
+}
+
+.btn-item:hover {
+  background-color: $blue;
+  border-color: transparent;
 }

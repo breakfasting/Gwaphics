@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import DesignIndexItem from './DesignIndexItem';
 import styles from './AllDesigns.module.css';
 
 class AllDesigns extends React.Component {
@@ -15,11 +15,9 @@ class AllDesigns extends React.Component {
         <h1 className={styles.indexTitle}>All your designs</h1>
         <div className={styles.masonry}>
           {designs.map((design) => (
-            <div className={styles.masonItem}>
-              <Link to={`/design/${design.id}`}>
-                <img src={design.thumbnail} alt="" />
-            </Link>
-              </div>
+            <div key={design.id} className={styles.masonItem}>
+              <DesignIndexItem design={design} />
+            </div>
           ))}
         </div>
       </div>

@@ -1,4 +1,4 @@
-const elementsOnDesign = (state, designId) => {
+const elementsOnDesign = (state, designId, copy = false) => {
   const design = state.entities.designs[designId];
   const map = design.elements.map((eleId) => {
     const element = state.entities.elements[eleId];
@@ -13,11 +13,16 @@ const elementsOnDesign = (state, designId) => {
         default:
           break;
       }
+      if (copy) {
+        delete element.id;
+        delete element.elementableId;
+        delete element.elementableAttributes.id;
+      }
     }
     return element;
   });
   // debugger;
-  return map;
+  return map.filter((el) => !!el);
 };
 
 export default elementsOnDesign;

@@ -14,8 +14,8 @@ const Browse = ({ mode }) => {
       <NavBar mode={mode} />
       <div className={mode === 'splash' ? 'container' : 'container-wide'}>
         <AuthRoute path="/" component={MainAuth} />
-        <ProtectedRoute path="/" component={BrowseIndex} />
       </div>
+      <ProtectedRoute path="/" component={BrowseIndex} />
     </div>
   );
 };

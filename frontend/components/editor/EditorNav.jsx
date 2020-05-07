@@ -1,14 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FiChevronLeft, FiSave } from 'react-icons/fi';
 import styles from './EditorNav.module.css';
 
 const EditorNav = ({ updateDesign }) => (
   <div className={styles.editorNav}>
     <nav className={styles.leftNav}>
-      <button type="button" className="btn-icon">
-        <FiChevronLeft />
-        Home
-      </button>
+      <Link to="/">
+        <button type="button" className="btn-icon">
+          <FiChevronLeft />
+          Home
+        </button>
+      </Link>
       <button type="button" className="btn-icon">
         File
       </button>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiGrid, FiUploadCloud, FiTrash2, FiFolder, FiHome, FiHeart, FiStar } from 'react-icons/fi';
+import AllDesignsContainer from './all_designs_container';
 import styles from './BrowseIndex.module.css';
 
 const BrowseIndex = () => (
@@ -50,7 +51,9 @@ const BrowseIndex = () => (
         </li>
       </ul>
     </div>
-    <div className={styles.indexArea}>1</div>
+    <div className={styles.main}>
+      <AllDesignsContainer />
+    </div>
   </div>
 );
 

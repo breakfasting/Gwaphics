@@ -1,0 +1,28 @@
+.indexArea {
+  flex-grow: 1;
+  padding: 32px 32px 0 16px;
+}
+
+.indexTitle {
+  margin-bottom: 32px;
+  font-size: 3.2rem;
+  line-height: 1.3;
+}
+
+.masonry {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.masonItem {
+  height: 250px;
+  flex: 1 0 auto;
+  margin: 0 1rem 1rem 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.masonItem img {
+  height: 250px;
+  width: auto;
+}

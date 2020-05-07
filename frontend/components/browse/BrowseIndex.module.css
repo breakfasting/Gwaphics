@@ -2,14 +2,14 @@
   flex-grow: 1;
   display: flex;
   justify-content: stretch;
+  height: 100%;
+  overflow: hidden;
 }
 
 .sideBar {
-  width: 244px;
-}
-
-.indexArea {
-  flex-grow: 1;
+  /* width: 244px; */
+  min-width: 244px;
+  /* flex-grow: 1; */
 }
 
 .list {
@@ -24,4 +24,10 @@
 
 .listItem ~ .listItem {
   margin-top: 8px;
+}
+
+.main {
+  overflow-y: scroll;
+  height: 100%;
+  width: 100%;
 }

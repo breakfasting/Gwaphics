@@ -85,7 +85,7 @@ class AllFolders extends React.Component {
               </Link>
             </li>
             {folders.map((folder) => (
-              <li className={styles.listItem}>
+              <li className={styles.listItem} key={folder.id}>
                 <Link to={`/folder/${folder.id}`}>
                   <button type="button" className="btn-index btn-folder">
                     <div className={styles.iconWrap}>

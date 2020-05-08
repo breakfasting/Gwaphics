@@ -9,10 +9,11 @@ class AllDesigns extends React.Component {
   }
 
   render() {
-    const { designs, pageTitle } = this.props;
+    const { designs, folder } = this.props;
+    if (!folder) return null;
     return (
       <div className={styles.indexArea}>
-        <h1 className={styles.indexTitle}>{pageTitle}</h1>
+        <h1 className={styles.indexTitle}>{folder.name}</h1>
         <div className={styles.masonry}>
           {designs.map((design) => (
             <div key={design.id} className={styles.masonItem}>

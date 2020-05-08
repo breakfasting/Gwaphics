@@ -59,7 +59,7 @@ class DesignIndexItem extends React.Component {
             </button>
           </div>
         </div>
-        {dropdown ? <IndexItemDropdownContainer design={design} /> : ''}
+        {dropdown ? <IndexItemDropdownContainer design={design} toggleDropdown={this.toggleDropdown} /> : ''}
       </div>
     );
   }

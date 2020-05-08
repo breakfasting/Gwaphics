@@ -94,6 +94,7 @@ class Api::DesignsController < ApplicationController
     params.require(:design).permit(
         :id,
         :title,
+        :folder_id,
         :description,
         :public,
         :width,

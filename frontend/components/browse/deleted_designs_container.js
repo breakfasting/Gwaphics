@@ -5,7 +5,7 @@ import { requestOwnedDesigns, deleteDesign } from '../../actions/design_actions'
 const mapStateToProps = (state) => {
   const designs = Object.values(state.entities.designs);
   return {
-    pageTitle: 'Trash',
+    folder: { name: 'Trash' },
     designs: designs.filter((design) => design.userId === state.session.id && design.trash),
   };
 };

@@ -6,6 +6,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 import AllDesignsContainer from './all_designs_container';
 import AllFoldersContainer from './folder/all_folders_container';
 import DeletedDesignsContainer from './deleted_designs_container';
+import FolderDesignsContainer from './folder_designs_container';
 import styles from './BrowseIndex.module.css';
 
 class BrowseIndex extends React.Component {
@@ -61,7 +62,7 @@ class BrowseIndex extends React.Component {
               </Link>
             </li>
             {folders.map((folder) => (
-              <li className={styles.listItem}>
+              <li className={styles.listItem} key={folder.id}>
                 <Link to={`/folder/${folder.id}`}>
                   <button type="button" className={`${location.pathname === `/folder/${folder.id}` ? 'active-route' : ''} btn-index`}>
                     <FiStar />
@@ -84,6 +85,7 @@ class BrowseIndex extends React.Component {
           <Switch>
             <Route path="/folder/all-designs" component={AllDesignsContainer} />
             <Route path="/folder/trash" component={DeletedDesignsContainer} />
+            <Route path="/folder/:folderId" component={FolderDesignsContainer} />
             <Route path="/folder" component={AllFoldersContainer} />
           </Switch>
         </div>

@@ -40,7 +40,7 @@ class Api::FoldersController < ApplicationController
 
   def destroy
     @folder = Folder.find_by(id: params[:id])
-    @folder.destory
+    @folder.destroy
     render :show
   end
 

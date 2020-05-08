@@ -9,6 +9,7 @@ class CreateFolder extends React.Component {
       animate: false, name: folder.name,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.deleteFolder = this.deleteFolder.bind(this);
   }
 
   componentDidMount() {
@@ -32,6 +33,11 @@ class CreateFolder extends React.Component {
     };
   }
 
+  deleteFolder() {
+    const { folder, deleteFolder, toggleModal } = this.props;
+    deleteFolder(folder.id).then(toggleModal);
+  }
+
   render() {
     const { animate, name } = this.state;
     const { formType } = this.props;
@@ -51,6 +57,13 @@ class CreateFolder extends React.Component {
                 onChange={this.handleChange('name')}
               />
             </li>
+            {formType === 'Edit Folder' ? (
+              <li className={styles.submit}>
+                <button type="button" className="btn-blue" onClick={this.deleteFolder}>
+                  Delete Folder
+                </button>
+              </li>
+            ) : ''}
             <li className={styles.submit}>
               <button type="submit" className="btn-blue" onClick={this.handleSubmit}>
                 {formType}

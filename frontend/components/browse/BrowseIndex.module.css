@@ -1,0 +1,33 @@
+.container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: stretch;
+  height: 100%;
+  overflow: hidden;
+}
+
+.sideBar {
+  /* width: 244px; */
+  min-width: 244px;
+  /* flex-grow: 1; */
+}
+
+.list {
+  padding-top: 32px;
+  padding-left: 16px;
+}
+
+.listItem > * {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.listItem ~ .listItem {
+  margin-top: 8px;
+}
+
+.main {
+  overflow-y: scroll;
+  height: 100%;
+  width: 100%;
+}

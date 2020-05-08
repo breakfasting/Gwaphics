@@ -63,6 +63,7 @@ class Api::DesignsController < ApplicationController
   def create_design_params
     params.require(:design).permit(
         :creator_id,
+        :folder_id,
         :title,
         :description,
         :public,
@@ -91,12 +92,15 @@ class Api::DesignsController < ApplicationController
 
   def update_design_params
     params.require(:design).permit(
+        :id,
         :title,
+        :folder_id,
         :description,
         :public,
         :width,
         :height,
         :thumbnail,
+        :trash,
         elements_attributes: [
           :id,
           :elementable_id,

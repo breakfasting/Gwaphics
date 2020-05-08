@@ -32,12 +32,12 @@ export const signup = (user) => (dispatch) => ApiUtil.signup(user)
 export const login = (user) => (dispatch) => ApiUtil.login(user)
   .then((responseUser) => {
     dispatch(receiveCurrentUser(responseUser));
-    dispatch(updateMode('browse'));
+    // dispatch(updateMode('browse'));
   },
   (res) => dispatch(receiveErrors(res.responseJSON)));
 
 export const logout = () => (dispatch) => ApiUtil.logout()
   .then(() => {
     dispatch(logoutCurrentUser());
-    dispatch(updateMode('splash'));
+    // dispatch(updateMode('splash'));
   });

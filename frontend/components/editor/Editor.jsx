@@ -23,6 +23,7 @@ class Editor extends React.Component {
   }
 
   componentDidMount() {
+
     // only loads when refresh page, not changing routes
     const { requestDesign } = this.props;
     requestDesign().then(() => {
@@ -52,6 +53,7 @@ class Editor extends React.Component {
   }
 
   updateElement(idx, element) {
+    // debugger
     const { elements } = this.state;
     elements[idx] = element;
     this.setState({ elements });
@@ -59,8 +61,8 @@ class Editor extends React.Component {
 
   addElement(element) {
     const { elements } = this.state;
-    elements[elements.length] = element;
-    this.setState({ elements, selected: { [elements.length]: element } });
+    elements.push(element);
+    this.setState({ elements, selected: { [elements.length - 1]: element } });
   }
 
   screenshot() {

@@ -1,0 +1,70 @@
+.indexArea {
+  flex-grow: 1;
+  padding: 32px 32px 0 16px;
+  position: relative;
+  box-sizing: border-box;
+  min-height: 100%;
+}
+
+.indexTitle {
+  margin-bottom: 32px;
+  font-size: 3.2rem;
+  line-height: 1.3;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.listItem {
+  width: 304px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  position: relative;
+}
+
+.listItem:hover button {
+  opacity: 1;
+}
+
+.listItem > a {
+  height: 100%;
+  flex-grow: 1;
+}
+
+.iconWrap {
+  background-color: #dedede;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.create {
+  background-color: #ffce1c;
+}
+
+.modalWrap {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.boxWrap {
+  position: relative;
+}
+
+.blur {
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+}

@@ -53,11 +53,6 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-a {
-  color: #00c4cc;
-  text-decoration: underline;
-}
-
 *:focus {
   outline: none;
 }

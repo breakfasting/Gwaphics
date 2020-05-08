@@ -1,12 +1,13 @@
 $dark-grey: #5a5a5a;
+$more-grey: #777777;
 $grey: #949494;
 $less-grey: #aaaaaa;
 $light-grey: #dcdcdc;
 $lighter-grey: #eeeeee;
 $white: #ffffff;
 
-$blue: #00c9d0;
-$light-blue: #00dde5;
+$blue: #dc85ff;
+$light-blue: #ffd22e;
 
 
 button {
@@ -119,4 +120,49 @@ button svg{
   height: 24px;
   min-width: 24px;
   box-sizing: border-box;
+}
+
+.active-route span{
+  font-weight: 700;
+}
+
+.active-route {
+  background-color: $lighter-grey;
+}
+
+.btn-index {
+  font-weight: 400;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.btn-index:hover {
+  border-color: transparent;
+  background-color: $lighter-grey;
+}
+
+.btn-item {
+  height: 32px;
+  min-width: 32px;
+  background-color: $more-grey;
+  transition: all 0.2s;
+  color: white;
+  padding: 2px;
+}
+
+.btn-item:hover {
+  background-color: $blue;
+  border-color: transparent;
+}
+
+.btn-folder {
+  height: 100%;
+  padding: 8px;
+}
+
+.btn-absolute {
+  opacity: 0;
+  position: absolute;
+  top: 16px;
+  right: 16px;
 }

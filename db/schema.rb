@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_06_180928) do
+ActiveRecord::Schema.define(version: 2020_05_08_095438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,10 @@ ActiveRecord::Schema.define(version: 2020_05_06_180928) do
     t.float "height", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "folder_id"
+    t.boolean "trash", default: false
     t.index ["creator_id"], name: "index_designs_on_creator_id"
+    t.index ["folder_id"], name: "index_designs_on_folder_id"
     t.index ["user_id"], name: "index_designs_on_user_id"
   end
 
@@ -63,6 +66,14 @@ ActiveRecord::Schema.define(version: 2020_05_06_180928) do
     t.index ["design_id"], name: "index_elements_on_design_id"
     t.index ["elementable_id"], name: "index_elements_on_elementable_id"
     t.index ["elementable_type"], name: "index_elements_on_elementable_type"
+  end
+
+  create_table "folders", force: :cascade do |t|
+    t.integer "owner_id", null: false
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_folders_on_owner_id"
   end
 
   create_table "shape_templates", force: :cascade do |t|

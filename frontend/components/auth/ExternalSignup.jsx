@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
+import { FiUserCheck } from "react-icons/fi";
 import { googleIcon } from './AuthIcons';
 
 const ExternalSignup = ({ changeView, demoLogin, animate }) => (
@@ -22,7 +21,7 @@ const ExternalSignup = ({ changeView, demoLogin, animate }) => (
     <button type="button" onClick={demoLogin} className="demo btn-outline">
       {/* {facebookIcon} */}
       <i>
-        <FontAwesomeIcon icon={faUserSecret} />
+        <FiUserCheck />
       </i>
       <span>Log in as Demo User</span>
     </button>

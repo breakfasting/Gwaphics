@@ -25,6 +25,11 @@
   color: black;
 }
 
+.auth-form a {
+  color: #dc85ff;
+  text-decoration: underline;
+}
+
 .auth-form h2 {
   font-size: 2.4rem;
   font-weight: 700;
@@ -55,7 +60,7 @@
 }
 
 .auth-form input:focus {
-  border: 1px solid rgb(0, 201, 208);
+  border: 1px solid #dc85ff;
 }
 
 .return-login {

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faUserSecret } from '@fortawesome/free-solid-svg-icons';
+import { FiUserCheck, FiChevronsLeft } from "react-icons/fi";
 import { googleIcon } from './AuthIcons';
 
 class LoginForm extends React.Component {
@@ -46,7 +45,7 @@ class LoginForm extends React.Component {
       <form className={animate ? 'animated auth-form' : 'auth-form'} onSubmit={this.handleSubmit}>
         <div className="return-login">
           <Link to="/signup">
-            <FontAwesomeIcon icon={faAngleLeft} />
+            <FiChevronsLeft />
           </Link>
           <h2>Log in to your account</h2>
         </div>
@@ -57,7 +56,7 @@ class LoginForm extends React.Component {
         <button type="button" onClick={demoLogin} className="demo btn-outline">
           {/* {facebookIcon} */}
           <i>
-            <FontAwesomeIcon icon={faUserSecret} />
+            <FiUserCheck />
           </i>
           <span>Log in as Demo User</span>
         </button>

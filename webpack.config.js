@@ -1,15 +1,11 @@
 const path = require('path');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
- 
+
 module.exports = {
   entry: './frontend/entry.jsx',
   output: {
     path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
     filename: 'bundle.js',
   },
-  plugins: [
-    new BundleAnalyzerPlugin()
-  ],
   module: {
     rules: [
       {

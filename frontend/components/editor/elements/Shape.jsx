@@ -1,19 +1,19 @@
 import React from 'react';
 
 // const shapeGen = (shape) => <use href={window.circle} />;
-const mockupResponse = [ // need default width height and desc to search
-  { id: 1, shape: 'circle', url: 'https://gwaphics-seed.s3-us-west-1.amazonaws.com/circle.svg#svg' },
-  { id: 2, shape: 'rectangle', url: window.rectangle },
-  { id: 3, shape: 'triangle', url: window.triangle },
-  { id: 4, shape: 'hexagon', url: window.hexagon },
-  { id: 5, shape: 'pentagon', url: window.pentagon },
-  { id: 6, shape: 'rounded-square', url: window.roundedSquare },
-  { id: 7, shape: 'heart', url: window.heart },
-  { id: 8, shape: 'star', url: window.star },
-  { id: 9, shape: 'right-triangle', url: window.rightTriangle },
-];
 
 const shapeGen = (shape) => {
+  const mockupResponse = [ // need default width height and desc to search
+    { id: 1, shape: 'circle', url: window.circle },
+    { id: 2, shape: 'rectangle', url: window.rectangle },
+    { id: 3, shape: 'triangle', url: window.triangle },
+    { id: 4, shape: 'hexagon', url: window.hexagon },
+    { id: 5, shape: 'pentagon', url: window.pentagon },
+    { id: 6, shape: 'rounded-square', url: window.roundedSquare },
+    { id: 7, shape: 'heart', url: window.heart },
+    { id: 8, shape: 'star', url: window.star },
+    { id: 9, shape: 'right-triangle', url: window.rightTriangle },
+  ];
   for (const item of mockupResponse) {
     if (item.shape === shape) {
       return <use href={item.url} />;

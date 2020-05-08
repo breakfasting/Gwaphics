@@ -28,7 +28,7 @@ class ElementsDrawer extends React.Component {
 
   render() {
     const mockupResponse = [ // need default width height and desc to search
-      { id: 1, shape: 'circle', url: `${window.circle}` },
+      { id: 1, shape: 'circle', url: window.circle },
       { id: 2, shape: 'rectangle', url: window.rectangle },
       { id: 3, shape: 'triangle', url: window.triangle },
       { id: 4, shape: 'hexagon', url: window.hexagon },

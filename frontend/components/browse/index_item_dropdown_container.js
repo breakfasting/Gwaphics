@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import IndexItemDropdown from './IndexItemDropdown';
-import { createDesign, requestDesign, updateDesign } from '../../actions/design_actions';
+import { deleteDesign, updateDesign } from '../../actions/design_actions';
 import elementsOnDesign from '../../reducers/design/elements_selector';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -12,6 +12,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   updateDesign: (design) => dispatch(updateDesign(design)),
+  deleteDesign: (designId) => dispatch(deleteDesign(designId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(IndexItemDropdown));

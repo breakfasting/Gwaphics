@@ -4,15 +4,15 @@ import styles from './AllDesigns.module.css';
 
 class AllDesigns extends React.Component {
   componentDidMount() {
-    const { requestOwnedDesigns } = this.props;
-    requestOwnedDesigns();
+    const { requestDesigns } = this.props;
+    requestDesigns();
   }
 
   render() {
-    const { designs } = this.props;
+    const { designs, pageTitle } = this.props;
     return (
       <div className={styles.indexArea}>
-        <h1 className={styles.indexTitle}>All your designs</h1>
+        <h1 className={styles.indexTitle}>{pageTitle}</h1>
         <div className={styles.masonry}>
           {designs.map((design) => (
             <div key={design.id} className={styles.masonItem}>

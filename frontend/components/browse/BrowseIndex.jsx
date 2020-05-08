@@ -5,6 +5,7 @@ import {
 import { Link, Route, Switch } from 'react-router-dom';
 import AllDesignsContainer from './all_designs_container';
 import AllFoldersContainer from './folder/all_folders_container';
+import DeletedDesignsContainer from './deleted_designs_container';
 import styles from './BrowseIndex.module.css';
 
 class BrowseIndex extends React.Component {
@@ -82,6 +83,7 @@ class BrowseIndex extends React.Component {
         <div className={styles.main}>
           <Switch>
             <Route path="/folder/all-designs" component={AllDesignsContainer} />
+            <Route path="/folder/trash" component={DeletedDesignsContainer} />
             <Route path="/folder" component={AllFoldersContainer} />
           </Switch>
         </div>

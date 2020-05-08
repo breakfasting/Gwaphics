@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import AllDesigns from './AllDesigns';
-import { requestOwnedDesigns } from '../../actions/design_actions';
+import { requestOwnedDesigns, deleteDesign } from '../../actions/design_actions';
 
 const mapStateToProps = (state) => {
   const designs = Object.values(state.entities.designs);
   return {
-    pageTitle: 'All your designs',
-    designs: designs.filter((design) => design.userId === state.session.id && !design.trash),
+    pageTitle: 'Trash',
+    designs: designs.filter((design) => design.userId === state.session.id && design.trash),
   };
 };
 

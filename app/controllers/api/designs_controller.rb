@@ -92,12 +92,14 @@ class Api::DesignsController < ApplicationController
 
   def update_design_params
     params.require(:design).permit(
+        :id,
         :title,
         :description,
         :public,
         :width,
         :height,
         :thumbnail,
+        :trash,
         elements_attributes: [
           :id,
           :elementable_id,

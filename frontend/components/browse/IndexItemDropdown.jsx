@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
-  FiTrash2, FiFolder, FiLink, FiEyeOff, FiEye, FiDownload,
+  FiTrash2, FiFolder, FiLink, FiEyeOff, FiEye, FiDownload, FiRotateCcw
 } from 'react-icons/fi';
 import styles from './IndexItemDropdown.module.css';
 
@@ -15,6 +15,8 @@ class IndexItemDropdown extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.togglePublic = this.togglePublic.bind(this);
+    this.toggleTrash = this.toggleTrash.bind(this);
+    this.deleteDesign = this.deleteDesign.bind(this);
   }
 
   componentDidMount() {
@@ -49,6 +51,16 @@ class IndexItemDropdown extends React.Component {
     updateDesign({ id: design.id, public: !design.public });
   }
 
+  toggleTrash() {
+    const { updateDesign, design } = this.props;
+    updateDesign({ id: design.id, trash: !design.trash });
+  }
+
+  deleteDesign() {
+    const { deleteDesign, design } = this.props;
+    deleteDesign(design.id);
+  }
+
   // createDesign(item) {
   //   const { createDesign, currentUser, requestDesign, history, design, elements } = this.props;
   //   const newDesign = {
@@ -71,6 +83,28 @@ class IndexItemDropdown extends React.Component {
   render() {
     const { animate, title } = this.state;
     const { design } = this.props;
+    if (design.trash) {
+      return (
+        <div className={`${styles.dropdownCard} ${animate ? styles.animate : ''}`}>
+          <ul className={styles.dropDown}>
+            <li className={styles.title}>
+              <h2>{design.title}</h2>
+            </li>
+            <li>
+              <hr className={styles.hr} />
+            </li>
+            <li className={styles.listItem} onClick={this.toggleTrash}>
+              <FiRotateCcw className={styles.icon} />
+              <span className="ml-8">Restore</span>
+            </li>
+            <li className={styles.listItem} onClick={this.deleteDesign}>
+              <FiTrash2 className={styles.icon} />
+              <span className="ml-8">Permanently delete</span>
+            </li>
+          </ul>
+        </div>
+      );
+    }
     return (
       <div className={`${styles.dropdownCard} ${animate ? styles.animate : ''}`}>
         <ul className={styles.dropDown}>
@@ -115,7 +149,7 @@ class IndexItemDropdown extends React.Component {
               <span className="ml-8">Get shareable link</span>
             </li>
           </Link>
-          <li className={styles.listItem} onClick={this.toggleCustom}>
+          <li className={styles.listItem} onClick={this.toggleTrash}>
             <FiTrash2 className={styles.icon} />
             <span className="ml-8">Move to Trash</span>
           </li>

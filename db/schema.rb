@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_06_232911) do
+ActiveRecord::Schema.define(version: 2020_05_08_095438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2020_05_06_232911) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "folder_id"
+    t.boolean "trash", default: false
     t.index ["creator_id"], name: "index_designs_on_creator_id"
     t.index ["folder_id"], name: "index_designs_on_folder_id"
     t.index ["user_id"], name: "index_designs_on_user_id"

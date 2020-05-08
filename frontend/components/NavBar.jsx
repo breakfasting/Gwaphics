@@ -8,7 +8,7 @@ const NavBar = ({ mode }) => (
   <div className={mode === 'splash' ? 'container' : 'container-wide border-bottom'}>
     <div className={styles.navBar}>
       <div className={styles.logo}>
-        <img src="assets/gwaphics-logo.svg" alt="logo" />
+        <img src={window.logo} alt="logo" />
       </div>
       <ul className={styles.nav}>
         <li>Home</li>

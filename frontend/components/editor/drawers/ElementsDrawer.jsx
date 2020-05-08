@@ -3,17 +3,6 @@ import DrawerSearch from './DrawerSearch';
 import styles from './ElementsDrawer.module.css';
 import scrollbar from './scrollbar.module.css';
 
-const mockupResponse = [ // need default width height and desc to search
-  { id: 1, shape: 'circle', url: './assets/shapes/circle.svg#svg' },
-  { id: 2, shape: 'rectangle', url: './assets/shapes/rectangle.svg#svg' },
-  { id: 3, shape: 'triangle', url: './assets/shapes/triangle.svg#svg' },
-  { id: 4, shape: 'hexagon', url: './assets/shapes/hexagon.svg#svg' },
-  { id: 5, shape: 'pentagon', url: './assets/shapes/pentagon.svg#svg' },
-  { id: 6, shape: 'rounded-square', url: './assets/shapes/rounded-square.svg#svg' },
-  { id: 7, shape: 'heart', url: './assets/shapes/heart.svg#svg' },
-  { id: 8, shape: 'star', url: './assets/shapes/star.svg#svg' },
-  { id: 9, shape: 'right-triangle', url: './assets/shapes/right-triangle.svg#svg' },
-];
 
 class ElementsDrawer extends React.Component {
   constructor(props) {
@@ -38,6 +27,17 @@ class ElementsDrawer extends React.Component {
   }
 
   render() {
+    const mockupResponse = [ // need default width height and desc to search
+      { id: 1, shape: 'circle', url: `${window.circle}` },
+      { id: 2, shape: 'rectangle', url: window.rectangle },
+      { id: 3, shape: 'triangle', url: window.triangle },
+      { id: 4, shape: 'hexagon', url: window.hexagon },
+      { id: 5, shape: 'pentagon', url: window.pentagon },
+      { id: 6, shape: 'rounded-square', url: window.roundedSquare },
+      { id: 7, shape: 'heart', url: window.heart },
+      { id: 8, shape: 'star', url: window.star },
+      { id: 9, shape: 'right-triangle', url: window.rightTriangle },
+    ];
     return (
       <div className={scrollbar.customScroll}>
         <div className={styles.elementsDrawer}>

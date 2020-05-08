@@ -12,7 +12,7 @@ const MainAuth = () => (
       <AuthRoute path="/" component={SignupAuthFormContainer} />
     </Switch>
     <div className={styles.splash}>
-      <img src="./assets/gwaphics-splash.svg" alt="" />
+      <img src={window.splash} alt="" />
     </div>
   </div>
 );

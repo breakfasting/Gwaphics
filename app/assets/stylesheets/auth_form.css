@@ -26,7 +26,7 @@
 }
 
 .auth-form a {
-  color: #00c4cc;
+  color: #dc85ff;
   text-decoration: underline;
 }
 
@@ -60,7 +60,7 @@
 }
 
 .auth-form input:focus {
-  border: 1px solid rgb(0, 201, 208);
+  border: 1px solid #dc85ff;
 }
 
 .return-login {

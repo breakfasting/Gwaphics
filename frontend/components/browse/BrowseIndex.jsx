@@ -4,6 +4,7 @@ import {
 } from 'react-icons/fi';
 import { Link, Route, Switch } from 'react-router-dom';
 import AllDesignsContainer from './all_designs_container';
+import AllFoldersContainer from './folder/all_folders_container';
 import styles from './BrowseIndex.module.css';
 
 const BrowseIndex = ({ location }) => (
@@ -71,6 +72,7 @@ const BrowseIndex = ({ location }) => (
     <div className={styles.main}>
       <Switch>
         <Route path="/folder/all-designs" component={AllDesignsContainer} />
+        <Route path="/folder" component={AllFoldersContainer} />
       </Switch>
     </div>
   </div>

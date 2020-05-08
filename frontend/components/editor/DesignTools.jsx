@@ -105,7 +105,7 @@ class DesignTools extends React.Component {
             <span>Order:</span>
             <input type="text" className="input-attr" size={selected.zIndex.toString().length + 1} value={selected.zIndex} onChange={this.changeValue('zIndex')} />
             <button type="button" className="btn-color" onClick={this.deleteElement}>Delete</button>
-            <button type="submit" className="btn-color">Submit</button>
+            {/* <button type="submit" className="btn-color">Submit</button> */}
           </div>
         </form>
       </div>

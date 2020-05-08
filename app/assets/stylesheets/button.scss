@@ -6,8 +6,8 @@ $light-grey: #dcdcdc;
 $lighter-grey: #eeeeee;
 $white: #ffffff;
 
-$blue: #00c9d0;
-$light-blue: #00dde5;
+$blue: #dc85ff;
+$light-blue: #ffd22e;
 
 
 button {
@@ -132,6 +132,8 @@ button svg{
 
 .btn-index {
   font-weight: 400;
+  width: 100%;
+  justify-content: flex-start;
 }
 
 .btn-index:hover {
@@ -151,4 +153,9 @@ button svg{
 .btn-item:hover {
   background-color: $blue;
   border-color: transparent;
+}
+
+.btn-folder {
+  height: 100%;
+  padding: 8px;
 }

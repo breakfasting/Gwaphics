@@ -5,7 +5,7 @@ import NavBar from './NavBar';
 import SignupAuthFormContainer from './auth/SignupAuthFormContainer';
 import LoginAuthFormContainer from './auth/LoginAuthFormContainer';
 import MainAuth from './auth/MainAuth';
-import BrowseIndex from './browse/BrowseIndex';
+import BrowseIndexContainer from './browse/browse_index_container';
 import styles from './Browse.module.css';
 
 const Browse = ({ mode }) => {
@@ -15,7 +15,7 @@ const Browse = ({ mode }) => {
       <div className={mode === 'splash' ? 'container' : 'container-wide'}>
         <AuthRoute path="/" component={MainAuth} />
       </div>
-      <ProtectedRoute path="/" component={BrowseIndex} />
+      <ProtectedRoute path="/" component={BrowseIndexContainer} />
     </div>
   );
 };

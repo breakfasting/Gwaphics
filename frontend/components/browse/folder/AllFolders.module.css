@@ -23,9 +23,14 @@
   display: flex;
   align-items: center;
   justify-content: stretch;
+  position: relative;
 }
 
-.listItem > * {
+.listItem:hover button {
+  opacity: 1;
+}
+
+.listItem > a {
   height: 100%;
   flex-grow: 1;
 }
@@ -57,8 +62,6 @@
 
 .boxWrap {
   position: relative;
-  filter: blur(0px);
-  -webkit-filter: blur(0px);
 }
 
 .blur {

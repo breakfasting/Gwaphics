@@ -4,8 +4,9 @@ import styles from './CreateFolder.module.css';
 class CreateFolder extends React.Component {
   constructor(props) {
     super(props);
+    const { folder } = this.props;
     this.state = {
-      animate: false, name: '',
+      animate: false, name: folder.name,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -21,8 +22,8 @@ class CreateFolder extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const { name } = this.state;
-    const { createFolder, toggleCreate } = this.props;
-    createFolder({ name }).then(toggleCreate);
+    const { action, toggleModal, folder } = this.props;
+    action({ id: folder.id, name }).then(toggleModal);
   }
 
   handleChange(form) {
@@ -33,12 +34,13 @@ class CreateFolder extends React.Component {
 
   render() {
     const { animate, name } = this.state;
+    const { formType } = this.props;
     return (
       <div className={`${styles.dropdownCard} ${animate ? styles.animate : ''}`}>
         <ul className={styles.createDropDown}>
           <form className={styles.customForm}>
             <li className={styles.title}>
-              <h2>Create new folder</h2>
+              <h2>{formType}</h2>
             </li>
             <li className={styles.custom}>
               <input
@@ -51,7 +53,7 @@ class CreateFolder extends React.Component {
             </li>
             <li className={styles.submit}>
               <button type="submit" className="btn-blue" onClick={this.handleSubmit}>
-                Create Folder
+                {formType}
               </button>
             </li>
           </form>

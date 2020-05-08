@@ -1,16 +1,17 @@
 import React from 'react';
 import {
-  FiGrid, FiUploadCloud, FiTrash2, FiHeart, FiStar, FiFolderPlus,
+  FiGrid, FiUploadCloud, FiTrash2, FiHeart, FiStar, FiFolderPlus, FiMoreHorizontal,
 } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import CreateFolderContainer from './create_folder_container';
+import EditFolderContainer from './edit_folder_container';
 import styles from './AllFolders.module.css';
 
 class AllFolders extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { create: false };
-    this.toggleCreate = this.toggleCreate.bind(this);
+    this.state = { create: null };
+    this.toggleModal = this.toggleModal.bind(this);
     this.setWrapperRef = this.setWrapperRef.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
   }
@@ -29,15 +30,19 @@ class AllFolders extends React.Component {
     this.wrapperRef = node;
   }
 
-  toggleCreate() {
+  toggleModal(what) {
     const { create } = this.state;
-    this.setState({ create: !create });
+    if (create === null) {
+      this.setState({ create: what });
+    } else {
+      this.setState({ create: null });
+    }
   }
 
   handleClickOutside(event) {
     if (this.wrapperRef
       && !this.wrapperRef.contains(event.target)) {
-      this.setState({ create: false });
+      this.setState({ create: null });
     }
   }
 
@@ -89,6 +94,9 @@ class AllFolders extends React.Component {
                     <span className="ml-16">{folder.name}</span>
                   </button>
                 </Link>
+                <button type="button" className="btn-item btn-absolute" onClick={() => this.toggleModal(folder)}>
+                  <FiMoreHorizontal />
+                </button>
               </li>
             ))}
             <li className={styles.listItem}>
@@ -102,7 +110,7 @@ class AllFolders extends React.Component {
               </Link>
             </li>
             <li className={styles.listItem}>
-              <button type="button" className="btn-index btn-folder" onClick={this.toggleCreate}>
+              <button type="button" className="btn-index btn-folder" onClick={() => this.toggleModal('create')}>
                 <div className={`${styles.iconWrap} ${styles.create}`}>
                   <FiFolderPlus />
                 </div>
@@ -115,7 +123,9 @@ class AllFolders extends React.Component {
           ? (
             <div className={styles.modalWrap}>
               <div className={styles.boxWrap} ref={this.setWrapperRef}>
-                <CreateFolderContainer toggleCreate={this.toggleCreate} />
+                {create === 'create'
+                  ? <CreateFolderContainer toggleModal={this.toggleModal} />
+                  : <EditFolderContainer toggleModal={this.toggleModal} folder={create} />}
               </div>
             </div>
           ) : ''}

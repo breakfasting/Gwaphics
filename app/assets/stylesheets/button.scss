@@ -159,3 +159,10 @@ button svg{
   height: 100%;
   padding: 8px;
 }
+
+.btn-absolute {
+  opacity: 0;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}

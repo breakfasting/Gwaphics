@@ -19,7 +19,7 @@ class Api::FoldersController < ApplicationController
 
   def create
     @folder = Folder.new(folder_params)
-    @folder.id = current_user.id
+    @folder.owner_id = current_user.id
 
     if @folder.save
       render :show

@@ -1,5 +1,4 @@
 .dropdownCard {
-  position: absolute;
   z-index: 1;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
@@ -13,31 +12,16 @@
   font-size: 1.4rem;
 }
 
-.title {
-  display: flex;
-  align-items: center;
-  min-height: 40px;
-  padding: 0 16px;
-}
-
-.title input {
-  font-size: 2.4rem;
-  font-weight: 800;
-  padding-bottom: 4px;
-  border-bottom: 2px dotted transparent;
-  width: 100%;
-}
-
-.title input:focus {
-  border-bottom: 2px dotted #5a5a5a;
-}
-
-.dropDown {
+.createDropDown {
   width: 320px;
 }
 
 .customForm {
   margin: 8px 0;
+}
+
+.title {
+  padding: 0 16px;
 }
 
 .custom {
@@ -54,12 +38,12 @@
   box-sizing: border-box;
   padding-left: 10px;
   font-size: 1.4rem;
-  margin-right: 8px;
-  width: 150px;
+  width: 100%;
+  margin-top: 12px;
 }
 
 .custom input:focus {
-  border: 1px solid rgb(0, 201, 208);
+  border: 1px solid #dc85ff;
 }
 
 .errorInput {
@@ -114,7 +98,11 @@
   padding: 0 16px;
   color: #303030;
   cursor: pointer;
-  pointer-events: all;
+}
+
+.hr {
+  border: 0;
+  border-top: 1px solid rgb(222,222,222);
 }
 
 .listItem svg {
@@ -136,13 +124,4 @@
 
 .animate {
   opacity: 1;
-}
-
-.hr {
-  border: 0;
-  border-top: 1px solid rgb(222,222,222);
-}
-
-.dropDown a {
-  text-decoration: none;
 }

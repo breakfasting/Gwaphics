@@ -1,33 +1,29 @@
 import React from 'react';
-import { FiPlus } from 'react-icons/fi';
-import {
-  FaRegFileImage, FaFacebookSquare, FaInstagram, FaRegAddressCard, FaRegBuilding,
-} from 'react-icons/fa';
-import { MdPresentToAll } from 'react-icons/md';
+import { FiPlus, FiInstagram, FiFacebook, FiAirplay, FiCreditCard, FiImage, FiSmile } from 'react-icons/fi';
 import dropdownStyles from './UserDropDown.module.css';
 import styles from './CreateDropDown.module.css';
 
 const mockupResponse = [
   {
-    id: 1, name: 'Poster', description: '18 x 24 in', width: 1728, height: 2304, icon: <FaRegFileImage />,
+    id: 1, name: 'Poster', description: '18 x 24 in', width: 1728, height: 2304, icon: <FiImage />,
   },
   {
-    id: 2, name: 'Facebook Post', description: '940 x 788 px', width: 940, height: 788, icon: <FaFacebookSquare />,
+    id: 2, name: 'Facebook Post', description: '940 x 788 px', width: 940, height: 788, icon: <FiFacebook />,
   },
   {
-    id: 3, name: 'Facebook Cover', description: '820 x 312 px', width: 820, height: 312, icon: <FaFacebookSquare />,
+    id: 3, name: 'Facebook Cover', description: '820 x 312 px', width: 820, height: 312, icon: <FiFacebook />,
   },
   {
-    id: 4, name: 'Presentation', description: '1920 x 1080 px', width: 1920, height: 1080, icon: <MdPresentToAll />,
+    id: 4, name: 'Presentation', description: '1920 x 1080 px', width: 1920, height: 1080, icon: <FiAirplay />,
   },
   {
-    id: 5, name: 'Instagram Post', description: '1080 x 1080 px', width: 1080, height: 1080, icon: <FaInstagram />,
+    id: 5, name: 'Instagram Post', description: '1080 x 1080 px', width: 1080, height: 1080, icon: <FiInstagram />,
   },
   {
-    id: 6, name: 'Business Card', description: '3.5 x 2 in', width: 336, height: 192, icon: <FaRegAddressCard />,
+    id: 6, name: 'Business Card', description: '3.5 x 2 in', width: 336, height: 192, icon: <FiCreditCard />,
   },
   {
-    id: 7, name: 'Logo', description: '500 x 500 px', width: 500, height: 500, icon: <FaRegBuilding />,
+    id: 7, name: 'Logo', description: '500 x 500 px', width: 500, height: 500, icon: <FiSmile />,
   },
 ];
 

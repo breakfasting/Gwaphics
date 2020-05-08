@@ -7,5 +7,6 @@ class Folder < ApplicationRecord
 
   has_many :designs,
     foreign_key: :folder_id,
-    class_name: :Design
+    class_name: :Design,
+    dependent: :nullify
 end

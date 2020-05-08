@@ -5,7 +5,7 @@ import {
 } from 'react-icons/fi';
 import styles from './IndexItemDropdown.module.css';
 
-class CreateDropDown extends React.Component {
+class IndexItemDropdown extends React.Component {
   constructor(props) {
     super(props);
     const { design } = this.props;
@@ -125,4 +125,4 @@ class CreateDropDown extends React.Component {
   }
 }
 
-export default CreateDropDown;
+export default IndexItemDropdown;

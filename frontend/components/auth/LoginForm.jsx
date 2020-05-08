@@ -40,7 +40,6 @@ class LoginForm extends React.Component {
   render() {
     const { errors, demoLogin } = this.props;
     const { animate } = this.state;
-    // debugger
     return (
       <form className={animate ? 'animated auth-form' : 'auth-form'} onSubmit={this.handleSubmit}>
         <div className="return-login">

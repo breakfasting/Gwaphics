@@ -21,7 +21,6 @@ const elementsOnDesign = (state, designId, copy = false) => {
     }
     return element;
   });
-  // debugger;
   return map.filter((el) => !!el);
 };
 

@@ -53,7 +53,6 @@ class Editor extends React.Component {
   }
 
   updateElement(idx, element) {
-    // debugger
     const { elements } = this.state;
     elements[idx] = element;
     this.setState({ elements });
@@ -84,7 +83,6 @@ class Editor extends React.Component {
       .then(() => {
         this.screenshot().then(
           (file) => {
-            // console.log(file);
             const formData = new FormData();
             formData.append('design[id]', design.id);
             formData.append('design[thumbnail]', file);
@@ -94,7 +92,7 @@ class Editor extends React.Component {
               data: formData,
               processData: false,
               contentType: false,
-            }).then(console.log, console.log);
+            });
           },
         );
       });

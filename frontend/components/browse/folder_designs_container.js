@@ -5,7 +5,6 @@ import { requestFolder } from '../../actions/folder_actions';
 const mapStateToProps = (state, ownProps) => {
   const designs = Object.values(state.entities.designs);
   const { folderId } = ownProps.match.params;
-  // debugger;
   return {
     folder: state.entities.folders[folderId],
     designs: designs.filter((design) => (

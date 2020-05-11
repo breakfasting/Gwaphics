@@ -20,20 +20,44 @@ Gwaphics, a [Canva](https://www.canva.com/) clone, is a online graphical design 
 Greeted by a splash page, users may sign-in or sign-up as a new member (using [BCrypt](https://rubygems.org/gems/bcrypt/) for password hashing), also with the choice of logging in as a demo user.
 
 ### Designs
+Designs are the main feature of the Gwaphics project. Aside from storing meta-data about the design itself, a design most importantly holds references to all the elements associated with it. While these kinds of one-to-many associations are usually handled with NoSQL databases with embedded sub-documents, Gwaphics utilizes rails' nested attributes and polymorphic associations to ensure a Relational database such as PostgreSQL could also achieve minimal backend API calls.
+
+```ruby
+class Design < ApplicationRecord
+  accepts_nested_attributes_for :elements, allow_destroy: true
+end
+```
+
+According to our [schema](https://github.com/breakfasting/Gwaphics/wiki/Schema), a `design` has_many `elements` which either has_many `shapes`, `text`, `images` or `stockphotos`, the tricky part for polymorphic associations to accept nested attributes, is to override the `accepts_nested_attributes_for` build method to take in `elementable_type` and find a declared constant with the specified name.
+
+```ruby
+class Element < ApplicationRecord
+  accepts_nested_attributes_for :elementable
+
+  def build_elementable(params)
+    self.elementable = elementable_type.constantize.new(params)
+  end
+end
+```
+
+Thus, our `designs_controller` only takes in one single `design` payload to populate/modify all corresponding tables. With the frontend state handling the temporary attributes of creating/editing a design, Gwaphics minimizes the API calls for either create, update, and delete actions with one single API call on user save.
 
 ![Drag and Drop demo](https://i.imgur.com/dUWZlW2.gif)
+
+The visual representation of borders indicating the selection of elements which may overlap with one another, is handled by simultaneously rendering a "controlled component" which is on a higher z-index.
 
 ```javascript
 <Draggable position={{ x: x - 2, y: y - 2 }}>
   <div
     className={styles.selected}
     style={{
-      width: Object.values(selected)[0].elementableAttributes.width * zoom,
-      height: Object.values(selected)[0].elementableAttributes.height * zoom,
+      width: selected.elementableAttributes.width * zoom,
+      height: selected.elementableAttributes.height * zoom,
     }}
   />
 </Draggable>
 ```
+The above `Draggable` component is completely controlled by the local React state's position `x` and `y`, with minor offsets making space for the highlighting border to render. Which each time a user selects an element below, the `onControlledDrag` handler syncs the position of the element with the selection border.
 
 ```javascript
 elements.map((element, index) => {
@@ -52,8 +76,6 @@ elements.map((element, index) => {
   );
 })
 ```
-
-### Folders
 
 ## Future Updates
 * Color Picker for changing elements' colors

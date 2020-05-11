@@ -1,24 +1,17 @@
-# README
+# Gwaphics
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Gwaphics Live Demo](https://gwaphics.herokuapp.com/)
 
-Things you may want to cover:
+Gwaphics, a [Canva](https://www.canva.com/) clone, is a online graphical design tool for creating designs effortlessly. Users have a variety of public design templates to choose from, or else start with a blank canvas. Creating shapes, text, and image elements on the page while using intuitive drag & drop features. 
 
-* Ruby version
+![Editor Screenshot](https://i.imgur.com/ezwZkrE.png)
 
-* System dependencies
+## Technologies
+* Frontend: React/Redux/Webpack(css-loader)
+* Backend: Ruby on Rails/ExpressJS/PostgreSQL
+* Storage: AWS S3
+* Hosting: Heroku
+* [React-Draggable](https://www.npmjs.com/package/react-draggable)
+* [React-icons](https://react-icons.github.io/react-icons/)
+* [Puppeteer](https://pptr.dev/)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

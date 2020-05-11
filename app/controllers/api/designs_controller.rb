@@ -17,7 +17,7 @@ class Api::DesignsController < ApplicationController
   end
 
   def templates
-    @designs = Design.where(public: true)
+    @designs = Design.where(public: true).limit(10).order("updated_at desc")
 
     render :index
   end

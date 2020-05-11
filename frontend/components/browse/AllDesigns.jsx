@@ -14,13 +14,19 @@ class AllDesigns extends React.Component {
     return (
       <div className={styles.indexArea}>
         <h1 className={styles.indexTitle}>{folder.name}</h1>
-        <div className={styles.masonry}>
-          {designs.map((design) => (
-            <div key={design.id} className={styles.masonItem}>
-              <DesignIndexItem design={design} />
-            </div>
-          ))}
-        </div>
+        {designs.length === 0 ? (
+          <div className="grey">
+            <h2>This folder is empty.</h2>
+          </div>
+        ) : (
+          <div className={styles.masonry}>
+            {designs.map((design) => (
+              <div key={design.id} className={styles.masonItem}>
+                <DesignIndexItem design={design} />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     );
   }

@@ -94,7 +94,34 @@ class IndexItemDropdown extends React.Component {
 
   render() {
     const { animate, title, move } = this.state;
-    const { design, folders } = this.props;
+    const { design, folders, currentUser } = this.props;
+    if (design.userId !== currentUser.id) {
+      return (
+        <div className={`${styles.dropdownCard} ${animate ? styles.animate : ''}`}>
+          <ul className={styles.dropDown}>
+            <li className={styles.title}>
+              <h2>{design.title}</h2>
+            </li>
+            <li>
+              <hr className={styles.hr} />
+            </li>
+            <a href={design.thumbnail} download>
+              <li className={styles.listItem}>
+                <FiDownload className={styles.icon} />
+                <span className="ml-8">Download</span>
+                <small className={styles.hidden}>Full size PNG</small>
+              </li>
+            </a>
+            <Link to={`/view/${design.id}`}>
+              <li className={styles.listItem}>
+                <FiLink className={styles.icon} />
+                <span className="ml-8">Get shareable link</span>
+              </li>
+            </Link>
+          </ul>
+        </div>
+      );
+    }
     if (move) {
       return (
         <div className={`${styles.dropdownCard} ${animate ? styles.animate : ''}`}>

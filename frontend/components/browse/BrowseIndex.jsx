@@ -7,6 +7,9 @@ import AllDesignsContainer from './all_designs_container';
 import AllFoldersContainer from './folder/all_folders_container';
 import DeletedDesignsContainer from './deleted_designs_container';
 import FolderDesignsContainer from './folder_designs_container';
+import LikedDesignsContainer from './liked_designs_container';
+import UploadsContainer from './uploads_container';
+import PublicDesignsContainer from './public_designs_container';
 import styles from './BrowseIndex.module.css';
 
 class BrowseIndex extends React.Component {
@@ -83,8 +86,11 @@ class BrowseIndex extends React.Component {
         </div>
         <div className={styles.main}>
           <Switch>
+            <Route exact path="/" component={PublicDesignsContainer} />
             <Route path="/folder/all-designs" component={AllDesignsContainer} />
             <Route path="/folder/trash" component={DeletedDesignsContainer} />
+            <Route path="/folder/likes" component={LikedDesignsContainer} />
+            <Route path="/folder/uploads" component={UploadsContainer} />
             <Route path="/folder/:folderId" component={FolderDesignsContainer} />
             <Route path="/folder" component={AllFoldersContainer} />
           </Switch>

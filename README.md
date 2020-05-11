@@ -46,7 +46,7 @@ Thus, our `designs_controller` only takes in one single `design` payload to popu
 
 The visual representation of borders indicating the selection of elements which may overlap with one another, is handled by simultaneously rendering a "controlled component" which is on a higher z-index.
 
-```javascript
+```JSX
 <Draggable position={{ x: x - 2, y: y - 2 }}>
   <div
     className={styles.selected}
@@ -59,7 +59,7 @@ The visual representation of borders indicating the selection of elements which 
 ```
 The above `Draggable` component is completely controlled by the local React state's position `x` and `y`, with minor offsets making space for the highlighting border to render. Which each time a user selects an element below, the `onControlledDrag` handler syncs the position of the element with the selection border.
 
-```javascript
+```JSX
 elements.map((element, index) => {
   if (element._destroy) return null;
   return (
@@ -75,6 +75,23 @@ elements.map((element, index) => {
     </Draggable>
   );
 })
+```
+
+### Thumbnails
+
+![Thumbnails of designs](https://i.imgur.com/bldIB92.png)
+
+Thumbnails are generated to ensure the efficiency of loading multiple designs on a page. Gwaphics runs "Puppeteer" as an external ExpressJS API, a headless chromium browser that navigates to the sharable link of each design on user save, which then captures the page with the given width and height. The screenshot response is sent back as a base64 string, processed to be a javascript File type, and then uploaded to AWS S3 via Active Storage.
+
+```javascript
+export const createThumbnail = ({ id, width, height }) => (
+  fetch(`https://gwaphics-pup.herokuapp.com/screenshot?id=${id}&width=${width}&height=${height}`)
+    .then((res) => res.blob())
+    .then((blob) => {
+      const file = new File([blob], 'File name', { type: 'image/png' });
+      return file;
+    })
+);
 ```
 
 ## Future Updates

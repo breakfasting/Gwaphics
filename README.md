@@ -79,9 +79,9 @@ elements.map((element, index) => {
 
 ### Thumbnails
 
-![Thumbnails of designs](https://i.imgur.com/bldIB92.png)
+![Thumbnails of designs](https://i.imgur.com/q2ZpnpI.png)
 
-Thumbnails are generated to ensure the efficiency of loading multiple designs on a page. Gwaphics runs "Puppeteer" as an external ExpressJS API, a headless chromium browser that navigates to the sharable link of each design on user save, which then captures the page with the given width and height. The screenshot response is sent back as a base64 string, processed to be a javascript File type, and then uploaded to AWS S3 via Active Storage.
+Thumbnails are generated to ensure the efficiency of loading multiple designs on a page. Gwaphics runs "Puppeteer" as an external ExpressJS API, a headless chromium browser that navigates to the sharable link of each design on user save, which then captures the page with the given width and height. The screenshot response is sent back as a base64 string, processed to be a JavaScript File type, and then uploaded to AWS S3 via Active Storage.
 
 ```javascript
 export const createThumbnail = ({ id, width, height }) => (

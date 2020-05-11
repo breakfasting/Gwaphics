@@ -48,7 +48,7 @@ class LoginForm extends React.Component {
           </Link>
           <h2>Log in to your account</h2>
         </div>
-        <button type="button" className="google btn-outline">
+        <button type="button" className="google btn-outline" disabled>
           {googleIcon}
           <span>Log in with Google</span>
         </button>

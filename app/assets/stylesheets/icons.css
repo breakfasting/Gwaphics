@@ -1,6 +1,9 @@
 .google {
   display: flex;
   align-items: center;
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 .google span {

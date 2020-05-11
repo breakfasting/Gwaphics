@@ -14,7 +14,7 @@ const ExternalSignup = ({ changeView, demoLogin, animate }) => (
       Create a account, it&apos;s free.
       Gwaphics is loved by beginners and experts, teams and individuals.
     </p>
-    <button type="button" className="google btn-outline">
+    <button type="button" className="google btn-outline" disabled>
       {googleIcon}
       <span>Sign up with Google</span>
     </button>

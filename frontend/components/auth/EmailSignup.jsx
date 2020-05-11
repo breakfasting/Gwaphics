@@ -26,7 +26,7 @@ const EmailSignup = ({
       Get started, it&apos;s free!
     </button>
     <small>
-      By signing up, you agree to Canva&apos;s&nbsp;
+      By signing up, you agree to Gwaphics&apos;&nbsp;
       <u>Terms of Use</u>
       &nbsp;and&nbsp;
       <u>Privacy Policy</u>

@@ -7,7 +7,7 @@ const EditorNav = ({ updateDesign, loading }) => (
   <div className={styles.editorNav}>
     <nav className={styles.leftNav}>
       <Link to="/" className={loading ? 'disabled' : ''}>
-        <button type="button" className="btn-icon" disabled={loading}>
+        <button type="button" className="btn-icon btn-editor" disabled={loading}>
           <FiChevronLeft />
           Home
         </button>

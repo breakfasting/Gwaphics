@@ -3,6 +3,7 @@ import { FiChevronLeft } from 'react-icons/fi';
 import ToolsNav from './ToolsNav';
 import ElementsDrawer from './drawers/ElementsDrawer';
 import TextDrawer from './drawers/TextDrawer';
+import EmptyDrawer from './drawers/EmptyDrawer';
 import styles from './DesignDrawer.module.css';
 
 class DesignDrawer extends React.Component {
@@ -30,14 +31,14 @@ class DesignDrawer extends React.Component {
     const { addElement } = this.props;
     const { drawer, closed, animate } = this.state;
     const drawers = [
-      <ElementsDrawer />,
-      <ElementsDrawer />,
+      <EmptyDrawer />,
+      <EmptyDrawer />,
       <ElementsDrawer addElement={addElement} />,
       <TextDrawer addElement={addElement} />,
-      <ElementsDrawer />,
-      <ElementsDrawer />,
-      <ElementsDrawer />,
-      <ElementsDrawer />,
+      <EmptyDrawer />,
+      <EmptyDrawer />,
+      <EmptyDrawer />,
+      <EmptyDrawer />,
     ];
     return (
       <div className={styles.designDrawer}>

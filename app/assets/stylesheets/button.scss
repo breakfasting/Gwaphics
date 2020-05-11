@@ -169,6 +169,12 @@ button svg{
 
 .btn-editor {
   min-width: 80px;
+  background-color: rgba(0,0,0,0.1);
+  color: white;
+}
+
+.btn-editor:hover {
+  background-color: rgba(0,0,0,0.2);
 }
 
 .spin {
@@ -188,4 +194,8 @@ button svg{
 
 .disabled {
   pointer-events: none;
+}
+
+.disabled button {
+  color: #ccc;
 }

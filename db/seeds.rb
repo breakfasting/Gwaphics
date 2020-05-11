@@ -24,7 +24,7 @@ element1 = Element.create(design_id: design1.id, elementable_id: shape1.id, elem
 text1 = Text.create(font_family: 'Open Sans', font_size: 48, font_weight: 900, text: 'HAHAHAHA', color: '#000000' )
 element2 = Element.create(design_id: design1.id, elementable_id: text1.id, elementable_type: 'Text', pos_x: 350, pos_y: 350, z_index: 1 )
 
-design2 = Design.create(user_id: wayne.id, creator_id: wayne.id, older_id: trash.id, title: "Facebook cover photo", description: "idea for Facebook stuff", public: false, width: 820, height: 312)
+design2 = Design.create(user_id: wayne.id, creator_id: wayne.id, folder_id: trash.id, title: "Facebook cover photo", description: "idea for Facebook stuff", public: false, width: 820, height: 312)
 shape2 = Shape.create(width: 500, height: 500, color: "#00FF00", shape: "circle")
 element3 = Element.create(design_id: design2.id, elementable_id: shape2.id, elementable_type: "Shape")
 

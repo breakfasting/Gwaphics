@@ -12,6 +12,7 @@ class Editor extends React.Component {
       elements: [], // key-value pair elementId and the current element, array index=z-index order
       zoom: 0.5,
       selected: {}, // kv pair or array index and element, with or without eleId
+      loading: false,
       // undoHistory: [], array of key-value pair of elementId and the element copy before
     };
     this.changeZoomFactor = this.changeZoomFactor.bind(this);
@@ -23,7 +24,6 @@ class Editor extends React.Component {
   }
 
   componentDidMount() {
-
     // only loads when refresh page, not changing routes
     const { requestDesign } = this.props;
     requestDesign().then(() => {
@@ -79,6 +79,7 @@ class Editor extends React.Component {
     const { updateDesign } = this.props;
     design.elementsAttributes = elements;
     delete design.thumbnail;
+    this.setState({ loading: true });
     updateDesign(design)
       .then(() => {
         this.screenshot().then(
@@ -92,7 +93,7 @@ class Editor extends React.Component {
               data: formData,
               processData: false,
               contentType: false,
-            });
+            }).then(() => this.setState({ loading: false }));
           },
         );
       });
@@ -100,12 +101,12 @@ class Editor extends React.Component {
 
   render() {
     const {
-      design, elements, zoom, selected,
+      design, elements, zoom, selected, loading,
     } = this.state;
     // return <Viewer design={design} elements={elements} zoom={zoom} />
     return (
       <div className={styles.editorContainer}>
-        <EditorNav updateDesign={this.updateDesign} />
+        <EditorNav updateDesign={this.updateDesign} loading={loading} />
         <div className={styles.editorBottomContainer}>
           <DesignDrawer addElement={this.addElement} />
           <WorkArea

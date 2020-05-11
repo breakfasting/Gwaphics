@@ -71,7 +71,7 @@ class LoginForm extends React.Component {
           Log in
         </button>
         <small>
-          New to Graphix?&nbsp;
+          New to Gwaphics?&nbsp;
           <Link to="/signup">Sign up</Link>
         </small>
       </form>

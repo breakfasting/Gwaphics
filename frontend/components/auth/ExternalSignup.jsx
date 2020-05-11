@@ -12,7 +12,7 @@ const ExternalSignup = ({ changeView, demoLogin, animate }) => (
     </h1>
     <p>
       Create a account, it&apos;s free.
-      Graphix is loved by beginners and experts, teams and individuals.
+      Gwaphics is loved by beginners and experts, teams and individuals.
     </p>
     <button type="button" className="google btn-outline">
       {googleIcon}

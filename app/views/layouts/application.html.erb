@@ -5,7 +5,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta property="og:title" content="Gwaphics" />
+    <meta property="og:image" content="<%= image_url('gwaphics-splash.svg') %>" />
+    <meta property="og:description" content="An online graphical design tool for creating and sharing designs effortlessly, inspired by Canva" />
+    <meta property="og:url" content="https://gwaphics.herokuapp.com/" />
+    
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">

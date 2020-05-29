@@ -46,6 +46,7 @@ textarea,
 button {
   -webkit-appearance: none;
   -moz-appearance: none;
+  background-color: transparent;
 }
 
 button,

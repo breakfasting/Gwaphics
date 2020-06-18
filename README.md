@@ -11,7 +11,6 @@ Gwaphics, a [Canva](https://www.canva.com/) clone, is a online graphical design 
 * Backend: Ruby on Rails/ExpressJS/PostgreSQL
 * Storage: AWS S3
 * Hosting: Heroku
-  * [React-Draggable](https://www.npmjs.com/package/react-draggable/)
   * [React-icons](https://react-icons.github.io/react-icons/)
   * [Puppeteer](https://pptr.dev/)
 
@@ -57,7 +56,7 @@ The visual representation of borders indicating the selection of elements which 
   />
 </Draggable>
 ```
-The above `Draggable` component is completely controlled by the local React state's position `x` and `y`, with minor offsets making space for the highlighting border to render. Which each time a user selects an element below, the `onControlledDrag` handler syncs the position of the element with the selection border.
+The above `Draggable` higher-order component is completely controlled by the local React state's position `x` and `y`, with minor offsets making space for the highlighting border to render. Which each time a user selects an element below, the `onControlledDrag` handler syncs the position of the element with the selection border.
 
 ```JSX
 elements.map((element, index) => {

@@ -51,15 +51,14 @@ class Editor extends React.Component {
     elements[id].posY = y / zoom;
     this.setState({ elements });
   }
-
-  // updateElement(idx, element) {
-  //   const { elements } = this.state;
-  //   elements[idx] = element;
+  // updateElementPos(id, x, y) {
+  //   const { elements, zoom } = this.state;
+  //   elements[id].posX = x / zoom;
+  //   elements[id].posY = y / zoom;
   //   this.setState({ elements });
   // }
 
   updateElement(idx, element) {
-    debugger
     const { receiveElement } = this.props;
     receiveElement(element);
   }
@@ -107,8 +106,9 @@ class Editor extends React.Component {
 
   render() {
     const {
-      design, elements, zoom, selected, loading,
+      design, zoom, selected, loading,
     } = this.state;
+    const { elements } = this.props;
     // return <Viewer design={design} elements={elements} zoom={zoom} />
     return (
       <div className={styles.editorContainer}>

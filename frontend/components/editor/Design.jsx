@@ -29,10 +29,13 @@ class Design extends React.Component {
     this.setState({ controlledPosition: { x, y } });
   }
 
-  onControlledDragStop(e, index, position) {
-    const { updateElementPos } = this.props;
+  onControlledDragStop(e, element, position) {
+    const { updateElementPos, updateElement, zoom } = this.props;
     const { x, y } = position;
-    updateElementPos(index, x, y);
+    // element.posX = x / zoom;
+    // element.posY = y / zoom;
+    // updateElementPos(index, x, y);
+    updateElement(null, { ...element, posX: x / zoom, posY: y / zoom });
   }
 
   updateSelected() {
@@ -77,7 +80,7 @@ class Design extends React.Component {
               <Draggable
                 key={element.id ? element.id : index}
                 onDrag={this.onControlledDrag}
-                onStop={(e, data) => this.onControlledDragStop(e, index, data)}
+                onStop={(e, data) => this.onControlledDragStop(e, element, data)}
                 position={{ x: element.posX * zoom, y: element.posY * zoom }}
               >
                 <div style={{ position: 'absolute', zIndex: element.zIndex }} onClick={() => setSelected(index)}>

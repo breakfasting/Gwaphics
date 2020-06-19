@@ -30,11 +30,8 @@ class Design extends React.Component {
   }
 
   onControlledDragStop(e, element, position) {
-    const { updateElementPos, updateElement, zoom } = this.props;
+    const { updateElement, zoom } = this.props;
     const { x, y } = position;
-    // element.posX = x / zoom;
-    // element.posY = y / zoom;
-    // updateElementPos(index, x, y);
     updateElement(null, { ...element, posX: x / zoom, posY: y / zoom });
   }
 

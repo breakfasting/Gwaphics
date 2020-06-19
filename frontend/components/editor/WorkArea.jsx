@@ -46,7 +46,6 @@ class WorkArea extends React.Component {
               selected={selected}
               zoom={zoom}
               updateElement={updateElement}
-              updateElementPos={updateElementPos}
               setSelected={setSelected}
             />
           </div>

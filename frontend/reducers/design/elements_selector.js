@@ -1,7 +1,7 @@
 const elementsOnDesign = (state, designId, copy = false) => {
   const design = state.entities.designs[designId];
   const map = design.elements.map((eleId) => {
-    const element = state.entities.elements[eleId];
+    const element = { ...state.entities.elements[eleId] };
     if (element) {
       switch (element.elementableType) {
         case 'Shape':

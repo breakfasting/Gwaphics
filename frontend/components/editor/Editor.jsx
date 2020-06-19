@@ -16,7 +16,6 @@ class Editor extends React.Component {
       // undoHistory: [], array of key-value pair of elementId and the element copy before
     };
     this.changeZoomFactor = this.changeZoomFactor.bind(this);
-    this.updateElementPos = this.updateElementPos.bind(this);
     this.updateDesign = this.updateDesign.bind(this);
     this.setSelected = this.setSelected.bind(this);
     this.updateElement = this.updateElement.bind(this);
@@ -33,7 +32,7 @@ class Editor extends React.Component {
   }
 
   setSelected(id) {
-    const { elements } = this.state;
+    const { elements } = this.props;
     if (id === null) {
       this.setState({ selected: {} });
     } else {
@@ -45,28 +44,19 @@ class Editor extends React.Component {
     this.setState({ zoom: fact });
   }
 
-  updateElementPos(id, x, y) {
-    const { elements, zoom } = this.state;
-    elements[id].posX = x / zoom;
-    elements[id].posY = y / zoom;
-    this.setState({ elements });
-  }
-  // updateElementPos(id, x, y) {
-  //   const { elements, zoom } = this.state;
-  //   elements[id].posX = x / zoom;
-  //   elements[id].posY = y / zoom;
-  //   this.setState({ elements });
-  // }
-
   updateElement(idx, element) {
     const { receiveElement } = this.props;
     receiveElement(element);
   }
 
+  // addElement(element) {
+  //   const { elements } = this.state;
+  //   elements.push(element);
+  //   this.setState({ elements, selected: { [elements.length - 1]: element } });
+  // }
   addElement(element) {
-    const { elements } = this.state;
-    elements.push(element);
-    this.setState({ elements, selected: { [elements.length - 1]: element } });
+    const { createElement, design } = this.props;
+    createElement(design.id, { ...element, id: 999 });
   }
 
   screenshot() {

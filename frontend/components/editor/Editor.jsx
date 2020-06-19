@@ -52,10 +52,16 @@ class Editor extends React.Component {
     this.setState({ elements });
   }
 
+  // updateElement(idx, element) {
+  //   const { elements } = this.state;
+  //   elements[idx] = element;
+  //   this.setState({ elements });
+  // }
+
   updateElement(idx, element) {
-    const { elements } = this.state;
-    elements[idx] = element;
-    this.setState({ elements });
+    debugger
+    const { receiveElement } = this.props;
+    receiveElement(element);
   }
 
   addElement(element) {
@@ -75,8 +81,8 @@ class Editor extends React.Component {
   }
 
   updateDesign() {
-    const { design, elements } = this.state;
-    const { updateDesign } = this.props;
+    const { design } = this.state;
+    const { updateDesign, elements } = this.props;
     design.elementsAttributes = elements;
     delete design.thumbnail;
     this.setState({ loading: true });

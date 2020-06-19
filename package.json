@@ -2,6 +2,7 @@
   "name": "Gwaphics",
   "private": true,
   "dependencies": {
+    "moveable": "^0.17.10",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-draggable": "^4.3.1",

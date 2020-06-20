@@ -7,7 +7,11 @@ json.elements do
     json.set! element.id do
       json.extract! element, :id, :elementable_id, :elementable_type, :pos_x, :pos_y, :z_index, :transparency
       json.elementableAttributes do
-        json.merge! element.elementable.attributes.except("created_at", "updated_at")
+        if element.elementable_type == 'Shape'
+          json.extract! element.elementable, :id, :shape, :width, :height, :color
+        elsif element.elementable_type == "Text"
+          json.extract! element.elementable, :id, :font_family, :font_size, :font_weight, :text, :color
+        end
       end
     end
   end

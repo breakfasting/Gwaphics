@@ -16,7 +16,6 @@ class Editor extends React.Component {
       // undoHistory: [], array of key-value pair of elementId and the element copy before
     };
     this.changeZoomFactor = this.changeZoomFactor.bind(this);
-    this.updateElementPos = this.updateElementPos.bind(this);
     this.updateDesign = this.updateDesign.bind(this);
     this.setSelected = this.setSelected.bind(this);
     this.updateElement = this.updateElement.bind(this);
@@ -33,7 +32,7 @@ class Editor extends React.Component {
   }
 
   setSelected(id) {
-    const { elements } = this.state;
+    const { elements } = this.props;
     if (id === null) {
       this.setState({ selected: {} });
     } else {
@@ -45,23 +44,19 @@ class Editor extends React.Component {
     this.setState({ zoom: fact });
   }
 
-  updateElementPos(id, x, y) {
-    const { elements, zoom } = this.state;
-    elements[id].posX = x / zoom;
-    elements[id].posY = y / zoom;
-    this.setState({ elements });
-  }
-
   updateElement(idx, element) {
-    const { elements } = this.state;
-    elements[idx] = element;
-    this.setState({ elements });
+    const { receiveElement } = this.props;
+    receiveElement(element);
   }
 
+  // addElement(element) {
+  //   const { elements } = this.state;
+  //   elements.push(element);
+  //   this.setState({ elements, selected: { [elements.length - 1]: element } });
+  // }
   addElement(element) {
-    const { elements } = this.state;
-    elements.push(element);
-    this.setState({ elements, selected: { [elements.length - 1]: element } });
+    const { createElement, design } = this.props;
+    createElement(design.id, { ...element, id: `temp-${Date.now()}` });
   }
 
   screenshot() {
@@ -75,8 +70,13 @@ class Editor extends React.Component {
   }
 
   updateDesign() {
-    const { design, elements } = this.state;
-    const { updateDesign } = this.props;
+    const { design } = this.state;
+    const { updateDesign, elements } = this.props;
+    elements.forEach((element) => {
+      if (typeof element.id === 'string') {
+        delete element.id;
+      }
+    })
     design.elementsAttributes = elements;
     delete design.thumbnail;
     this.setState({ loading: true });
@@ -101,8 +101,9 @@ class Editor extends React.Component {
 
   render() {
     const {
-      design, elements, zoom, selected, loading,
+      design, zoom, selected, loading,
     } = this.state;
+    const { elements } = this.props;
     // return <Viewer design={design} elements={elements} zoom={zoom} />
     return (
       <div className={styles.editorContainer}>

@@ -1,4 +1,5 @@
 import { RECEIVE_DESIGN, REMOVE_DESIGN } from '../../actions/design_actions';
+import { RECEIVE_ELEMENT, CREATE_ELEMENT } from '../../actions/element_actions';
 
 const elementsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -14,6 +15,10 @@ const elementsReducer = (state = {}, action) => {
         return nextState;
       }
       return state;
+    case RECEIVE_ELEMENT:
+      return { ...state, [action.element.id]: action.element };
+    case CREATE_ELEMENT:
+      return { ...state, [action.element.id]: action.element };
     default:
       return state;
   }

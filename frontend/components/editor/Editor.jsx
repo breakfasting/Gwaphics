@@ -56,7 +56,7 @@ class Editor extends React.Component {
   // }
   addElement(element) {
     const { createElement, design } = this.props;
-    createElement(design.id, { ...element, id: 999 });
+    createElement(design.id, { ...element, id: `temp-${Date.now()}` });
   }
 
   screenshot() {
@@ -72,6 +72,11 @@ class Editor extends React.Component {
   updateDesign() {
     const { design } = this.state;
     const { updateDesign, elements } = this.props;
+    elements.forEach((element) => {
+      if (typeof element.id === 'string') {
+        delete element.id;
+      }
+    })
     design.elementsAttributes = elements;
     delete design.thumbnail;
     this.setState({ loading: true });

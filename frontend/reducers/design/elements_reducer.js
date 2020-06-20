@@ -18,7 +18,6 @@ const elementsReducer = (state = {}, action) => {
     case RECEIVE_ELEMENT:
       return { ...state, [action.element.id]: action.element };
     case CREATE_ELEMENT:
-      debugger
       return { ...state, [action.element.id]: action.element };
     default:
       return state;

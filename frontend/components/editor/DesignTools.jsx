@@ -56,11 +56,13 @@ class DesignTools extends React.Component {
   }
 
   render() {
+    debugger
+    const { selection } = this.props;
     const { selected } = this.state;
     if (Object.keys(selected).length === 0) {
       return (
         <div className={styles.designTools}>
-          <span className={styles.nothingSelected}>Nothing selected</span>
+          <span className={styles.nothingSelected}>{selection}</span>
         </div>
       );
     }

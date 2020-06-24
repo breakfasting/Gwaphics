@@ -39,8 +39,10 @@ class Design extends React.Component {
 
   select(id) {
     const target = document.getElementById(id);
+    const { setSelection, elements } = this.props;
     this.setState({ target });
-    this.element = this.props.elements[id];
+    this.element = elements[id];
+    setSelection(this.element.id);
   }
 
   updateSelected() {

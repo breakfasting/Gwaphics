@@ -69,6 +69,7 @@ class Design extends React.Component {
           rotationPosition="top"
           throttleRotate={0}
           onDragStart={({ set }) => {
+            this.frame.rotate = target.style.transform ? parseFloat(target.style.transform.split('rotate(')[1].split('deg)')[0]) : 0;
             this.frame.translate = [
               parseInt(target.style.left, 10),
               parseInt(target.style.top, 10),
@@ -78,13 +79,21 @@ class Design extends React.Component {
           onDrag={({ beforeTranslate }) => {
             this.frame.translate = beforeTranslate;
           }}
+          onDragEnd={() => {
+            this.element.posX = this.frame.translate[0] / zoom;
+            this.element.posY = this.frame.translate[1] / zoom;
+            this.updateSelected();
+          }}
           onResizeStart={({ setOrigin, dragStart }) => {
             setOrigin(['%', '%']);
+            this.frame.rotate = target.style.transform ? parseFloat(target.style.transform.split('rotate(')[1].split('deg)')[0]) : 0;
             this.frame.translate = [
               parseInt(target.style.left, 10),
               parseInt(target.style.top, 10),
             ];
-            dragStart && dragStart.set(this.frame.translate);
+            if (dragStart) {
+              dragStart.set(this.frame.translate);
+            }
           }}
           onResize={({
             width, height, drag,
@@ -95,6 +104,8 @@ class Design extends React.Component {
             // console.log(this.element)
             this.element.elementableAttributes.width = width / zoom;
             this.element.elementableAttributes.height = height / zoom;
+          }}
+          onResizeEnd={() => {
             this.updateSelected();
           }}
           onRotateStart={({ set }) => {
@@ -107,6 +118,9 @@ class Design extends React.Component {
           }}
           onRotate={({ beforeRotate }) => {
             this.frame.rotate = beforeRotate;
+          }}
+          onRotateEnd={() => {
+            this.updateSelected();
           }}
           onRender={() => {
             target.style.left = `${this.frame.translate[0]}px`;
@@ -129,7 +143,6 @@ class Design extends React.Component {
                   // transform: `translate(${element.posX * zoom}px, ${element.posY * zoom}px)`,
                 }}
                 onClick={() => this.select(index)}
-                className={index === 0 ? 'target' : null}
               >
                 <Element element={element} zoom={zoom} />
               </div>

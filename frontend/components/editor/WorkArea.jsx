@@ -1,5 +1,6 @@
 import React from 'react';
 import Design from './Design';
+import DesignContainer from './design_container';
 import styles from './WorkArea.module.css';
 import DesignTools from './DesignTools';
 
@@ -7,29 +8,29 @@ import DesignTools from './DesignTools';
 class WorkArea extends React.Component {
   constructor(props) {
     super(props);
-    this.setWrapperRef = this.setWrapperRef.bind(this);
-    this.handleClickOutside = this.handleClickOutside.bind(this);
+    // this.setWrapperRef = this.setWrapperRef.bind(this);
+    // this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
-  componentDidMount() {
-    document.addEventListener('mousedown', this.handleClickOutside);
-  }
+  // componentDidMount() {
+  //   document.addEventListener('mousedown', this.handleClickOutside);
+  // }
 
-  componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClickOutside);
-  }
+  // componentWillUnmount() {
+  //   document.removeEventListener('mousedown', this.handleClickOutside);
+  // }
 
-  setWrapperRef(node) {
-    this.wrapperRef = node;
-  }
+  // setWrapperRef(node) {
+  //   this.wrapperRef = node;
+  // }
 
-  handleClickOutside(event) {
-    const { setSelected } = this.props;
-    if (this.wrapperRef && this.wrapperRef.contains(event.target)) {
-      console.log('here')
-      setSelected(null);
-    }
-  }
+  // handleClickOutside(event) {
+  //   const { setSelected } = this.props;
+  //   if (this.wrapperRef && this.wrapperRef.contains(event.target)) {
+  //     console.log('here')
+  //     setSelected(null);
+  //   }
+  // }
 
   render() {
     const {
@@ -39,11 +40,11 @@ class WorkArea extends React.Component {
     return (
       <div className={styles.workContainer}>
         <DesignTools selected={selected} updateElement={updateElement} setSelected={setSelected} />
-        <div className={styles.workArea} ref={this.setWrapperRef}>
+        <div className={styles.workArea}>
           <div className={styles.designContainer}>
-            <Design
-              elements={elements}
-              design={design}
+            <DesignContainer
+              // elements={elements}
+              // design={design}
               zoom={zoom}
               updateElement={updateElement}
               setSelected={setSelected}

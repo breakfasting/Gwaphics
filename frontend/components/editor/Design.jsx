@@ -120,6 +120,7 @@ class Design extends React.Component {
             this.frame.rotate = beforeRotate;
           }}
           onRotateEnd={() => {
+            this.element.rotate = this.frame.rotate;
             this.updateSelected();
           }}
           onRender={() => {
@@ -140,6 +141,7 @@ class Design extends React.Component {
                   zIndex: element.zIndex,
                   left: element.posX * zoom,
                   top: element.posY * zoom,
+                  transform: `rotate(${element.rotate}deg)`,
                   // transform: `translate(${element.posX * zoom}px, ${element.posY * zoom}px)`,
                 }}
                 onClick={() => this.select(index)}

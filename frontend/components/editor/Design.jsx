@@ -1,4 +1,5 @@
 import React from 'react';
+import Moveable from 'react-moveable';
 import Draggable from 'react-draggable';
 import Element from './elements/Element';
 import styles from './Design.module.css';
@@ -51,13 +52,17 @@ class Design extends React.Component {
     const {
       elements, design, zoom, setSelected, selected,
     } = this.props;
+    console.log(elements);
     const { controlledPosition: { x, y } } = this.state;
+    const frame = {
+      translate: [0, 0],
+    };
     return (
       <div
         className={styles.design}
         style={{ width: design.width * zoom, height: design.height * zoom }}
       >
-        {Object.keys(selected).length === 0 ? '' : (
+        {/* {Object.keys(selected).length === 0 ? '' : (
           <Draggable
             position={{ x: x - 2, y: y - 2 }}
           >
@@ -69,24 +74,56 @@ class Design extends React.Component {
               }}
             />
           </Draggable>
-        )}
+        )} */}
+
         <div className={styles.elementsContainer}>
           {elements.map((element, index) => {
             if (element._destroy) return null;
             return (
-              <Draggable
-                key={element.id ? element.id : index}
-                onDrag={this.onControlledDrag}
-                onStop={(e, data) => this.onControlledDragStop(e, element, data)}
-                position={{ x: element.posX * zoom, y: element.posY * zoom }}
+              <div
+                style={{
+                  position: 'absolute',
+                  zIndex: element.zIndex,
+                  // left: element.posX * zoom,
+                  // top: element.posY * zoom,
+                  transform: `translate(${element.posX * zoom}px, ${element.posY * zoom}px)`,
+                }}
+                // onClick={() => setSelected(index)}
+                className={index === 0 ? 'target' : null}
               >
-                <div style={{ position: 'absolute', zIndex: element.zIndex }} onClick={() => setSelected(index)}>
-                  <Element element={element} zoom={zoom} />
-                </div>
-              </Draggable>
+                <Element element={element} zoom={zoom} />
+              </div>
+            // <Draggable
+            //   key={element.id ? element.id : index}
+            //   onDrag={this.onControlledDrag}
+            //   onStop={(e, data) => this.onControlledDragStop(e, element, data)}
+            //   position={{ x: element.posX * zoom, y: element.posY * zoom }}
+            // >
+            //   <div style={{ position: 'absolute', zIndex: element.zIndex }} onClick={() => setSelected(index)}>
+            //     <Element element={element} zoom={zoom} />
+            //   </div>
+            // </Draggable>
             );
           })}
         </div>
+        <Moveable
+          target={document.querySelector('.target')}
+          draggable
+          throttleDrag={0}
+          onDragStart={({ set }) => {
+            set(frame.translate);
+          }}
+          onDrag={({ target, beforeTranslate }) => {
+            frame.translate = beforeTranslate;
+            target.style.transform = `translate(${beforeTranslate[0]}px, ${beforeTranslate[1]}px)`;
+          }}
+          onDragEnd={({
+            target, isDrag, clientX, clientY,
+          }) => {
+            console.log('what', target.style.transform);
+            console.log('onDragEnd', target, isDrag);
+          }}
+        />
       </div>
     );
   }

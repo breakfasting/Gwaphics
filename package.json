@@ -7,6 +7,7 @@
     "react-dom": "^16.13.1",
     "react-draggable": "^4.3.1",
     "react-icons": "^3.10.0",
+    "react-moveable": "^0.20.10",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.5",

@@ -61,7 +61,8 @@ class Editor extends React.Component {
 
   screenshot() {
     const { design: { id, width, height } } = this.state;
-    return fetch(`https://gwaphics-pup.herokuapp.com/screenshot?id=${id}&width=${width}&height=${height}`)
+    // return fetch(`https://gwaphics-pup.herokuapp.com/screenshot?id=${id}&width=${width}&height=${height}`)
+    return fetch(`http://localhost:5000/screenshot?id=${id}&width=${width}&height=${height}`)
       .then((res) => res.blob())
       .then((blob) => {
         const file = new File([blob], 'File name', { type: 'image/png' });

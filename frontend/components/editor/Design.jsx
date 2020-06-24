@@ -13,17 +13,20 @@ class Design extends React.Component {
     this.state = { controlledPosition: { x: 0, y: 0 } };
     this.onControlledDragStop = this.onControlledDragStop.bind(this);
     this.onControlledDrag = this.onControlledDrag.bind(this);
+    this.frame = {
+      translate: [0, 0],
+    };
   }
 
-  componentDidUpdate(prevProps) {
-    const { selected, zoom } = this.props;
-    if (Object.keys(prevProps.selected)[0]
-      !== Object.keys(selected)[0]
-      || zoom !== prevProps.zoom
-    ) {
-      this.updateSelected();
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   const { selected, zoom } = this.props;
+  //   if (Object.keys(prevProps.selected)[0]
+  //     !== Object.keys(selected)[0]
+  //     || zoom !== prevProps.zoom
+  //   ) {
+  //     this.updateSelected();
+  //   }
+  // }
 
   onControlledDrag(e, position) {
     const { x, y } = position;
@@ -50,13 +53,11 @@ class Design extends React.Component {
 
   render() {
     const {
-      elements, design, zoom, setSelected, selected,
+      elements, design, zoom, setSelected
     } = this.props;
-    console.log(elements);
+    console.log(this.frame.translate);
     const { controlledPosition: { x, y } } = this.state;
-    const frame = {
-      translate: [0, 0],
-    };
+
     return (
       <div
         className={styles.design}
@@ -111,10 +112,10 @@ class Design extends React.Component {
           draggable
           throttleDrag={0}
           onDragStart={({ set }) => {
-            set(frame.translate);
+            set(this.frame.translate);
           }}
           onDrag={({ target, beforeTranslate }) => {
-            frame.translate = beforeTranslate;
+            this.frame.translate = beforeTranslate;
             target.style.transform = `translate(${beforeTranslate[0]}px, ${beforeTranslate[1]}px)`;
           }}
           onDragEnd={({

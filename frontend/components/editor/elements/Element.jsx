@@ -13,7 +13,7 @@ const Element = ({ element, zoom }) => {
   return (
     <div
       className={`${styles.element} no-cursor`}
-      style={{ opacity: transparency }}
+      style={{ opacity: transparency, height: element.elementableAttributes.height * zoom }}
     >
       {React.createElement(
         components[element.elementableType],

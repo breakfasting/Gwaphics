@@ -19,12 +19,20 @@ class Design extends React.Component {
       translate: [0, 0],
       rotate: 0,
     };
+    this.myRef = React.createRef();
   }
 
   componentDidMount() {
     const target = document.querySelector('.target');
     this.setState({ target });
     this.element = this.props.elements[0];
+  }
+
+  componentDidUpdate(prevProps) {
+    const { zoom } = this.props;
+    if (zoom !== prevProps.zoom) {
+      this.myRef.current.updateRect();
+    }
   }
 
   // componentDidUpdate(prevProps) {
@@ -48,6 +56,12 @@ class Design extends React.Component {
   //   updateElement(null, { ...element, posX: x / zoom, posY: y / zoom });
   // }
 
+  select(id) {
+    const target = document.getElementById(id);
+    this.setState({ target });
+    this.element = this.props.elements[id];
+  }
+
   updateSelected() {
     // const { selected, zoom } = this.props;
 
@@ -67,10 +81,9 @@ class Design extends React.Component {
     const {
       elements, design, zoom, setSelected,
     } = this.props;
-    console.log('rendering');
     // const { controlledPosition: { x, y } } = this.state;
     const { target } = this.state;
-
+    console.log(this.frame)
     return (
       <div
         className={styles.design}
@@ -108,7 +121,7 @@ class Design extends React.Component {
           }}
         /> */}
         <Moveable
-          // ref={moveableRef}
+          ref={this.myRef}
           target={target}
           draggable
           throttleDrag={0}
@@ -117,7 +130,8 @@ class Design extends React.Component {
           rotatable
           rotationPosition="top"
           throttleRotate={0}
-          onDragStart={({ set }) => {
+          onDragStart={({ set, target }) => {
+            this.frame.translate = [parseInt(target.style.left, 10), parseInt(target.style.top, 10)];
             set(this.frame.translate);
           }}
           onDrag={({ beforeTranslate }) => {
@@ -125,6 +139,7 @@ class Design extends React.Component {
           }}
           onResizeStart={({ setOrigin, dragStart }) => {
             setOrigin(['%', '%']);
+            this.frame.translate = [parseInt(target.style.left, 10), parseInt(target.style.top, 10)];
             dragStart && dragStart.set(this.frame.translate);
           }}
           onResize={({
@@ -139,6 +154,7 @@ class Design extends React.Component {
             this.updateSelected();
           }}
           onRotateStart={({ set }) => {
+            this.frame.translate = [parseInt(target.style.left, 10), parseInt(target.style.top, 10)];
             set(this.frame.rotate);
           }}
           onRotate={({ beforeRotate }) => {
@@ -159,6 +175,8 @@ class Design extends React.Component {
             if (element._destroy) return null;
             return (
               <div
+                key={element.id}
+                id={index}
                 style={{
                   position: 'absolute',
                   zIndex: element.zIndex,
@@ -166,7 +184,7 @@ class Design extends React.Component {
                   top: element.posY * zoom,
                   // transform: `translate(${element.posX * zoom}px, ${element.posY * zoom}px)`,
                 }}
-                // onClick={() => setSelected(index)}
+                onClick={() => this.select(index)}
                 className={index === 0 ? 'target' : null}
               >
                 <Element element={element} zoom={zoom} />

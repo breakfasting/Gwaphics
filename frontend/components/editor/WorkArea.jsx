@@ -8,29 +8,30 @@ import DesignToolsContainer from './design_tools_container';
 class WorkArea extends React.Component {
   constructor(props) {
     super(props);
-    // this.setWrapperRef = this.setWrapperRef.bind(this);
-    // this.handleClickOutside = this.handleClickOutside.bind(this);
+    this.setWrapperRef = this.setWrapperRef.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
-  // componentDidMount() {
-  //   document.addEventListener('mousedown', this.handleClickOutside);
-  // }
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
 
-  // componentWillUnmount() {
-  //   document.removeEventListener('mousedown', this.handleClickOutside);
-  // }
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
 
-  // setWrapperRef(node) {
-  //   this.wrapperRef = node;
-  // }
+  setWrapperRef(node) {
+    this.wrapperRef = node;
+  }
 
-  // handleClickOutside(event) {
-  //   const { setSelected } = this.props;
-  //   if (this.wrapperRef && this.wrapperRef.contains(event.target)) {
-  //     console.log('here')
-  //     setSelected(null);
-  //   }
-  // }
+  handleClickOutside(event) {
+    const { setSelection } = this.props;
+    if (this.wrapperRef
+        && this.wrapperRef.contains(event.target)
+        && (event.target.id === 'noElement' || event.target.id === 'noElementGrey')) {
+      setSelection(null);
+    }
+  }
 
   render() {
     const {
@@ -40,14 +41,15 @@ class WorkArea extends React.Component {
     return (
       <div className={styles.workContainer}>
         <DesignToolsContainer selected={selected} updateElement={updateElement} setSelected={setSelected} selection={selection} />
-        <div className={styles.workArea}>
-          <div className={styles.designContainer}>
+        <div className={styles.workArea} ref={this.setWrapperRef}>
+          <div className={styles.designContainer} id="noElementGrey">
             <DesignContainer
               // elements={elements}
               // design={design}
               zoom={zoom}
               updateElement={updateElement}
               setSelection={setSelection}
+              selection={selection}
             />
           </div>
         </div>

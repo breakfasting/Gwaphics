@@ -25,9 +25,12 @@ class Design extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { zoom } = this.props;
+    const { zoom, selection } = this.props;
     if (zoom !== prevProps.zoom) {
       this.myRef.current.updateRect();
+    }
+    if (prevProps.selection && !selection) {
+      this.setState({ target: null });
     }
   }
 
@@ -81,10 +84,10 @@ class Design extends React.Component {
           onDrag={({ beforeTranslate }) => {
             this.frame.translate = beforeTranslate;
           }}
-          onDragEnd={() => {
+          onDragEnd={({ isDrag }) => {
             this.element.posX = this.frame.translate[0] / zoom;
             this.element.posY = this.frame.translate[1] / zoom;
-            this.updateSelected();
+            if (isDrag) this.updateSelected();
           }}
           onResizeStart={({ setOrigin, dragStart }) => {
             setOrigin(['%', '%']);
@@ -107,8 +110,8 @@ class Design extends React.Component {
             this.element.elementableAttributes.width = width / zoom;
             this.element.elementableAttributes.height = height / zoom;
           }}
-          onResizeEnd={() => {
-            this.updateSelected();
+          onResizeEnd={({ isDrag }) => {
+            if (isDrag) this.updateSelected();
           }}
           onRotateStart={({ set }) => {
             this.frame.translate = [
@@ -121,9 +124,9 @@ class Design extends React.Component {
           onRotate={({ beforeRotate }) => {
             this.frame.rotate = beforeRotate;
           }}
-          onRotateEnd={() => {
+          onRotateEnd={({ isDrag }) => {
             this.element.rotate = this.frame.rotate;
-            this.updateSelected();
+            if (isDrag) this.updateSelected();
           }}
           onRender={() => {
             target.style.left = `${this.frame.translate[0]}px`;
@@ -131,7 +134,7 @@ class Design extends React.Component {
             target.style.transform = `rotate(${this.frame.rotate}deg)`;
           }}
         />
-        <div className={styles.elementsContainer}>
+        <div className={styles.elementsContainer} id="noElement">
           {elements.map((element, index) => {
             if (element._destroy) return null;
             return (

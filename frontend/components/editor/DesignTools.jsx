@@ -10,10 +10,20 @@ class DesignTools extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { selected } = this.props;
-    if (Object.keys(prevProps.selected)[0] !== Object.keys(selected)[0]) {
-      this.updateSelected();
+    const { element } = this.props;
+    if (!prevProps.element && element) {
+      this.setState({ selected: element });
+    } else if (prevProps.element && !element) {
+      this.setState({ selected: {} });
+    } else if (prevProps.element && element && prevProps.element.id !== element.id) {
+      this.setState({ selected: element });
     }
+    // if (!prevProps.element && element && element.id !== prevProps.element.id) {
+    //   console.log('hello')
+    // }
+    // if (Object.keys(prevProps.selected)[0] !== Object.keys(selected)[0]) {
+    //   this.updateSelected();
+    // }
   }
 
   updateSelected() {
@@ -50,13 +60,12 @@ class DesignTools extends React.Component {
 
   updateStuff(e) {
     e.preventDefault();
-    const { selected, selectedId } = this.state;
-    const { updateElement } = this.props;
-    updateElement(selectedId, selected);
+    const { selected } = this.state;
+    const { receiveElement } = this.props;
+    receiveElement(selected);
   }
 
   render() {
-    debugger
     const { selection } = this.props;
     const { selected } = this.state;
     if (Object.keys(selected).length === 0) {
@@ -74,16 +83,17 @@ class DesignTools extends React.Component {
           onSubmit={(e) => e.preventDefault()}
         >
           <div className={styles.leftNav}>
-            <button type="button" className="btn-color" style={{ backgroundColor: selected.elementableAttributes.color }}> </button>
-            <input type="text" className="input-attr" size={selected.elementableAttributes.color.length + 1} value={selected.elementableAttributes.color} onChange={this.changeValue('color')} />
-            {selected.elementableType === 'Shape' ? (
+            <label className="btn-color" style={{ backgroundColor: selected.elementableAttributes.color }}>
+              <input type="color" className={styles.hidden} size={selected.elementableAttributes.color.length + 1} value={selected.elementableAttributes.color} onChange={this.changeValue('color')} />
+            </label>
+            {/* {selected.elementableType === 'Shape' ? (
               <>
                 <span>Width:</span>
                 <input type="text" className="input-attr" size={selected.elementableAttributes.width.toString().length + 1} value={selected.elementableAttributes.width} onChange={this.changeValue('width')} />
                 <span>Height:</span>
                 <input type="text" className="input-attr" size={selected.elementableAttributes.height.toString().length + 1} value={selected.elementableAttributes.height} onChange={this.changeValue('height')} />
               </>
-            ) : ''}
+            ) : ''} */}
             {selected.elementableType === 'Text' ? (
               <>
                 <span>Text:</span>
@@ -98,10 +108,10 @@ class DesignTools extends React.Component {
             ) : ''}
           </div>
           <div className={styles.rightNav}>
-            <span>X:</span>
+            {/* <span>X:</span>
             <input type="text" className="input-attr" size={selected.posX.toString().length + 1} value={selected.posX} onChange={this.changeValue('posX')} />
             <span>Y:</span>
-            <input type="text" className="input-attr" size={selected.posY.toString().length + 1} value={selected.posY} onChange={this.changeValue('posY')} />
+            <input type="text" className="input-attr" size={selected.posY.toString().length + 1} value={selected.posY} onChange={this.changeValue('posY')} /> */}
             <span>Opacity:</span>
             <input type="text" className="input-attr" size={selected.transparency.toString().length + 1} value={selected.transparency} onChange={this.changeValue('transparency')} />
             <span>Order:</span>

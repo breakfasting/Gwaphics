@@ -20,8 +20,17 @@ class AllDesigns extends React.Component {
           </div>
         ) : (
           <div className={styles.masonry}>
+            {console.log(designs)}
             {designs.map((design) => (
-              <div key={design.id} className={styles.masonItem}>
+              <div
+                key={design.id}
+                className={styles.masonItem}
+                style={{
+                  flexGrow: (design.width * 100) / design.height,
+                  flexBasis: (design.width * 240) / design.height,
+                }}
+              >
+                <i style={{ paddingBottom: `${(design.height / design.width) * 100.0}%` }} />
                 <DesignIndexItem design={design} />
               </div>
             ))}

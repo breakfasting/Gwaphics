@@ -14,15 +14,32 @@
   flex-wrap: wrap;
 }
 
-.masonItem {
+/* .masonItem {
   height: 250px;
   flex: 1 0 auto;
   margin: 0 24px 56px 0;
   border: 1px solid #ddddde;
   border-radius: 4px;
+} */
+
+.masonry::after {
+  content: '';
+  flex-grow: 999999999;
 }
 
-.masonItem img {
-  height: 250px;
-  width: auto;
+.masonItem {
+  margin: 0 24px 56px 0;
+
+  position: relative;
+}
+
+.masonItem > i {
+  display: block;
+}
+
+.masonItem > div {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  vertical-align: bottom;
 }

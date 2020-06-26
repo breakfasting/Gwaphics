@@ -74,6 +74,7 @@ class Api::DesignsController < ApplicationController
           :elementable_type,
           :pos_x,
           :pos_y,
+          :rotate,
           :z_index,
           :transparency,
           elementable_attributes: [
@@ -107,6 +108,7 @@ class Api::DesignsController < ApplicationController
           :elementable_type,
           :pos_x,
           :pos_y,
+          :rotate,
           :z_index,
           :transparency,
           :_destroy,

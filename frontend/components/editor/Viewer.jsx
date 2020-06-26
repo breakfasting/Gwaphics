@@ -29,7 +29,7 @@ class Viewer extends React.Component {
             <div
               key={element.id ? element.id : index}
               style={{
-                position: 'absolute', zIndex: element.zIndex, left: element.posX * zoom, top: element.posY * zoom,
+                position: 'absolute', zIndex: element.zIndex, left: element.posX * zoom, top: element.posY * zoom, transform: `rotate(${element.rotate}deg)`,
               }}
             >
               <Element element={element} zoom={zoom} />

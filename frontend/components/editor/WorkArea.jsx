@@ -1,7 +1,8 @@
 import React from 'react';
 import Design from './Design';
+import DesignContainer from './design_container';
 import styles from './WorkArea.module.css';
-import DesignTools from './DesignTools';
+import DesignToolsContainer from './design_tools_container';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class WorkArea extends React.Component {
@@ -24,29 +25,31 @@ class WorkArea extends React.Component {
   }
 
   handleClickOutside(event) {
-    const { setSelected } = this.props;
-    if (this.wrapperRef && this.wrapperRef.contains(event.target)) {
-      setSelected(null);
+    const { setSelection } = this.props;
+    if (this.wrapperRef
+        && this.wrapperRef.contains(event.target)
+        && (event.target.id === 'noElement' || event.target.id === 'noElementGrey')) {
+      setSelection(null);
     }
   }
 
   render() {
     const {
-      design, elements, zoom, updateElementPos, selected, setSelected, updateElement,
+      design, elements, zoom, updateElementPos, selected, setSelected, updateElement, selection, setSelection,
     } = this.props;
     if (Object.keys(design).length === 0) return null;
     return (
       <div className={styles.workContainer}>
-        <DesignTools selected={selected} updateElement={updateElement} setSelected={setSelected} />
+        <DesignToolsContainer selected={selected} updateElement={updateElement} setSelected={setSelected} selection={selection} />
         <div className={styles.workArea} ref={this.setWrapperRef}>
-          <div className={styles.designContainer}>
-            <Design
-              elements={elements}
-              design={design}
-              selected={selected}
+          <div className={styles.designContainer} id="noElementGrey">
+            <DesignContainer
+              // elements={elements}
+              // design={design}
               zoom={zoom}
               updateElement={updateElement}
-              setSelected={setSelected}
+              setSelection={setSelection}
+              selection={selection}
             />
           </div>
         </div>

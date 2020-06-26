@@ -36,3 +36,7 @@
 .rightNav > *{
   margin-left: 4px;
 }
+
+.hidden {
+  visibility: hidden;
+}

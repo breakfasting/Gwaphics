@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_08_095438) do
+ActiveRecord::Schema.define(version: 2020_06_24_212928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2020_05_08_095438) do
     t.float "transparency", default: 1.0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "rotate", default: 0.0
     t.index ["design_id"], name: "index_elements_on_design_id"
     t.index ["elementable_id"], name: "index_elements_on_elementable_id"
     t.index ["elementable_type"], name: "index_elements_on_elementable_type"
@@ -99,6 +100,8 @@ ActiveRecord::Schema.define(version: 2020_05_08_095438) do
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "width"
+    t.float "height"
   end
 
   create_table "users", force: :cascade do |t|

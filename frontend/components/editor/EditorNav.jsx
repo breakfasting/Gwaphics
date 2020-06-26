@@ -1,17 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { FiChevronLeft, FiSave, FiRefreshCw } from 'react-icons/fi';
 import styles from './EditorNav.module.css';
 
-const EditorNav = ({ updateDesign, loading }) => (
+const EditorNav = ({ updateDesign, loading, history }) => (
   <div className={styles.editorNav}>
     <nav className={styles.leftNav}>
-      <Link to="/" className={loading ? 'disabled' : ''}>
-        <button type="button" className="btn-icon btn-editor" disabled={loading}>
+      <div to="/" className={loading ? 'disabled' : ''}>
+        <button type="button" className="btn-icon btn-editor" disabled={loading} onClick={() => { history.goBack(); }}>
           <FiChevronLeft />
           Home
         </button>
-      </Link>
+      </div>
       {/* <button type="button" className="btn-icon">
         File
       </button>
@@ -33,4 +33,4 @@ const EditorNav = ({ updateDesign, loading }) => (
   </div>
 );
 
-export default EditorNav;
+export default withRouter(EditorNav);

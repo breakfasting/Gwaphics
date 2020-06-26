@@ -40,7 +40,7 @@ class WorkArea extends React.Component {
     if (Object.keys(design).length === 0) return null;
     return (
       <div className={styles.workContainer}>
-        <DesignToolsContainer selected={selected} updateElement={updateElement} setSelected={setSelected} selection={selection} />
+        <DesignToolsContainer selected={selected} updateElement={updateElement} setSelected={setSelected} selection={selection} setSelection={setSelection} />
         <div className={styles.workArea} ref={this.setWrapperRef}>
           <div className={styles.designContainer} id="noElementGrey">
             <DesignContainer

@@ -109,6 +109,7 @@ class Design extends React.Component {
             // console.log(this.element)
             this.element.elementableAttributes.width = width / zoom;
             this.element.elementableAttributes.height = height / zoom;
+            this.setState({});
           }}
           onResizeEnd={({ isDrag }) => {
             if (isDrag) this.updateSelected();

@@ -8,7 +8,7 @@ import IndexItemDropdownContainer from './index_item_dropdown_container';
 class DesignIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { dropdown: false };
+    this.state = { dropdown: false, direction: true };
     this.setWrapperRef = this.setWrapperRef.bind(this);
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
@@ -26,9 +26,10 @@ class DesignIndexItem extends React.Component {
     this.wrapperRef = node;
   }
 
-  toggleDropdown() {
+  toggleDropdown(event) {
+    // console.log(event.clientX, event.clientY)
     const { dropdown } = this.state;
-    this.setState({ dropdown: !dropdown });
+    this.setState({ dropdown: !dropdown, direction: event.clientX < 574 });
   }
 
   handleClickOutside(event) {
@@ -40,7 +41,7 @@ class DesignIndexItem extends React.Component {
 
   render() {
     const { design } = this.props;
-    const { dropdown } = this.state;
+    const { dropdown, direction } = this.state;
     return (
       <div className={styles.card} ref={this.setWrapperRef}>
         <div className={styles.thumb}>
@@ -59,7 +60,7 @@ class DesignIndexItem extends React.Component {
             </button>
           </div>
         </div>
-        {dropdown ? <IndexItemDropdownContainer design={design} toggleDropdown={this.toggleDropdown} /> : ''}
+        {dropdown ? <IndexItemDropdownContainer design={design} toggleDropdown={this.toggleDropdown} direction={direction} /> : ''}
       </div>
     );
   }

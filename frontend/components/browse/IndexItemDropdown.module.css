@@ -3,7 +3,7 @@
   z-index: 1;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
-  right: 0;
+  right: 10px;
   top: 50px;
   border-radius: 4px;
   padding: 8px 0;

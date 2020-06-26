@@ -20,7 +20,6 @@ class AllDesigns extends React.Component {
           </div>
         ) : (
           <div className={styles.masonry}>
-            {console.log(designs)}
             {designs.map((design) => (
               <div
                 key={design.id}

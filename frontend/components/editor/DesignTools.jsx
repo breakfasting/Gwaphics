@@ -9,6 +9,10 @@ class DesignTools extends React.Component {
     this.deleteElement = this.deleteElement.bind(this);
   }
 
+  // componentDidMount() {
+  //   document.addEventListener('keydown', )
+  // }
+
   componentDidUpdate(prevProps) {
     const { element } = this.props;
     if (!prevProps.element && element) {
@@ -24,15 +28,6 @@ class DesignTools extends React.Component {
     // if (Object.keys(prevProps.selected)[0] !== Object.keys(selected)[0]) {
     //   this.updateSelected();
     // }
-  }
-
-  updateSelected() {
-    const { selected } = this.props;
-    if (Object.keys(selected).length === 0) {
-      this.setState({ selected: {}, selectedId: null });
-    } else {
-      this.setState({ selected: Object.values(selected)[0], selectedId: Object.keys(selected)[0] });
-    }
   }
 
   changeValue(attr) {
@@ -51,8 +46,8 @@ class DesignTools extends React.Component {
   }
 
   deleteElement() {
-    const { selected, selectedId } = this.state;
-    const { updateElement, setSelected } = this.props;
+    const { selected } = this.state;
+    const { receiveElement, setSelected } = this.props;
     selected._destroy = true;
     updateElement(selectedId, selected);
     setSelected(null);
@@ -62,7 +57,7 @@ class DesignTools extends React.Component {
     e.preventDefault();
     const { selected } = this.state;
     const { receiveElement } = this.props;
-    receiveElement(selected);
+    receiveElement({ elementableAttributes: { color: selected.elementableAttributes.color } });
   }
 
   render() {
@@ -71,7 +66,7 @@ class DesignTools extends React.Component {
     if (Object.keys(selected).length === 0) {
       return (
         <div className={styles.designTools}>
-          <span className={styles.nothingSelected}>{selection}</span>
+          <span className={styles.nothingSelected}>Nothing Selected</span>
         </div>
       );
     }
@@ -80,7 +75,7 @@ class DesignTools extends React.Component {
         <form
           className={styles.designForm}
           onChange={this.updateStuff}
-          onSubmit={(e) => e.preventDefault()}
+          // onSubmit={(e) => e.preventDefault()}
         >
           <div className={styles.leftNav}>
             <label className="btn-color" style={{ backgroundColor: selected.elementableAttributes.color }}>

@@ -37,6 +37,6 @@ class Api::UploadedImagesController < ApplicationController
   end
 
   def uploaded_image_params
-    params.require(:uploaded_image).permit(:title, :width, :height, :url)
+    params.require(:uploaded_image).permit(:title, :width, :height, :image)
   end
 end

@@ -37,3 +37,33 @@
 .masonItem > i {
   display: block;
 }
+
+.hidden {
+  display: none;
+}
+
+.uploadBtnLabel {
+  color: #5a5a5a;
+  border: 2px solid #dcdcdc;
+  cursor: pointer;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 4px;
+  letter-spacing: .01rem;
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  /* font-family: 'Open Sans', sans-serif; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.5s, background-color 0.5s;
+}
+
+.uploadBtnLabel:hover {
+  border-color: #949494;
+}
+
+.uploadBtnLabel:active {
+  background-color: #dcdcdc;
+}

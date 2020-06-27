@@ -5,13 +5,65 @@ class AllImages extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      imageUrl: '',
       uploadedFile: null,
+      title: 'temp',
+      width: 0,
+      height: 0,
     };
+    this.handleFile = this.handleFile.bind(this);
   }
+
 
   componentDidMount() {
     // const { fetchUserUploads } = this.props;
     // fetchUserUploads();
+  }
+
+
+  handleFile(e) {
+    const reader = new FileReader();
+    const file = e.currentTarget.files[0];
+    reader.onloadend = () => {
+      const image = new Image();
+      image.onload = () => {
+        console.log(image.width, image.height);
+        this.setState({
+          imageUrl: reader.result,
+          uploadedFile: file,
+          width: image.width,
+          height: image.height,
+        }, this.uploadImage);
+      };
+      image.src = reader.result;
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({ imageUrl: '', uploadedFile: null });
+    }
+  }
+
+  uploadImage() {
+    const {
+      title, uploadedFile, width, height,
+    } = this.state;
+
+    const formData = new FormData();
+    formData.append('uploaded_image[title]', title);
+    if (uploadedFile) {
+      formData.append('uploaded_image[image]', uploadedFile);
+      formData.append('uploaded_image[width]', width);
+      formData.append('uploaded_image[height]', height);
+    }
+    $.ajax({
+      url: '/api/uploaded_images',
+      method: 'POST',
+      data: formData,
+      contentType: false,
+      processData: false,
+    });
   }
 
   render() {
@@ -21,9 +73,10 @@ class AllImages extends React.Component {
       <div className={styles.indexArea}>
         <div className={styles.titleBar}>
           <h1 className={styles.indexTitle}>{folder.name}</h1>
-          <button type="button" className="btn-outline">
+          <label className={styles.uploadBtnLabel}>
             <span className={styles.uploadBtnText}>Upload</span>
-          </button>
+            <input className={styles.hidden} type="file" accept="image/*" onChange={this.handleFile} />
+          </label>
         </div>
         {images.length === 0 ? (
           <div className="grey">

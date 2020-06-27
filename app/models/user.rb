@@ -22,6 +22,9 @@ class User < ApplicationRecord
     foreign_key: :creator_id,
     class_name: :Design
 
+  has_many :uploaded_images,
+    foreign_key: :uploaded_id,
+    class_name: :UploadedImage
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

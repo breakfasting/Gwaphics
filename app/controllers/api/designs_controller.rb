@@ -1,5 +1,5 @@
 class Api::DesignsController < ApplicationController
-  before_action :require_logged_in, only: [:create, :update, :destory]
+  before_action :require_logged_in, only: [:create, :update, :destroy]
 
   # def index
   #   if params[:query] == 'current'

@@ -1,4 +1,5 @@
 import React from 'react';
+import { FiX } from 'react-icons/fi';
 import styles from './with_modal.module.css';
 
 const withModal = (Component) => {
@@ -35,7 +36,9 @@ const withModal = (Component) => {
       return (
         <div className={styles.modalBackground}>
           <div ref={this.setWrapperRef} className={styles.wrapper}>
-            <div className={styles.close}>X</div>
+            <button type="button" className={styles.close} onClick={() => toggleModal(null)}>
+              <FiX />
+            </button>
             <Component {...restProps} toggleModal={toggleModal} />
           </div>
         </div>

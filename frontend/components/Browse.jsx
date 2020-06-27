@@ -9,9 +9,9 @@ import BrowseIndexContainer from './browse/browse_index_container';
 import styles from './Browse.module.css';
 import ImageShow from './modal/ImageShow';
 
-const Browse = ({ mode, sessionId }) => (
+const Browse = ({ mode, sessionId, toggleModal, imageShow }) => (
   <>
-    <div className={`${styles.container} ${styles.blurred}`}>
+    <div className={imageShow ? `${styles.container} ${styles.blurred}` : styles.container}>
       <NavBar mode={mode} />
       {!sessionId ? (
         <div className={mode === 'splash' ? 'container' : 'container-wide'}>
@@ -20,7 +20,7 @@ const Browse = ({ mode, sessionId }) => (
       ) : null}
       <ProtectedRoute path="/" component={BrowseIndexContainer} />
     </div>
-    <ImageShow active />
+    <ImageShow active={imageShow} toggleModal={() => toggleModal('imageShow')} />
   </>
 );
 

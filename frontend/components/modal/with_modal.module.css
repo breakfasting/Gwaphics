@@ -22,12 +22,21 @@
 .close {
   position: absolute;
   top: 0;
-  right: -30px;
-  padding: 8px;
-  background-color: rgba(0,0,0,0.4);
+  right: -40px;
+  min-width: 32px;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(0,0,0,0.2);
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  transition: background-color 0.3s;
+  border-color: transparent;
+}
+
+.close:hover {
+  border-color: transparent;
+  background-color: rgba(0,0,0,0.4);
 }

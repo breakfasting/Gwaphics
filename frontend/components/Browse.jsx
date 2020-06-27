@@ -11,7 +11,7 @@ import ImageShow from './modal/ImageShow';
 
 const Browse = ({ mode, sessionId }) => (
   <>
-    <div className={styles.container}>
+    <div className={`${styles.container} ${styles.blurred}`}>
       <NavBar mode={mode} />
       {!sessionId ? (
         <div className={mode === 'splash' ? 'container' : 'container-wide'}>

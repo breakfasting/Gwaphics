@@ -4,3 +4,7 @@
   flex-direction: column;
   justify-content: stretch;
 }
+
+.blurred {
+  filter: blur(4px);
+}

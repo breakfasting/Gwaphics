@@ -7,8 +7,8 @@
   right: 0;
   display: flex;
   justify-content: center;
-  align-items: top;
   overflow-y: auto;
+  padding: 16px;
   /* z-index: 0; */
 }
 
@@ -16,7 +16,7 @@
   width: 100%;
   max-width: 1376px;
   position: relative;
-  margin: 40px;
+  margin: auto 48px;
 }
 
 .close {

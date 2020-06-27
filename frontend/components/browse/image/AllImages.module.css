@@ -3,24 +3,26 @@
   padding: 32px 32px 0 16px;
 }
 
-.indexTitle {
+.titleBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 32px;
+}
+
+.indexTitle {
   font-size: 3.2rem;
   line-height: 1.3;
+}
+
+.uploadBtnText {
+  padding: 0 16px;
 }
 
 .masonry {
   display: flex;
   flex-wrap: wrap;
 }
-
-/* .masonItem {
-  height: 250px;
-  flex: 1 0 auto;
-  margin: 0 24px 56px 0;
-  border: 1px solid #ddddde;
-  border-radius: 4px;
-} */
 
 .masonry::after {
   content: '';
@@ -34,11 +36,4 @@
 
 .masonItem > i {
   display: block;
-}
-
-.masonItem > div {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  vertical-align: bottom;
 }

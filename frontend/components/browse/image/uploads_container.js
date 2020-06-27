@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import AllImages from './AllImages';
+import { fetchUserUploads } from '../../../actions/uploaded_image_actions';
 
 const mapStateToProps = (state) => ({
   folder: { name: 'Uploads' },
@@ -7,7 +8,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchUserUploads: () => {},
+  fetchUserUploads: () => dispatch(fetchUserUploads()),
   requestDesigns: () => {},
 });
 

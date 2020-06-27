@@ -16,8 +16,8 @@ class AllImages extends React.Component {
 
 
   componentDidMount() {
-    // const { fetchUserUploads } = this.props;
-    // fetchUserUploads();
+    const { fetchUserUploads } = this.props;
+    fetchUserUploads();
   }
 
 

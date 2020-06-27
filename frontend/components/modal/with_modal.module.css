@@ -15,6 +15,7 @@
 .wrapper {
   width: 100%;
   max-width: 1376px;
+  /* max-width: 920px; */
   position: relative;
   margin: auto 48px;
 }

@@ -1,0 +1,33 @@
+.modalBackground {
+  position: absolute;
+  background-color: rgba(0,0,0,0.4);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  overflow-y: auto;
+  /* z-index: 0; */
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1376px;
+  position: relative;
+  margin: 40px;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: -30px;
+  padding: 8px;
+  background-color: rgba(0,0,0,0.4);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}

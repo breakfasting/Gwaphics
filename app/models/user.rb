@@ -23,7 +23,7 @@ class User < ApplicationRecord
     class_name: :Design
 
   has_many :uploaded_images,
-    foreign_key: :uploaded_id,
+    foreign_key: :uploader_id,
     class_name: :UploadedImage
 
   def self.find_by_credentials(email, password)

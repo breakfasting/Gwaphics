@@ -27,10 +27,10 @@ class AllImages extends React.Component {
     reader.onloadend = () => {
       const image = new Image();
       image.onload = () => {
-        console.log(image.width, image.height);
         this.setState({
           imageUrl: reader.result,
           uploadedFile: file,
+          title: file.name,
           width: image.width,
           height: image.height,
         }, this.uploadImage);

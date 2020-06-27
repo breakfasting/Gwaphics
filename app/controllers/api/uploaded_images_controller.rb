@@ -3,6 +3,7 @@ class Api::UploadedImagesController < ApplicationController
   # before_action :require_logged_in, only: [:index, :show, :create, :destroy]
 
   def index
+    @current_user = current_user
     @uploaded_images = UploadedImage.where(uploader_id: current_user.id)
 
     render :index

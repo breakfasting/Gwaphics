@@ -5,6 +5,7 @@ import shapesReducer from './design/shapes_reducer';
 import elementsReducer from './design/elements_reducer';
 import textReducer from './design/text_reducer';
 import foldersReducer from './folders_reducer';
+import uploadedImagesReducer from './uploaded_images_reducer';
 
 const entitiesReducer = combineReducers({
   users: usersReducer,
@@ -13,6 +14,7 @@ const entitiesReducer = combineReducers({
   shapes: shapesReducer,
   text: textReducer,
   folders: foldersReducer,
+  uploadedImages: uploadedImagesReducer,
 });
 
 export default entitiesReducer;

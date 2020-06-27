@@ -83,22 +83,22 @@ class AllImages extends React.Component {
             <h2>This folder is full of potential</h2>
           </div>
         ) : (
-          // <div className={styles.masonry}>
-          //   {designs.map((design) => (
-          //     <div
-          //       key={design.id}
-          //       className={styles.masonItem}
-          //       style={{
-          //         flexGrow: (design.width * 100) / design.height,
-          //         flexBasis: (design.width * 240) / design.height,
-          //       }}
-          //     >
-          //       <i style={{ paddingBottom: `${(design.height / design.width) * 100.0}%` }} />
-          //       <DesignIndexItem design={design} />
-          //     </div>
-          //   ))}
-          // </div>
-          null
+          <div className={styles.masonry}>
+            {images.map((image) => (
+              <div
+                key={image.id}
+                className={styles.masonItem}
+                style={{
+                  flexGrow: (image.width * 100) / image.height,
+                  flexBasis: (image.width * 240) / image.height,
+                }}
+              >
+                <i style={{ paddingBottom: `${(image.height / image.width) * 100.0}%` }} />
+                {/* <DesignIndexItem design={design} /> */}
+                <img src={image.url} alt="" />
+              </div>
+            ))}
+          </div>
         )}
       </div>
     );

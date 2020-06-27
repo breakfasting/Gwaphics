@@ -16,7 +16,7 @@
 }
 
 .uploadBtnText {
-  padding: 0 16px;
+  padding: 0 24px;
 }
 
 .masonry {
@@ -36,6 +36,13 @@
 
 .masonItem > i {
   display: block;
+}
+
+.masonItem > img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  vertical-align: bottom;
 }
 
 .hidden {

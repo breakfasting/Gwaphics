@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 	namespace :api, defaults: { format: :json } do
 		resources :users, only: [:create]
 		resources :folders, only: [:index, :show, :create, :update, :destroy]
-		resources :uploaded_images, only: [:index, :show, :create, :destroy]
+		resources :uploaded_images, only: [:index, :show, :update, :create, :destroy]
 		resource :session, only: [:create, :destroy]
 		resources :designs, only: [:show, :create, :update, :destroy] do
 			collection do

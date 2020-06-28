@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FiMoreHorizontal, FiEye } from 'react-icons/fi';
 import styles from './DesignIndexItem.module.css';
 import IndexItemDropdownContainer from './index_item_dropdown_container';
+import ImageDropdownContainer from './image/upload_dropdown_container';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class DesignIndexItem extends React.Component {
@@ -64,7 +65,8 @@ class DesignIndexItem extends React.Component {
             </button>
           </div>
         </div>
-        {dropdown ? <IndexItemDropdownContainer design={design} toggleDropdown={this.toggleDropdown} direction={direction} /> : ''}
+        {design && dropdown ? <IndexItemDropdownContainer design={design} toggleDropdown={this.toggleDropdown} direction={direction} /> : ''}
+        {image && dropdown ? <ImageDropdownContainer image={image} toggleDropdown={this.toggleDropdown} direction={direction} /> : ''}
       </div>
     );
   }

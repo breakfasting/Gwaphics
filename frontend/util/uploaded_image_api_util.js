@@ -4,3 +4,11 @@ export const fetchUserUploads = () => (
     method: 'GET',
   })
 );
+
+export const updateUpload = (uploadedImage) => (
+  $.ajax({
+    url: `/api/uploaded_images/${uploadedImage.id}`,
+    method: 'PATCH',
+    data: { uploadedImage },
+  })
+);

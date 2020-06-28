@@ -9,9 +9,22 @@ class ImageDropdown extends React.Component {
     super(props);
     const { image } = this.props;
     this.state = {
+      animate: false,
       title: image.title,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        this.setState({ animate: true });
+      });
+    });
+  }
+
+  componentWillUnmount() {
+    this.handleSubmit();
   }
 
   handleChange(form) {
@@ -21,18 +34,18 @@ class ImageDropdown extends React.Component {
   }
 
   handleSubmit() {
-    const { updateDesign, design } = this.props;
+    const { updateImage, image } = this.props;
     const { title } = this.state;
-    if (design.title !== title) {
-      updateDesign({ id: design.id, title });
+    if (image.title !== title) {
+      updateImage({ id: image.id, title });
     }
   }
 
   render() {
     const { direction, image } = this.props;
-    const { title } = this.state;
+    const { title, animate } = this.state;
     return (
-      <div className={styles.dropdownCard} style={{ right: `${direction ? -278 : 10}px` }}>
+      <div className={`${styles.dropdownCard} ${animate ? styles.animate : ''}`} style={{ right: `${direction ? -278 : 10}px` }}>
         <ul className={styles.dropDown}>
           <li className={styles.title}>
             <input className={styles.input} type="text" value={title} onChange={this.handleChange('title')} onBlur={this.handleSubmit} />

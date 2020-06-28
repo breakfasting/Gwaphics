@@ -6,8 +6,13 @@
   flex-grow: 1;
 }
 
+.image {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
 .info {
-  width: 320px;
+  min-width: 320px;
   margin-left: 32px;
   display: flex;
   flex-direction: column;
@@ -37,4 +42,9 @@
 
 .name {
   color: black;
+}
+
+.stretch {
+  display: flex;
+  flex-direction: column;
 }

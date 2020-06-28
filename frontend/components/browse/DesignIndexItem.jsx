@@ -41,24 +41,26 @@ class DesignIndexItem extends React.Component {
   }
 
   render() {
-    const { design, image, temp } = this.props;
+    const { design, image, temp, toggleModal } = this.props;
     const { dropdown, direction } = this.state;
     return (
       <div className={styles.card} ref={this.setWrapperRef}>
         <div className={styles.thumb}>
           {design ? (
             <Link to={`/design/${design.id}`}>
-              <img src={design.thumbnail} alt="" />
+              <div className={styles.imageBorder}>
+                <img src={design.thumbnail} alt="" />
+              </div>
             </Link>
           ) : (
-            <div className={styles.imageBorder}>
+            <div className={styles.imageBorder} onClick={() => !temp && toggleModal(image.id)}>
               <img src={image.url} className={temp && styles.tempImg} alt="" />
             </div>
           )}
         </div>
         <div className={styles.title}>
           {design && design.public ? <FiEye /> : ''}
-          {design ? <span>{design.title}</span> : <span>{image.title}</span>}
+          {design ? design.title : image.title}
         </div>
         {temp ? (
           <div className={styles.loaderWrap}>

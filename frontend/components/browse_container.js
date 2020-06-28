@@ -5,11 +5,11 @@ import { toggleModal } from '../actions/modal_actions';
 const mapStateToProps = (state) => ({
   mode: state.ui.mode,
   sessionId: state.session.id,
-  imageShow: state.ui.modal.imageShow,
+  uploadedModal: state.ui.modal.uploadedModal,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  toggleModal: (modal) => dispatch(toggleModal(modal)),
+  toggleModal: (modal, id) => dispatch(toggleModal(modal, id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Browse);

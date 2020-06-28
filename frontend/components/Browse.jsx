@@ -8,10 +8,11 @@ import MainAuth from './auth/MainAuth';
 import BrowseIndexContainer from './browse/browse_index_container';
 import styles from './Browse.module.css';
 import ImageShow from './modal/ImageShow';
+import UploadedImageModalContainer from './modal/uploaded_image_modal_container';
 
-const Browse = ({ mode, sessionId, toggleModal, imageShow }) => (
+const Browse = ({ mode, sessionId, toggleModal, uploadedModal }) => (
   <>
-    <div className={imageShow ? `${styles.container} ${styles.blurred}` : styles.container}>
+    <div className={uploadedModal ? `${styles.container} ${styles.blurred}` : styles.container}>
       <NavBar mode={mode} />
       {!sessionId ? (
         <div className={mode === 'splash' ? 'container' : 'container-wide'}>
@@ -20,7 +21,7 @@ const Browse = ({ mode, sessionId, toggleModal, imageShow }) => (
       ) : null}
       <ProtectedRoute path="/" component={BrowseIndexContainer} />
     </div>
-    <ImageShow active={imageShow} toggleModal={() => toggleModal('imageShow')} />
+    <UploadedImageModalContainer active={uploadedModal} toggleModal={(id) => toggleModal('uploadedModal', id)} />
   </>
 );
 

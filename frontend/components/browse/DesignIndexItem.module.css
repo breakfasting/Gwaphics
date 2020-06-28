@@ -12,6 +12,7 @@
 .imageBorder {
   border: 1px solid #ddddde;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .wrap {
@@ -34,6 +35,9 @@
   font-weight: 600;
   display: flex;
   align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .title > * {

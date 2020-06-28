@@ -50,6 +50,7 @@ class AllImages extends React.Component {
     const {
       title, uploadedFile, width, height,
     } = this.state;
+    const { receiveUpload } = this.props;
 
     const formData = new FormData();
     formData.append('uploaded_image[title]', title);
@@ -64,12 +65,15 @@ class AllImages extends React.Component {
       data: formData,
       contentType: false,
       processData: false,
+    }).then((payload) => {
+      this.setState({ imageUrl: '', uploadedFile: null });
+      receiveUpload(payload);
     });
   }
 
   render() {
     const { images, folder } = this.props;
-    const { width, height, imageUrl } = this.state;
+    const { width, height, imageUrl, title } = this.state;
     if (!folder) return null;
     return (
       <div className={styles.indexArea}>
@@ -86,18 +90,6 @@ class AllImages extends React.Component {
           </div>
         ) : (
           <div className={styles.masonry}>
-            {imageUrl && (
-            <div
-              className={styles.masonItem}
-              style={{
-                flexGrow: (width * 100) / height,
-                flexBasis: (width * 240) / height,
-              }}
-            >
-              <i style={{ paddingBottom: `${(height / width) * 100.0}%` }} />
-              <img src={imageUrl} alt="" />
-            </div>
-            )}
             {images.map((image) => (
               <div
                 key={image.id}
@@ -112,6 +104,18 @@ class AllImages extends React.Component {
                 {/* <img src={image.url} alt="" /> */}
               </div>
             ))}
+            {imageUrl && (
+            <div
+              className={styles.masonItem}
+              style={{
+                flexGrow: (width * 100) / height,
+                flexBasis: (width * 240) / height,
+              }}
+            >
+              <i style={{ paddingBottom: `${(height / width) * 100.0}%` }} />
+              <DesignIndexItem image={{ url: imageUrl, title, width, height }} temp />
+            </div>
+            )}
           </div>
         )}
       </div>

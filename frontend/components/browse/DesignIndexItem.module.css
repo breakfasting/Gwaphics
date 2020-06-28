@@ -5,6 +5,11 @@
 }
 
 .card img {
+
+  border-radius: 4px;
+}
+
+.imageBorder {
   border: 1px solid #ddddde;
   border-radius: 4px;
 }
@@ -49,4 +54,35 @@
 
 .active {
   top: 10px;
+}
+
+.loaderWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: calc(100% - 36px);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.loader {
+  border: 8px solid #ffd22e;
+  border-top: 8px solid transparent;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.tempImg {
+  opacity: 0.6;
+  filter: blur(4px);
 }

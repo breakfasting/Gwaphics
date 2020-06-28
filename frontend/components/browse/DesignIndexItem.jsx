@@ -41,7 +41,7 @@ class DesignIndexItem extends React.Component {
   }
 
   render() {
-    const { design, image } = this.props;
+    const { design, image, temp } = this.props;
     const { dropdown, direction } = this.state;
     return (
       <div className={styles.card} ref={this.setWrapperRef}>
@@ -51,20 +51,28 @@ class DesignIndexItem extends React.Component {
               <img src={design.thumbnail} alt="" />
             </Link>
           ) : (
-            <img src={image.url} alt="" />
+            <div className={styles.imageBorder}>
+              <img src={image.url} className={temp && styles.tempImg} alt="" />
+            </div>
           )}
         </div>
         <div className={styles.title}>
           {design && design.public ? <FiEye /> : ''}
           {design ? <span>{design.title}</span> : <span>{image.title}</span>}
         </div>
-        <div className={styles.wrap}>
-          <div className={`${styles.toggle} ${dropdown ? styles.active : ''}`}>
-            <button type="button" className="btn-item" onClick={this.toggleDropdown}>
-              <FiMoreHorizontal />
-            </button>
+        {temp ? (
+          <div className={styles.loaderWrap}>
+            <div className={styles.loader} />
           </div>
-        </div>
+        ) : (
+          <div className={styles.wrap}>
+            <div className={`${styles.toggle} ${dropdown ? styles.active : ''}`}>
+              <button type="button" className="btn-item" onClick={this.toggleDropdown}>
+                <FiMoreHorizontal />
+              </button>
+            </div>
+          </div>
+        )}
         {design && dropdown ? <IndexItemDropdownContainer design={design} toggleDropdown={this.toggleDropdown} direction={direction} /> : ''}
         {image && dropdown ? <ImageDropdownContainer image={image} toggleDropdown={this.toggleDropdown} direction={direction} /> : ''}
       </div>

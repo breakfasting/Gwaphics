@@ -5,7 +5,7 @@ export const RECEIVE_USER_UPLOADS = 'RECEIVE_USER_UPLOADS';
 export const RECEIVE_UPLOAD = 'RECEIVE_UPLOAD';
 export const REMOVE_UPLOAD = 'REMOVE_UPLOAD';
 
-const receiveUpload = (payload) => ({
+export const receiveUpload = (payload) => ({
   type: RECEIVE_UPLOAD,
   payload,
 });

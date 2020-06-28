@@ -41,7 +41,7 @@ class Api::UploadedImagesController < ApplicationController
   end
 
   def destroy
-    @uploaded_image = Design.find_by(id: params[:id])
+    @uploaded_image = UploadedImage.find_by(id: params[:id])
     @uploaded_image.destroy
 
     render :show

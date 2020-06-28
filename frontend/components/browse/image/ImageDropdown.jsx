@@ -41,6 +41,11 @@ class ImageDropdown extends React.Component {
     }
   }
 
+  deleteUpload(id) {
+    const { deleteImage } = this.props;
+    deleteImage(id);
+  }
+
   render() {
     const { direction, image } = this.props;
     const { title, animate } = this.state;
@@ -60,7 +65,7 @@ class ImageDropdown extends React.Component {
               <small className={styles.hidden}>Original Image</small>
             </li>
           </a>
-          <li className={styles.listItem} onClick={this.deleteDesign}>
+          <li className={styles.listItem} onClick={() => this.deleteUpload(image.id)}>
             <FiTrash2 className={styles.icon} />
             <span className="ml-8">Delete</span>
           </li>

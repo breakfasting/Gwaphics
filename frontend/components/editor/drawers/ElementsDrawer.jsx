@@ -39,24 +39,26 @@ class ElementsDrawer extends React.Component {
       { id: 9, shape: 'right-triangle', url: window.rightTriangle },
     ];
     return (
-      <div className={scrollbar.customScroll}>
-        <div className={styles.elementsDrawer}>
-          <DrawerSearch placeholder="Search icons and shapes" />
-          <div className={styles.itemList}>
-            {mockupResponse.map((item) => (
-              <div
-                key={item.id}
-                className={styles.item}
-                onClick={() => this.addElement(item.shape)}
-              >
-                <svg>
-                  <use href={item.url} />
-                </svg>
-              </div>
-            ))}
+      <>
+        <DrawerSearch placeholder="Search icons and shapes" />
+        <div className={scrollbar.customScroll}>
+          <div className={styles.elementsDrawer}>
+            <div className={styles.itemList}>
+              {mockupResponse.map((item) => (
+                <div
+                  key={item.id}
+                  className={styles.item}
+                  onClick={() => this.addElement(item.shape)}
+                >
+                  <svg>
+                    <use href={item.url} />
+                  </svg>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

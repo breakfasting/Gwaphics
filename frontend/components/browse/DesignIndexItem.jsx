@@ -53,7 +53,7 @@ class DesignIndexItem extends React.Component {
               </div>
             </Link>
           ) : (
-            <div className={styles.imageBorder} onClick={() => !temp && toggleModal(image.id)}>
+            <div className={styles.imageBorder} onClick={() => !temp && toggleModal(image.id)} style={{ backgroundImage: `url(${window.transparent})` }}>
               <img src={image.url} className={temp && styles.tempImg} alt="" />
             </div>
           )}

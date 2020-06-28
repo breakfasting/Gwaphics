@@ -94,10 +94,10 @@ class IndexItemDropdown extends React.Component {
 
   render() {
     const { animate, title, move } = this.state;
-    const { design, folders, currentUser } = this.props;
+    const { design, folders, currentUser, direction } = this.props;
     if (design.userId !== currentUser.id) {
       return (
-        <div className={`${styles.dropdownCard} ${animate ? styles.animate : ''}`}>
+        <div className={`${styles.dropdownCard} ${animate ? styles.animate : ''}`} style={{ right: `${direction ? -278 : 10}px` }}>
           <ul className={styles.dropDown}>
             <li className={styles.title}>
               <h2>{design.title}</h2>
@@ -124,7 +124,7 @@ class IndexItemDropdown extends React.Component {
     }
     if (move) {
       return (
-        <div className={`${styles.dropdownCard} ${animate ? styles.animate : ''}`}>
+        <div className={`${styles.dropdownCard} ${animate ? styles.animate : ''}`} style={{ right: `${direction ? -278 : 10}px` }}>
           <ul className={styles.dropDown}>
             <li className={styles.title}>
               <h2>{design.title}</h2>
@@ -144,7 +144,7 @@ class IndexItemDropdown extends React.Component {
     }
     if (design.trash) {
       return (
-        <div className={`${styles.dropdownCard} ${animate ? styles.animate : ''}`}>
+        <div className={`${styles.dropdownCard} ${animate ? styles.animate : ''}`} style={{ right: `${direction ? -278 : 10}px` }}>
           <ul className={styles.dropDown}>
             <li className={styles.title}>
               <h2>{design.title}</h2>
@@ -165,7 +165,7 @@ class IndexItemDropdown extends React.Component {
       );
     }
     return (
-      <div className={`${styles.dropdownCard} ${animate ? styles.animate : ''}`}>
+      <div className={`${styles.dropdownCard} ${animate ? styles.animate : ''}`} style={{ right: `${direction ? -278 : 10}px` }}>
         <ul className={styles.dropDown}>
           <li className={styles.title}>
             <input className={styles.input} type="text" value={title} onChange={this.handleChange('title')} onBlur={this.handleSubmit} />

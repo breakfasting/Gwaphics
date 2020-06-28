@@ -8,7 +8,7 @@ import AllFoldersContainer from './folder/all_folders_container';
 import DeletedDesignsContainer from './deleted_designs_container';
 import FolderDesignsContainer from './folder_designs_container';
 import LikedDesignsContainer from './liked_designs_container';
-import UploadsContainer from './uploads_container';
+import UploadsContainer from './image/uploads_container';
 import PublicDesignsContainer from './public_designs_container';
 import styles from './BrowseIndex.module.css';
 

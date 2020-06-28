@@ -7,11 +7,12 @@ class DesignTools extends React.Component {
     this.state = { dropdown: null, selected: {}, selectedId: null };
     this.updateStuff = this.updateStuff.bind(this);
     this.deleteElement = this.deleteElement.bind(this);
+    this.deleteKeyDown = this.deleteKeyDown.bind(this);
   }
 
-  // componentDidMount() {
-  //   document.addEventListener('keydown', )
-  // }
+  componentDidMount() {
+    document.addEventListener('keydown', this.deleteKeyDown);
+  }
 
   componentDidUpdate(prevProps) {
     const { element } = this.props;
@@ -30,6 +31,10 @@ class DesignTools extends React.Component {
     // }
   }
 
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.deleteKeyDown);
+  }
+
   changeValue(attr) {
     if (attr === 'posX' || attr === 'posY' || attr === 'transparency' || attr === 'zIndex') {
       return (e) => {
@@ -45,12 +50,18 @@ class DesignTools extends React.Component {
     };
   }
 
+  deleteKeyDown(event) {
+    const { selected } = this.state;
+    if (event.keyCode === 8 && Object.keys(selected).length !== 0) {
+      this.deleteElement();
+    }
+  }
+
   deleteElement() {
     const { selected } = this.state;
-    const { receiveElement, setSelected } = this.props;
-    selected._destroy = true;
-    updateElement(selectedId, selected);
-    setSelected(null);
+    const { receiveElement, setSelection } = this.props;
+    receiveElement({ ...selected, _destroy: true });
+    setSelection(null);
   }
 
   updateStuff(e) {

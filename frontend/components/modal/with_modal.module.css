@@ -1,0 +1,43 @@
+.modalBackground {
+  position: absolute;
+  background-color: rgba(0,0,0,0.4);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 16px;
+  /* z-index: 0; */
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1376px;
+  /* max-width: 920px; */
+  position: relative;
+  margin: auto 48px;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: -40px;
+  min-width: 32px;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(0,0,0,0.2);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+  border-color: transparent;
+}
+
+.close:hover {
+  border-color: transparent;
+  background-color: rgba(0,0,0,0.4);
+}

@@ -1,5 +1,5 @@
 class Api::FoldersController < ApplicationController
-  before_action :require_logged_in, only: [:index, :show, :create, :update, :destory]
+  before_action :require_logged_in, only: [:index, :show, :create, :update, :destroy]
 
   def index
     @folders = Folder.where(owner_id: current_user.id)

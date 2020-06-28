@@ -1,0 +1,50 @@
+.content {
+  display: flex;
+}
+
+.preview {
+  flex-grow: 1;
+}
+
+.image {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.info {
+  min-width: 320px;
+  margin-left: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.profileImg {
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.info > * {
+  margin-bottom: 32px;
+}
+
+.info p {
+  margin-left: 8px;
+  font-size: 1.4rem;
+  color: #888;
+}
+
+.name {
+  color: black;
+}
+
+.stretch {
+  display: flex;
+  flex-direction: column;
+}

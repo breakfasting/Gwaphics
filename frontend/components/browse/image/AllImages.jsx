@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './AllImages.module.css';
+import DesignIndexItem from '../DesignIndexItem';
 
 class AllImages extends React.Component {
   constructor(props) {
@@ -68,6 +69,7 @@ class AllImages extends React.Component {
 
   render() {
     const { images, folder } = this.props;
+    const { width, height, imageUrl } = this.state;
     if (!folder) return null;
     return (
       <div className={styles.indexArea}>
@@ -84,6 +86,18 @@ class AllImages extends React.Component {
           </div>
         ) : (
           <div className={styles.masonry}>
+            {imageUrl && (
+            <div
+              className={styles.masonItem}
+              style={{
+                flexGrow: (width * 100) / height,
+                flexBasis: (width * 240) / height,
+              }}
+            >
+              <i style={{ paddingBottom: `${(height / width) * 100.0}%` }} />
+              <img src={imageUrl} alt="" />
+            </div>
+            )}
             {images.map((image) => (
               <div
                 key={image.id}
@@ -94,8 +108,8 @@ class AllImages extends React.Component {
                 }}
               >
                 <i style={{ paddingBottom: `${(image.height / image.width) * 100.0}%` }} />
-                {/* <DesignIndexItem design={design} /> */}
-                <img src={image.url} alt="" />
+                <DesignIndexItem image={image} />
+                {/* <img src={image.url} alt="" /> */}
               </div>
             ))}
           </div>

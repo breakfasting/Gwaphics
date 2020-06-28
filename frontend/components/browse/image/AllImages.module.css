@@ -38,7 +38,7 @@
   display: block;
 }
 
-.masonItem > img {
+.masonItem > div {
   position: absolute;
   top: 0;
   width: 100%;

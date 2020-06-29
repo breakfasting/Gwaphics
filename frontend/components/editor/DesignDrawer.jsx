@@ -3,13 +3,14 @@ import { FiChevronLeft } from 'react-icons/fi';
 import ToolsNav from './ToolsNav';
 import ElementsDrawer from './drawers/ElementsDrawer';
 import TextDrawer from './drawers/TextDrawer';
+import UploadsDrawerContainer from './drawers/uploads_drawer_container';
 import EmptyDrawer from './drawers/EmptyDrawer';
 import styles from './DesignDrawer.module.css';
 
 class DesignDrawer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { drawer: 3, closed: false, animate: true };
+    this.state = { drawer: 5, closed: false, animate: true };
     this.changeDrawer = this.changeDrawer.bind(this);
     this.closeDrawer = this.closeDrawer.bind(this);
   }
@@ -36,7 +37,7 @@ class DesignDrawer extends React.Component {
       <ElementsDrawer addElement={addElement} />,
       <TextDrawer addElement={addElement} />,
       <EmptyDrawer />,
-      <EmptyDrawer />,
+      <UploadsDrawerContainer />,
       <EmptyDrawer />,
       <EmptyDrawer />,
     ];

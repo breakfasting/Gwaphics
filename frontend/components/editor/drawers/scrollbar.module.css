@@ -1,7 +1,7 @@
 .customScroll {
   overflow-y: auto;
   overflow-x: hidden;
-  height: 100%;
+  height: calc(100% - 72px);
   margin-right: 4px;
   margin-top: 4px;
 }

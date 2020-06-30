@@ -9,7 +9,7 @@ const ImageShow = ({ image, user }) => {
   return (
     <div className={modalStyles.modal}>
       <div className={styles.content}>
-        <div className={styles.preview}>
+        <div className={styles.preview} style={{ backgroundImage: `url(${window.transparent})` }}>
           <img src={image.url} alt="" className={styles.image} />
         </div>
         <div className={styles.info}>

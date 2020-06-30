@@ -1,0 +1,105 @@
+.header {
+    display: flex;
+  flex-direction: column;
+  margin: 24px 32px 8px 16px;
+}
+
+.uploadsDrawer {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-top: 8px;
+}
+
+.masonry {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.masonry::after {
+  content: '';
+  flex-grow: 999999999;
+}
+
+.masonItem {
+  margin: 0 8px 8px 0;
+  position: relative;
+}
+
+.masonItem > i {
+  display: block;
+}
+
+.masonItem > img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  vertical-align: bottom;
+}
+
+.hidden {
+  display: none;
+}
+
+.uploadBtn {
+  background-color: #dc85ff;
+  border-color: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 4px;
+  letter-spacing: .01rem;
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  /* font-family: 'Open Sans', sans-serif; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.5s, background-color 0.5s;
+}
+
+.uploadBtn:hover {
+  background-color: #ffba25;
+}
+
+.uploadBtn:active {
+  background-color: #ffd22e;
+}
+
+.temp {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tempImg {
+  filter: saturate(0);
+  opacity: 0.6;
+}
+
+.image {
+  cursor: pointer;
+}
+
+.loader {
+  border: 8px solid #ffd22e;
+  border-top: 8px solid transparent;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

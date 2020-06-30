@@ -11,8 +11,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 4px;
-  margin-top: 12px;
-  margin-bottom: 8px;
+  margin: 24px 32px 8px 16px;
 }
 
 .searchInput svg {

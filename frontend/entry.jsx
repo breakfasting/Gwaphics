@@ -7,7 +7,7 @@ import configureStore from './store/store';
 
 document.addEventListener('DOMContentLoaded', () => {
   // const store = configureStore();
-
+  console.log(process.env)
   let store;
   if (window.currentUser) {
     const preloadedState = {

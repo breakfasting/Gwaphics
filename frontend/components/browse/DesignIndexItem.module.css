@@ -89,5 +89,5 @@
 
 .tempImg {
   opacity: 0.6;
-  filter: blur(4px);
+  filter: saturate(0);
 }

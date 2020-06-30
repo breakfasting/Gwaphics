@@ -25,6 +25,11 @@ class Design < ApplicationRecord
     source: :elementable,
     source_type: :Text
 
+  has_many :image_elements,
+    through: :elements,
+    source: :elementable,
+    source_type: :Image
+
   has_one_attached :thumbnail
 
   accepts_nested_attributes_for :elements, allow_destroy: true

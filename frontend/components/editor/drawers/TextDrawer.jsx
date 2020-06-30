@@ -41,31 +41,33 @@ class TextDrawer extends React.Component {
 
   render() {
     return (
-      <div className={scrollbar.customScroll}>
-        <div className={styles.textDrawer}>
-          <DrawerSearch placeholder="Search Text" />
-          <h3>Click Text to add to page</h3>
-          <div className={styles.highlights}>
-            <div className={`${styles.highlightItem} ${styles.heading}`} onClick={() => this.addElement(mockupResponse[0])}>
-              <p>Add a heading</p>
-            </div>
-            <div className={`${styles.highlightItem} ${styles.subheading}`} onClick={() => this.addElement(mockupResponse[1])}>
-              <p>Add a subheading</p>
-            </div>
-            <div className={`${styles.highlightItem} ${styles.body}`} onClick={() => this.addElement(mockupResponse[2])}>
-              <p>Add a little bit of body text</p>
-            </div>
-          </div>
-          <h3>Font Combinations</h3>
-          <div className={styles.itemList}>
-            {mockupResponse.map((item) => (
-              <div key={item.id} className={styles.item} onClick={() => this.addElement(item)}>
-                {item.text}
+      <>
+        <DrawerSearch placeholder="Search Text" />
+        <div className={scrollbar.customScroll}>
+          <div className={styles.textDrawer}>
+            <h3>Click Text to add to page</h3>
+            <div className={styles.highlights}>
+              <div className={`${styles.highlightItem} ${styles.heading}`} onClick={() => this.addElement(mockupResponse[0])}>
+                <p>Add a heading</p>
               </div>
-            ))}
+              <div className={`${styles.highlightItem} ${styles.subheading}`} onClick={() => this.addElement(mockupResponse[1])}>
+                <p>Add a subheading</p>
+              </div>
+              <div className={`${styles.highlightItem} ${styles.body}`} onClick={() => this.addElement(mockupResponse[2])}>
+                <p>Add a little bit of body text</p>
+              </div>
+            </div>
+            <h3>Font Combinations</h3>
+            <div className={styles.itemList}>
+              {mockupResponse.map((item) => (
+                <div key={item.id} className={styles.item} onClick={() => this.addElement(item)}>
+                  {item.text}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

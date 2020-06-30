@@ -13,6 +13,7 @@
   border: 1px solid #ddddde;
   border-radius: 4px;
   cursor: pointer;
+  background-size: 300px 300px;
 }
 
 .wrap {
@@ -88,5 +89,5 @@
 
 .tempImg {
   opacity: 0.6;
-  filter: blur(4px);
+  filter: saturate(0);
 }

@@ -83,7 +83,7 @@ class Editor extends React.Component {
       if (typeof element.id === 'string') {
         delete element.id;
       }
-    })
+    });
     design.elementsAttributes = elements;
     delete design.thumbnail;
     this.setState({ loading: true });

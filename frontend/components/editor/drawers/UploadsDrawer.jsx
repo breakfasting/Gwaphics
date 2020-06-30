@@ -69,6 +69,21 @@ class UploadsDrawer extends React.Component {
     });
   }
 
+  addElement({ width, height, url }) {
+    const { addElement } = this.props;
+    const element = {
+      elementableType: 'Image',
+      transparency: 1,
+      zIndex: 0,
+      posX: 0,
+      posY: 0,
+      elementableAttributes: {
+        url, width, height,
+      },
+    };
+    addElement(element);
+  }
+
   render() {
     const { images } = this.props;
     const { width, height, imageUrl } = this.state;
@@ -110,7 +125,7 @@ class UploadsDrawer extends React.Component {
                 >
                   <i style={{ paddingBottom: `${(image.height / image.width) * 100.0}%` }} />
                   {/* <DesignIndexItem image={image} toggleModal={toggleModal} /> */}
-                  <img src={image.url} alt="" />
+                  <img src={image.url} alt="" onClick={() => this.addElement(image)} className={styles.image} />
                 </div>
               ))}
             </div>

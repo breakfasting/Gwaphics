@@ -78,6 +78,7 @@ class Api::DesignsController < ApplicationController
           :z_index,
           :transparency,
           elementable_attributes: [
+            :url,
             :width,
             :height,
             :color,
@@ -114,6 +115,7 @@ class Api::DesignsController < ApplicationController
           :_destroy,
           elementable_attributes: [
             :id,
+            :url,
             :width,
             :height,
             :color,

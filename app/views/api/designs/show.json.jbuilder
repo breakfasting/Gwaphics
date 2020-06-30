@@ -11,6 +11,8 @@ json.elements do
           json.extract! element.elementable, :id, :shape, :width, :height, :color
         elsif element.elementable_type == "Text"
           json.extract! element.elementable, :id, :font_family, :font_size, :font_weight, :text, :color, :width, :height
+        elsif element.elementable_type == 'Image'
+          json.extract! element.elementable, :id, :url, :width, :height
         end
       end
     end

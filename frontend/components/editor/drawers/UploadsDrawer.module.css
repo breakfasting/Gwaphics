@@ -86,6 +86,10 @@
   opacity: 0.6;
 }
 
+.image {
+  cursor: pointer;
+}
+
 .loader {
   border: 8px solid #ffd22e;
   border-top: 8px solid transparent;

@@ -37,7 +37,7 @@ class DesignDrawer extends React.Component {
       <ElementsDrawer addElement={addElement} />,
       <TextDrawer addElement={addElement} />,
       <EmptyDrawer />,
-      <UploadsDrawerContainer />,
+      <UploadsDrawerContainer addElement={addElement} />,
       <EmptyDrawer />,
       <EmptyDrawer />,
     ];

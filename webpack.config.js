@@ -14,7 +14,6 @@ module.exports = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
         SCREENSHOT_URL: JSON.stringify(process.env.SCREENSHOT_URL),
         UNSPLASH_ACCESS_KEY: JSON.stringify(process.env.UNSPLASH_ACCESS_KEY),
-        UNSPLASH_SECRET_KEY: JSON.stringify(process.env.UNSPLASH_SECRET_KEY),
       },
     }),
   ],

@@ -4,6 +4,7 @@ import ToolsNav from './ToolsNav';
 import ElementsDrawer from './drawers/ElementsDrawer';
 import TextDrawer from './drawers/TextDrawer';
 import UploadsDrawerContainer from './drawers/uploads_drawer_container';
+import UnsplashDrawerContainer from './drawers/unsplash_drawer_container';
 import EmptyDrawer from './drawers/EmptyDrawer';
 import styles from './DesignDrawer.module.css';
 
@@ -33,7 +34,7 @@ class DesignDrawer extends React.Component {
     const { drawer, closed, animate } = this.state;
     const drawers = [
       <EmptyDrawer />,
-      <EmptyDrawer />,
+      <UnsplashDrawerContainer />,
       <ElementsDrawer addElement={addElement} />,
       <TextDrawer addElement={addElement} />,
       <EmptyDrawer />,

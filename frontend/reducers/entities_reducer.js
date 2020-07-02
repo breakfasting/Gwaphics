@@ -6,6 +6,7 @@ import elementsReducer from './design/elements_reducer';
 import textReducer from './design/text_reducer';
 import foldersReducer from './folders_reducer';
 import uploadedImagesReducer from './uploaded_images_reducer';
+import unsplashReducer from './unsplash_reducer';
 
 const entitiesReducer = combineReducers({
   users: usersReducer,
@@ -15,6 +16,7 @@ const entitiesReducer = combineReducers({
   text: textReducer,
   folders: foldersReducer,
   uploadedImages: uploadedImagesReducer,
+  unsplash: unsplashReducer,
 });
 
 export default entitiesReducer;

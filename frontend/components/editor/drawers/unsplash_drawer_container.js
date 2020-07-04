@@ -3,7 +3,7 @@ import UnsplashDrawer from './UnsplashDrawer';
 import { fetchUnsplashQuery, fetchUnsplashPopular } from '../../../actions/unsplash_actions';
 
 const mapStateToProps = (state) => ({
-  images: state.entities.unsplash,
+  images: state.ui.unsplashResults.map((id) => state.entities.unsplash[id]),
 });
 
 const mapDispatchToProps = (dispatch) => ({

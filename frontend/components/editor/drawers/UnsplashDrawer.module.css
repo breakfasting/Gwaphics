@@ -5,3 +5,29 @@
   padding-left: 16px;
   padding-right: 24px;
 }
+
+.masonry {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.masonry::after {
+  content: '';
+  flex-grow: 999999999;
+}
+
+.masonItem {
+  margin: 0 8px 8px 0;
+  position: relative;
+}
+
+.masonItem > i {
+  display: block;
+}
+
+.masonItem > div {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  vertical-align: bottom;
+}

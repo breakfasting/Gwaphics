@@ -1,5 +1,6 @@
 import React from 'react';
 import DrawerSearch from './DrawerSearch';
+import ImageItem from './ImageItem';
 import scrollbar from './scrollbar.module.css';
 import styles from './UnsplashDrawer.module.css';
 
@@ -24,7 +25,23 @@ class UnsplashDrawer extends React.Component {
         <DrawerSearch placeholder="Search millions of photos" />
         <div className={scrollbar.customScroll}>
           <div className={styles.unsplashDrawer}>
-            {console.log(images)}
+            <div className={styles.masonry}>
+              {images.map((image) => (
+                <div
+                  key={image.id}
+                  className={styles.masonItem}
+                  style={{
+                    flexGrow: (image.width * 85) / image.height,
+                    flexBasis: (image.width * 95) / image.height,
+                  }}
+                >
+                  <i style={{ paddingBottom: `${(image.height / image.width) * 100.0}%` }} />
+                  <ImageItem thumb={image.thumb} />
+                  {/* <DesignIndexItem image={image} toggleModal={toggleModal} /> */}
+                  {/* <img src={image.thumb} alt="" onClick={() => this.addElement(image)} className={styles.image} /> */}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </>

@@ -11,7 +11,7 @@ import styles from './DesignDrawer.module.css';
 class DesignDrawer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { drawer: 5, closed: false, animate: true };
+    this.state = { drawer: 1, closed: false, animate: true };
     this.changeDrawer = this.changeDrawer.bind(this);
     this.closeDrawer = this.closeDrawer.bind(this);
   }

@@ -4,6 +4,7 @@ const unsplashReducer = (state = [], action) => {
   switch (action.type) {
     case RECEIVE_UNSPLASH_IMAGES:
       return action.images.map((image) => ({
+        id: image.id,
         thumb: image.urls.thumb,
         full: image.urls.full,
         download: image.links.download_location,

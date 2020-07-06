@@ -31,7 +31,7 @@ const ImageShow = ({ image, user, external }) => {
         <div className={styles.info}>
           <h1 className={styles.title}>{image.title}</h1>
           <div className={styles.profile}>
-            <div className={styles.profileImg} style={{ backgroundImage: `url(${'https://via.placeholder.com/320'})` }} />
+            <div className={styles.profileImg} style={{ backgroundImage: `url(${image.creator_thumb || 'https://via.placeholder.com/320'})` }} />
             {external ? (
               <p>
                 Photo by

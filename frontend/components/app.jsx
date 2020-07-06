@@ -1,6 +1,5 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import ImageShow from './modal/ImageShow';
 import BrowseContainer from './browse_container';
 import EditorContainer from './editor/editor_container';
 import ViewerContainer from './editor/viewer_container';
@@ -9,6 +8,7 @@ import ExternalImageModalContainer from './modal/external_image_modal_container'
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends React.Component {
   render() {
+    const { externalModal, toggleModal } = this.props;
     return (
       <>
         <div className="main">
@@ -19,7 +19,8 @@ class App extends React.Component {
           </Switch>
         </div>
         <ExternalImageModalContainer
-          active
+          active={externalModal}
+          toggleModal={(id) => toggleModal('externalModal', id)}
           external
         />
       </>

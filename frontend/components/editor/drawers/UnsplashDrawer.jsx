@@ -19,7 +19,7 @@ class UnsplashDrawer extends React.Component {
   }
 
   render() {
-    const { images } = this.props;
+    const { images, toggleModal } = this.props;
     return (
       <>
         <DrawerSearch placeholder="Search millions of photos" />
@@ -36,7 +36,7 @@ class UnsplashDrawer extends React.Component {
                   }}
                 >
                   <i style={{ paddingBottom: `${(image.height / image.width) * 100.0}%` }} />
-                  <ImageItem thumb={image.thumb} />
+                  <ImageItem thumb={image.thumb} id={image.id} toggleModal={toggleModal} />
                   {/* <DesignIndexItem image={image} toggleModal={toggleModal} /> */}
                   {/* <img src={image.thumb} alt="" onClick={() => this.addElement(image)} className={styles.image} /> */}
                 </div>

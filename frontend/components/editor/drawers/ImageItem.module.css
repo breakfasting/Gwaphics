@@ -1,5 +1,6 @@
 .more {
   position: absolute;
+  display: none;
   top: 4px;
   right: 4px;
   color: white;
@@ -17,6 +18,10 @@
 
 .item {
   position: relative;
+}
+
+.item:hover .more {
+  display: flex;
 }
 
 .more svg {

@@ -2,7 +2,7 @@ import { TOGGLE_MODAL } from '../actions/modal_actions';
 
 const defaultState = {
   uploadedModal: null,
-  externalModal: 'sivID2eT0TY',
+  externalModal: null,
 };
 
 const modalReducer = (state = defaultState, action) => {

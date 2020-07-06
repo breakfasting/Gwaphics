@@ -89,7 +89,7 @@ class DesignTools extends React.Component {
           // onSubmit={(e) => e.preventDefault()}
         >
           <div className={styles.leftNav}>
-            {selected.elementableType === 'Text' || selected.elementableType === 'Shape' && (
+            {(selected.elementableType === 'Text' || selected.elementableType === 'Shape') && (
               <label className="btn-color" style={{ backgroundColor: selected.elementableAttributes.color }}>
                 <input type="color" className={styles.hidden} size={selected.elementableAttributes.color.length + 1} value={selected.elementableAttributes.color} onChange={this.changeValue('color')} />
               </label>

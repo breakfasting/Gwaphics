@@ -11,11 +11,27 @@ class UnsplashDrawer extends React.Component {
       query: '',
       page: 1,
     };
+    this.addElement = this.addElement.bind(this);
   }
 
   componentDidMount() {
     const { fetchUnsplashPopular } = this.props;
     fetchUnsplashPopular();
+  }
+
+  addElement({ width, height, full: url }) {
+    const { addElement } = this.props;
+    const element = {
+      elementableType: 'Image',
+      transparency: 1,
+      zIndex: 0,
+      posX: 0,
+      posY: 0,
+      elementableAttributes: {
+        url, width, height,
+      },
+    };
+    addElement(element);
   }
 
   render() {
@@ -36,7 +52,7 @@ class UnsplashDrawer extends React.Component {
                   }}
                 >
                   <i style={{ paddingBottom: `${(image.height / image.width) * 100.0}%` }} />
-                  <ImageItem thumb={image.thumb} id={image.id} toggleModal={toggleModal} />
+                  <ImageItem thumb={image.thumb} id={image.id} image={image} toggleModal={toggleModal} addElement={this.addElement} />
                   {/* <DesignIndexItem image={image} toggleModal={toggleModal} /> */}
                   {/* <img src={image.thumb} alt="" onClick={() => this.addElement(image)} className={styles.image} /> */}
                 </div>

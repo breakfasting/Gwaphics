@@ -34,7 +34,7 @@ class DesignDrawer extends React.Component {
     const { drawer, closed, animate } = this.state;
     const drawers = [
       <EmptyDrawer />,
-      <UnsplashDrawerContainer />,
+      <UnsplashDrawerContainer addElement={addElement} />,
       <ElementsDrawer addElement={addElement} />,
       <TextDrawer addElement={addElement} />,
       <EmptyDrawer />,

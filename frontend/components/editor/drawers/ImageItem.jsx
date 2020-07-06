@@ -11,13 +11,13 @@ class ImageItem extends React.Component {
   }
 
   render() {
-    const { thumb, id, toggleModal } = this.props;
+    const { thumb, id, toggleModal, addElement, image } = this.props;
     return (
       <div className={styles.item}>
         <button type="button" className={styles.more} onClick={() => toggleModal(id)}>
           <FiMoreHorizontal />
         </button>
-        <img src={thumb} alt="" />
+        <img src={thumb} className={styles.image} onClick={() => addElement(image)}alt="" />
       </div>
     );
   }

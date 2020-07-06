@@ -1,9 +1,10 @@
 .unsplashDrawer {
-  width: 312px;
+  width: 320px;
   display: flex;
   flex-direction: column;
   padding-left: 16px;
-  padding-right: 24px;
+  padding-right: 16px;
+  margin-top: 8px;
 }
 
 .masonry {

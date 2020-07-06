@@ -15,10 +15,15 @@ class Design extends React.Component {
       translate: [0, 0],
       rotate: 0,
     };
+    this.keepRatio = false;
     this.myRef = React.createRef();
+    this.holdShift = this.holdShift.bind(this);
+    this.releaseShift = this.releaseShift.bind(this);
   }
 
   componentDidMount() {
+    document.addEventListener('keydown', this.holdShift);
+    document.addEventListener('keyup', this.releaseShift);
     const target = document.querySelector('.target');
     this.setState({ target });
     this.element = this.props.elements[0];
@@ -32,6 +37,16 @@ class Design extends React.Component {
     if (prevProps.selection && !selection) {
       this.setState({ target: null });
     }
+  }
+
+  holdShift(e) {
+    if (e.shiftKey) {
+      this.keepRatio = true;
+    }
+  }
+
+  releaseShift() {
+    this.keepRatio = false;
   }
 
   // onControlledDragStop(e, element, position) {
@@ -69,6 +84,7 @@ class Design extends React.Component {
           draggable
           throttleDrag={0}
           resizable
+          keepRatio={this.keepRatio}
           throttleResize={0}
           rotatable
           rotationPosition="top"

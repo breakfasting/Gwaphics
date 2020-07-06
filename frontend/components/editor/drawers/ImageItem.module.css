@@ -27,3 +27,7 @@
 .more svg {
   font-size: 1.6rem;
 }
+
+.image {
+  cursor: pointer;
+}

@@ -7,7 +7,7 @@ class DesignTools extends React.Component {
     this.state = { dropdown: null, selected: {}, selectedId: null };
     this.updateStuff = this.updateStuff.bind(this);
     this.deleteElement = this.deleteElement.bind(this);
-    this.deleteKeyDown = this.deleteKeyDown.bind(this);
+    // this.deleteKeyDown = this.deleteKeyDown.bind(this);
   }
 
   // componentDidMount() {

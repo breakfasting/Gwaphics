@@ -1,4 +1,4 @@
-import cache from './unsplash_cache';
+// import cache from './unsplash_cache';
 
 export const fetchUnsplashQuery = (page, query) => (
   $.ajax({

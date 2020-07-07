@@ -1,8 +1,14 @@
 import { connect } from 'react-redux';
-import App from './App';
+import { toggleModal } from '../actions/modal_actions';
+import App from './app';
 
 const mapStateToProps = (state) => ({
   mode: state.ui.mode,
+  externalModal: state.ui.modal.externalModal,
 });
 
-export default connect(mapStateToProps, null)(App);
+const mapDispatchToProps = (dispatch) => ({
+  toggleModal: (modal, id) => dispatch(toggleModal(modal, id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

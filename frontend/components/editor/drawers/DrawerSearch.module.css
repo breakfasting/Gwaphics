@@ -29,3 +29,11 @@
   padding-left: 4px;
   font-size: 1.4rem;
 }
+
+.hiddenButton {
+  display: none;
+}
+
+.notVisible {
+  visibility: hidden;
+}

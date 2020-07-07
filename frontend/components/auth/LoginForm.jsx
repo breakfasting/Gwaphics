@@ -12,6 +12,7 @@ class LoginForm extends React.Component {
       animate: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   componentDidMount() {
@@ -32,13 +33,20 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { action } = this.props;
+    const { action, history } = this.props;
     const { email, password } = this.state;
     action({ email, password });
+    history.push('/');
+  }
+
+  demoLogin() {
+    const { demoLogin, history } = this.props;
+    demoLogin();
+    history.push('/');
   }
 
   render() {
-    const { errors, demoLogin } = this.props;
+    const { errors } = this.props;
     const { animate } = this.state;
     return (
       <form className={animate ? 'animated auth-form' : 'auth-form'} onSubmit={this.handleSubmit}>
@@ -52,7 +60,7 @@ class LoginForm extends React.Component {
           {googleIcon}
           <span>Log in with Google</span>
         </button>
-        <button type="button" onClick={demoLogin} className="demo btn-outline">
+        <button type="button" onClick={this.demoLogin} className="demo btn-outline">
           {/* {facebookIcon} */}
           <i>
             <FiUserCheck />

@@ -11,6 +11,10 @@
   border-radius: 4px;
 }
 
+.title {
+  text-transform: capitalize;
+}
+
 .info {
   min-width: 320px;
   margin-left: 32px;

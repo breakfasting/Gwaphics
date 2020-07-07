@@ -30,19 +30,19 @@ const ToolsNav = ({
           <FiType />
           <span>Text</span>
         </button>
-        <button type="button" className={activeButton(4)} onClick={() => changeDrawer(4)}>
+        {/* <button type="button" className={activeButton(4)} onClick={() => changeDrawer(4)}>
           <FiDroplet />
           <span>Bkground</span>
-        </button>
-        <button type="button" className={activeButton(5)} onClick={() => changeDrawer(5)}>
+        </button> */}
+        <button type="button" className={activeButton(4)} onClick={() => changeDrawer(4)}>
           <FiUploadCloud />
           <span>Uploads</span>
         </button>
-        <button type="button" className={activeButton(6)} onClick={() => changeDrawer(6)}>
+        <button type="button" className={activeButton(5)} onClick={() => changeDrawer(5)}>
           <FiFolder />
           <span>Folders</span>
         </button>
-        <button type="button" className={activeButton(7)} onClick={() => changeDrawer(7)}>
+        <button type="button" className={activeButton(6)} onClick={() => changeDrawer(6)}>
           <FiMoreHorizontal />
           <span>More</span>
         </button>

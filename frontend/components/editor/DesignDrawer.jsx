@@ -4,13 +4,14 @@ import ToolsNav from './ToolsNav';
 import ElementsDrawer from './drawers/ElementsDrawer';
 import TextDrawer from './drawers/TextDrawer';
 import UploadsDrawerContainer from './drawers/uploads_drawer_container';
+import UnsplashDrawerContainer from './drawers/unsplash_drawer_container';
 import EmptyDrawer from './drawers/EmptyDrawer';
 import styles from './DesignDrawer.module.css';
 
 class DesignDrawer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { drawer: 5, closed: false, animate: true };
+    this.state = { drawer: 1, closed: false, animate: true };
     this.changeDrawer = this.changeDrawer.bind(this);
     this.closeDrawer = this.closeDrawer.bind(this);
   }
@@ -29,14 +30,14 @@ class DesignDrawer extends React.Component {
   }
 
   render() {
-    const { addElement } = this.props;
+    const { addElement, zoom } = this.props;
     const { drawer, closed, animate } = this.state;
     const drawers = [
       <EmptyDrawer />,
-      <EmptyDrawer />,
+      <UnsplashDrawerContainer addElement={addElement} />,
       <ElementsDrawer addElement={addElement} />,
-      <TextDrawer addElement={addElement} />,
-      <EmptyDrawer />,
+      <TextDrawer addElement={addElement} zoom={zoom} />,
+      // <EmptyDrawer />,
       <UploadsDrawerContainer addElement={addElement} />,
       <EmptyDrawer />,
       <EmptyDrawer />,

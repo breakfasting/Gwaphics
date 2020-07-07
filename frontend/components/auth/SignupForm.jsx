@@ -40,9 +40,10 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { action } = this.props;
+    const { action, history } = this.props;
     const { username, email, password } = this.state;
     action({ username, email, password });
+    history.push('/');
   }
 
 

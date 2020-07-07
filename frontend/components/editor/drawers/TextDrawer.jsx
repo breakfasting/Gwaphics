@@ -21,10 +21,19 @@ class TextDrawer extends React.Component {
     this.state = { info: false };
   }
 
+  getTextWidth(text, font) {
+    const canvas = this.canvas || (this.canvas = document.createElement('canvas'));
+    const context = canvas.getContext('2d');
+    context.font = font;
+    const metrics = context.measureText(text);
+    // console.log(text, font, metrics.width);
+    return metrics.width;
+  }
+
   addElement({
     text, fontWeight, fontSize, fontFamily,
   }) {
-    const { addElement } = this.props;
+    const { addElement, zoom } = this.props;
     const element = {
       elementableType: 'Text',
       transparency: 1,
@@ -33,7 +42,7 @@ class TextDrawer extends React.Component {
       posY: 0,
       // _destroy: true
       elementableAttributes: {
-        color: '#000000', text, fontFamily, fontWeight, fontSize,
+        color: '#000000', text, fontFamily, fontWeight, fontSize, height: fontSize, width: this.getTextWidth(text, `${fontWeight} ${fontSize}px ${fontFamily}`) + 10,
       },
     };
     addElement(element);
@@ -42,7 +51,7 @@ class TextDrawer extends React.Component {
   render() {
     return (
       <>
-        <DrawerSearch placeholder="Search Text" />
+        {/* <DrawerSearch placeholder="Search Text" /> */}
         <div className={scrollbar.customScroll}>
           <div className={styles.textDrawer}>
             <h3>Click Text to add to page</h3>

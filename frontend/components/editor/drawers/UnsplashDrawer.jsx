@@ -12,11 +12,24 @@ class UnsplashDrawer extends React.Component {
       page: 1,
     };
     this.addElement = this.addElement.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
+    this.submitSearch = this.submitSearch.bind(this);
   }
 
   componentDidMount() {
     const { fetchUnsplashPopular } = this.props;
     fetchUnsplashPopular();
+  }
+
+  handleSearch(e) {
+    this.setState({ query: e.target.value });
+  }
+
+  submitSearch(e) {
+    e.preventDefault();
+    const { fetchUnsplashQuery } = this.props;
+    const { page, query } = this.state;
+    fetchUnsplashQuery(page, query);
   }
 
   addElement({ width, height, full: url }) {
@@ -36,9 +49,10 @@ class UnsplashDrawer extends React.Component {
 
   render() {
     const { images, toggleModal } = this.props;
+    const { query } = this.state;
     return (
       <>
-        <DrawerSearch placeholder="Search millions of photos" />
+        <DrawerSearch placeholder="Search millions of photos" handleSearch={this.handleSearch} value={query} handleSubmit={this.submitSearch} />
         <div className={scrollbar.customScroll}>
           <div className={styles.unsplashDrawer}>
             <div className={styles.masonry}>

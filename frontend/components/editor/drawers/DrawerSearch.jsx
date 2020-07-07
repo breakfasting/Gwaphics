@@ -9,16 +9,19 @@ class DrawerSearch extends React.Component {
   }
 
   render() {
-    const { placeholder } = this.props;
+    const { placeholder, handleSearch, value, handleSubmit } = this.props;
     return (
       <div className={styles.searchBar}>
-        <div className={styles.searchInput}>
-          <div className={styles.inputIcon}>
-            <FiSearch />
-            <input className={styles.input} type="text" placeholder={placeholder} />
+        <form onSubmit={handleSubmit}>
+          <div className={styles.searchInput}>
+            <div className={styles.inputIcon}>
+              <FiSearch />
+              <input className={styles.input} type="text" placeholder={placeholder} onChange={handleSearch} value={value} />
+            </div>
+            <FiX />
           </div>
-          <FiX />
-        </div>
+          <button type="submit" className={styles.hiddenButton}>Search</button>
+        </form>
       </div>
     );
   }

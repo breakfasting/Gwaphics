@@ -6,7 +6,7 @@ import unsplashSearchReducer from './unsplash_search_reducer';
 const uiReducer = combineReducers({
   mode: modeReducer,
   modal: modalReducer,
-  unsplashResults: unsplashSearchReducer,
+  unsplashSearchResults: unsplashSearchReducer,
 });
 
 export default uiReducer;

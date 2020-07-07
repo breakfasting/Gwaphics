@@ -39,6 +39,11 @@ class Design extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.holdShift);
+    document.removeEventListener('keyup', this.releaseShift);
+  }
+
   holdShift(e) {
     if (e.shiftKey) {
       this.keepRatio = true;

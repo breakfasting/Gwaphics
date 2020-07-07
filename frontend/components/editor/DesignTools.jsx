@@ -10,9 +10,9 @@ class DesignTools extends React.Component {
     this.deleteKeyDown = this.deleteKeyDown.bind(this);
   }
 
-  componentDidMount() {
-    document.addEventListener('keydown', this.deleteKeyDown);
-  }
+  // componentDidMount() {
+  //   document.addEventListener('keydown', this.deleteKeyDown);
+  // }
 
   componentDidUpdate(prevProps) {
     const { element } = this.props;
@@ -31,9 +31,9 @@ class DesignTools extends React.Component {
     // }
   }
 
-  componentWillUnmount() {
-    document.removeEventListener('keydown', this.deleteKeyDown);
-  }
+  // componentWillUnmount() {
+  //   document.removeEventListener('keydown', this.deleteKeyDown);
+  // }
 
   changeValue(attr) {
     if (attr === 'posX' || attr === 'posY' || attr === 'transparency' || attr === 'zIndex') {
@@ -50,12 +50,12 @@ class DesignTools extends React.Component {
     };
   }
 
-  deleteKeyDown(event) {
-    const { selected } = this.state;
-    if (event.keyCode === 8 && Object.keys(selected).length !== 0) {
-      this.deleteElement();
-    }
-  }
+  // deleteKeyDown(event) {
+  //   const { selected } = this.state;
+  //   if (event.keyCode === 8 && Object.keys(selected).length !== 0) {
+  //     this.deleteElement();
+  //   }
+  // }
 
   deleteElement() {
     const { selected } = this.state;

@@ -4,7 +4,8 @@ import { toggleModal } from '../../../actions/modal_actions';
 import { fetchUnsplashQuery, fetchUnsplashPopular } from '../../../actions/unsplash_actions';
 
 const mapStateToProps = (state) => ({
-  images: state.ui.unsplashSearchResults.map((id) => state.entities.unsplash[id]),
+  searchResults: state.ui.unsplashSearchResults.map((id) => state.entities.unsplash[id]),
+  popularResults: state.ui.unsplashPopularResults.map((id) => state.entities.unsplash[id]),
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -9,7 +9,7 @@ class DrawerSearch extends React.Component {
   }
 
   render() {
-    const { placeholder, handleSearch, value, handleSubmit } = this.props;
+    const { placeholder, handleSearch, value, handleSubmit, handleClear } = this.props;
     return (
       <div className={styles.searchBar}>
         <form onSubmit={handleSubmit}>
@@ -18,7 +18,11 @@ class DrawerSearch extends React.Component {
               <FiSearch />
               <input className={styles.input} type="text" placeholder={placeholder} onChange={handleSearch} value={value} />
             </div>
-            <FiX />
+            {value !== '' && (
+              <button className="btn-none" type="button" onClick={handleClear}>
+                <FiX />
+              </button>
+            )}
           </div>
           <button type="submit" className={styles.hiddenButton}>Search</button>
         </form>

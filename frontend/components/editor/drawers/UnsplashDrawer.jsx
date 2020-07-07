@@ -10,10 +10,12 @@ class UnsplashDrawer extends React.Component {
     this.state = {
       query: '',
       page: 1,
+      popular: true,
     };
     this.addElement = this.addElement.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.submitSearch = this.submitSearch.bind(this);
+    this.clearSearch = this.clearSearch.bind(this);
   }
 
   componentDidMount() {
@@ -25,11 +27,16 @@ class UnsplashDrawer extends React.Component {
     this.setState({ query: e.target.value });
   }
 
+  clearSearch() {
+    this.setState({ query: '', popular: true });
+  }
+
   submitSearch(e) {
     e.preventDefault();
     const { fetchUnsplashQuery } = this.props;
     const { page, query } = this.state;
     fetchUnsplashQuery(page, query);
+    this.setState({ popular: false });
   }
 
   addElement({ width, height, full: url }) {
@@ -48,11 +55,18 @@ class UnsplashDrawer extends React.Component {
   }
 
   render() {
-    const { images, toggleModal } = this.props;
-    const { query } = this.state;
+    const { popularResults, searchResults, toggleModal } = this.props;
+    const { query, popular } = this.state;
+    const images = popular ? popularResults : searchResults;
     return (
       <>
-        <DrawerSearch placeholder="Search millions of photos" handleSearch={this.handleSearch} value={query} handleSubmit={this.submitSearch} />
+        <DrawerSearch
+          placeholder="Search millions of photos"
+          handleSearch={this.handleSearch}
+          handleClear={this.clearSearch}
+          value={query}
+          handleSubmit={this.submitSearch}
+        />
         <div className={scrollbar.customScroll}>
           <div className={styles.unsplashDrawer}>
             <div className={styles.masonry}>

@@ -21,8 +21,8 @@ const elementsOnDesign = (state, designId, copy = false) => {
     // }
     return element;
   });
-  // return map.filter((el) => !!el);
-  return map;
+  return map.filter((el) => Object.keys(el) !== 0);
+  // return map;
 };
 
 export default elementsOnDesign;

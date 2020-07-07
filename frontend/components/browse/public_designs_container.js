@@ -5,7 +5,7 @@ import { requestTemplates } from '../../actions/design_actions';
 const mapStateToProps = (state) => {
   const designs = Object.values(state.entities.designs);
   return {
-    folder: { name: 'All public templates' },
+    folder: { name: 'All public designs' },
     designs: designs.filter((design) => design.public && !design.trash),
   };
 };

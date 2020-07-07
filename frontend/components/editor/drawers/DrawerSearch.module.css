@@ -33,3 +33,7 @@
 .hiddenButton {
   display: none;
 }
+
+.notVisible {
+  visibility: hidden;
+}

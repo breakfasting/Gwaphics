@@ -18,11 +18,9 @@ class DrawerSearch extends React.Component {
               <FiSearch />
               <input className={styles.input} type="text" placeholder={placeholder} onChange={handleSearch} value={value} />
             </div>
-            {value !== '' && (
-              <button className="btn-none" type="button" onClick={handleClear}>
-                <FiX />
-              </button>
-            )}
+            <button className={value !== '' ? 'btn-none' : `btn-none ${styles.notVisible}`} type="button" onClick={handleClear}>
+              <FiX />
+            </button>
           </div>
           <button type="submit" className={styles.hiddenButton}>Search</button>
         </form>

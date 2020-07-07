@@ -115,7 +115,7 @@ class Editor extends React.Component {
       <div className={styles.editorContainer}>
         <EditorNav updateDesign={this.updateDesign} loading={loading} />
         <div className={styles.editorBottomContainer}>
-          <DesignDrawer addElement={this.addElement} />
+          <DesignDrawer addElement={this.addElement} zoom={zoom} />
           <WorkArea
             design={design}
             elements={elements}

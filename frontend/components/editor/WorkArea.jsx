@@ -28,7 +28,7 @@ class WorkArea extends React.Component {
     const { setSelection } = this.props;
     if (this.wrapperRef
         && this.wrapperRef.contains(event.target)
-        && (event.target.id === 'noElement' || event.target.id === 'noElementGrey')) {
+        && (event.target.id === 'noElement' || event.target.id === 'noElementGrey' || event.target.id === 'noElementShadow')) {
       setSelection(null);
     }
   }
@@ -42,7 +42,7 @@ class WorkArea extends React.Component {
       <div className={styles.workContainer}>
         <DesignToolsContainer selected={selected} updateElement={updateElement} setSelected={setSelected} selection={selection} setSelection={setSelection} />
         <div className={styles.workArea} ref={this.setWrapperRef} id="noElementGrey">
-          <div className={styles.designContainer}>
+          <div className={styles.designContainer} id="noElementShadow">
             <DesignContainer
               // elements={elements}
               // design={design}

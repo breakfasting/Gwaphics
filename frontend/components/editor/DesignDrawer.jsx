@@ -30,14 +30,14 @@ class DesignDrawer extends React.Component {
   }
 
   render() {
-    const { addElement } = this.props;
+    const { addElement, zoom } = this.props;
     const { drawer, closed, animate } = this.state;
     const drawers = [
       <EmptyDrawer />,
       <UnsplashDrawerContainer addElement={addElement} />,
       <ElementsDrawer addElement={addElement} />,
-      <TextDrawer addElement={addElement} />,
-      <EmptyDrawer />,
+      <TextDrawer addElement={addElement} zoom={zoom} />,
+      // <EmptyDrawer />,
       <UploadsDrawerContainer addElement={addElement} />,
       <EmptyDrawer />,
       <EmptyDrawer />,

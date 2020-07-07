@@ -40,7 +40,7 @@ class ElementsDrawer extends React.Component {
     ];
     return (
       <>
-        <DrawerSearch placeholder="Search icons and shapes" />
+        {/* <DrawerSearch placeholder="Search icons and shapes" /> */}
         <div className={scrollbar.customScroll}>
           <div className={styles.elementsDrawer}>
             <div className={styles.itemList}>

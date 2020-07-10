@@ -12,6 +12,7 @@ Gwaphics, a [Canva](https://www.canva.com/) clone, is a online graphical design 
 * Storage: AWS S3
 * Hosting: Heroku
   * [React-icons](https://react-icons.github.io/react-icons/)
+  * [React-Contenteditable](https://github.com/lovasoa/react-contenteditable)
   * [Puppeteer](https://pptr.dev/)
 
 ## Features

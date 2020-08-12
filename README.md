@@ -4,7 +4,7 @@
 
 Gwaphics, a [Canva](https://www.canva.com/) clone, is a online graphical design tool for creating designs effortlessly. Aside from creating shapes, text, and image elements on a blank canvas using intuitive drag & drop features, Users also have a variety of inspiring public design templates to choose from.
 
-![Editor Screenshot](https://i.imgur.com/ezwZkrE.png)
+![Editor Screenshot](https://i.imgur.com/FuQnPEs.png)
 
 ## Technologies
 * Frontend: React/Redux/Webpack(css-loader)
